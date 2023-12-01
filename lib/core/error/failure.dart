@@ -40,14 +40,6 @@ class ConnectionFailure extends Failure {
   }
 }
 
-class FireBaseError extends Failure {
-  final String message;
-  FireBaseError(this.message);
-
-  @override
-  List<Object?> get props => [message];
-}
-
 class UnknownError extends Failure {
   final String message;
   UnknownError(this.message);
@@ -58,5 +50,27 @@ class UnknownError extends Failure {
   @override
   String toString() {
     return 'UnknownError(message: $message)';
+  }
+}
+//! firebase failures
+
+class FireBaseError extends Failure {
+  final String message;
+  FireBaseError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}
+
+class FireStoreError extends Failure {
+  final String message;
+  FireStoreError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+
+  @override
+  String toString() {
+    return 'FireStoreError(message: $message)';
   }
 }
