@@ -50,6 +50,7 @@ dependencies:
   firebase_core: ^2.23.0
   get_it: ^7.6.4
   shared_preferences: ^2.2.2
+  cloud_firestore: ^4.13.3
 
 dev_dependencies:
   flutter_test:
