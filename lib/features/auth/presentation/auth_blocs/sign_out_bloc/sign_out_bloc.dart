@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/domain/usecases/sign_out_use_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_out_use_case.dart';
 import '../../../../../core/error/failure.dart';
 
 part 'sign_out_event.dart';

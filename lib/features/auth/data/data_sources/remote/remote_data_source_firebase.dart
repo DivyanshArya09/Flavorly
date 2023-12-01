@@ -39,14 +39,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<UserModel> signUpWithEmailPassword(
-      String email, String password) async {
+      String email, String password, String name) async {
     try {
       firebase_auth.UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
+      final authUser =
+          UserModel(name: name, email: email, uid: userCredential.user!.uid);
       if (userCredential.user == null) {
         throw Exception('User is null');
       }
-      return UserModel.fromJson(userCredential.user!);
+      return authUser;
     } catch (e) {
       rethrow;
     }

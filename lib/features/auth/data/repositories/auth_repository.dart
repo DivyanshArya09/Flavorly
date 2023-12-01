@@ -61,8 +61,7 @@ class AuthRepositoryImpl implements AuthRepository {
     }
     try {
       UserModel authUser =
-          await remoteDataSource.signUpWithEmailPassword(email, password);
-      authUser.setName(name);
+          await remoteDataSource.signUpWithEmailPassword(email, password, name);
       await localDataSource.setUser(authUser);
       await localDataSource.setLoggedIn(true);
       return Right(authUser.toEntity());

@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:recipe_app/core/usecase/use_case.dart';
 import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart';
 
-import '../../../../core/error/failure.dart';
-import '../entities/auth_user.dart';
+import '../../../../../core/error/failure.dart';
+import '../../entities/auth_user.dart';
 
 class SignUpUseCase implements UseCase<AuthUser, SignUpParams> {
   final AuthRepository authRepository;

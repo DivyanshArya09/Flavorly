@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:recipe_app/core/usecase/use_case.dart';
 import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
-import 'package:recipe_app/features/auth/domain/usecases/get_user_from_local_data_base_usw_case.dart';
-import 'package:recipe_app/features/auth/domain/usecases/is_sign_in_use_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/get_user_from_local_data_base_usw_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/is_sign_in_use_case.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

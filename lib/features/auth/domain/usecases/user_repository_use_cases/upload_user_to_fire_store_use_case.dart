@@ -5,16 +5,21 @@ import 'package:recipe_app/features/auth/domain/repository/user_repository.dart'
 
 import '../../../../../core/usecase/use_case.dart';
 
-class UploadUserToFireStoreUseCase implements UseCase<void, NoParams> {
+class UploadUserToFireStoreUseCase implements UseCase<void, UploadUserParams> {
   final UserRepository userRepository;
 
   UploadUserToFireStoreUseCase({required this.userRepository});
 
   @override
-  Future<Either<Failure, void>> call(NoParams params) async {
+  Future<Either<Failure, void>> call(UploadUserParams params) async {
     try {
-      await userRepository.uploadUserToFireStore();
-    } catch (e) {}
+      return await userRepository.uploadUserToFireStore(
+          params.name, params.email, params.uid);
+    } on FireStoreError catch (e) {
+      return Left(FireStoreError(e.message));
+    } catch (e) {
+      return Left(SeverFailure(e.toString()));
+    }
   }
 }
 

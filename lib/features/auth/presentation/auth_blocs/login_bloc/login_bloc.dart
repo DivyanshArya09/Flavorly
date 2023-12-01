@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
-import 'package:recipe_app/features/auth/domain/usecases/sign_in_use_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_in_use_case.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

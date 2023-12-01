@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart';
 
-import '../../../../core/usecase/use_case.dart';
+import '../../../../../core/usecase/use_case.dart';
 
 class SignOutUseCase implements UseCase<void, NoParams> {
   final AuthRepository authRepository;

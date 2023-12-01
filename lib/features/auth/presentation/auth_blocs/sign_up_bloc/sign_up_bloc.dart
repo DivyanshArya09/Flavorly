@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/features/auth/domain/usecases/sign_up_use_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_up_use_case.dart';
 import '../../../../../core/error/failure.dart';
 import '../../../domain/entities/auth_user.dart';
 
