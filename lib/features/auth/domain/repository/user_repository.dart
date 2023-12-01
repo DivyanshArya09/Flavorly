@@ -16,6 +16,6 @@ abstract class UserRepository {
 
   Future<Either<Failure, void>> deleteUserFromLocalStorage();
 
-  Future<Either<Failure, void>> updateUserInFireStore(
+  Future<Either<Failure, void>> updateUserOnFireStore(
       String name, String email, String uid);
 }
