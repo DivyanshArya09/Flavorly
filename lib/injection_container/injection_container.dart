@@ -58,8 +58,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton(
       () => UpdateUserOnFireStoreUseCase(userRepository: sl()));
-  sl.registerLazySingleton(
-      () => DeleteUserFromLocalStorageUseCase(userRepository: sl()));
+  // sl.registerLazySingleton(
+  //     () => DeleteUserFromLocalStorageUseCase(userRepository: sl()));
   sl.registerLazySingleton(() => GetUserFromLocalStorage(userRepository: sl()));
 
   //! Repository

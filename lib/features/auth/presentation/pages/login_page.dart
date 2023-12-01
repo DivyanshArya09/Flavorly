@@ -52,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                   builder: (context) => const HomePage(
                     name: '',
                     email: '',
+                    uid: '',
                   ),
                 ));
           } else if (state is LoginFireBaseError) {

@@ -26,10 +26,7 @@ class UserModel extends AuthUser {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'email': email,
-    };
+    return {'name': name, 'email': email, 'uid': uid};
   }
 
   AuthUser toEntity() {

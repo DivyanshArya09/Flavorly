@@ -14,9 +14,9 @@ final class AuthInitial extends AuthState {}
 class AuthLoading extends AuthState {}
 
 class Authenticated extends AuthState {
-  final String name, email;
+  final String name, email, uid;
 
-  const Authenticated(this.name, this.email);
+  const Authenticated(this.name, this.email, this.uid);
 }
 
 class Unauthenticated extends AuthState {}

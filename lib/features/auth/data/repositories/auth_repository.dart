@@ -30,9 +30,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final userModel =
           await remoteDataSource.signInWithEmailPassword(email, password);
-      await remoteFireStoreDataSource.uploadUserToFireStore(
-          userModel.name, userModel.email, userModel.uid);
-      await localDataSource.setUser(userModel);
+
       return Right(userModel.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
@@ -65,10 +63,13 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(ConnectionFailure('No internet connection'));
     }
     try {
-      UserModel authUser =
+      UserModel userModel =
           await remoteDataSource.signUpWithEmailPassword(email, password, name);
+      await remoteFireStoreDataSource.uploadUserToFireStore(
+          userModel.name, userModel.email, userModel.uid);
+      await localDataSource.setUser(userModel);
 
-      return Right(authUser.toEntity());
+      return Right(userModel.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
     } catch (e) {

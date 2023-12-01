@@ -7,5 +7,5 @@ class AuthUser extends Equatable {
   const AuthUser({required this.name, required this.email, required this.uid});
 
   @override
-  List<Object?> get props => [name, email];
+  List<Object?> get props => [name, email, uid];
 }

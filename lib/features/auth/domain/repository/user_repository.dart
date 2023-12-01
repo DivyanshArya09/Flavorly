@@ -7,7 +7,7 @@ abstract class UserRepository {
   Future<Either<Failure, void>> uploadUserToFireStore(
       String name, String email, String uid);
 
-  Future<Either<Failure, AuthUser>> getUserFromFireStore();
+  Future<Either<Failure, AuthUser>> getUserFromFireStore(String uid);
 
   Future<Either<Failure, AuthUser>> getUserFromLocalStorage();
 

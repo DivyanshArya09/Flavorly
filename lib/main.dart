@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
@@ -48,6 +47,7 @@ class MyApp extends StatelessWidget {
                 return HomePage(
                   name: state.name,
                   email: state.email,
+                  uid: state.uid,
                 );
               }
               if (state is Unauthenticated) {

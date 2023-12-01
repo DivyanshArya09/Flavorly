@@ -5,8 +5,9 @@ import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/s
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 
 class HomePage extends StatelessWidget {
-  final String name, email;
-  const HomePage({super.key, required this.email, required this.name});
+  final String name, email, uid;
+  const HomePage(
+      {super.key, required this.email, required this.name, required this.uid});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class HomePage extends StatelessWidget {
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text('Welcome $name'),
         Text('Email: $email'),
+        Text('UID: $uid'),
         BlocConsumer<SignOutBloc, SignOutState>(
           bloc: bloc,
           builder: (context, state) {

@@ -43,11 +43,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     try {
       firebase_auth.UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
-      final authUser =
-          UserModel(name: name, email: email, uid: userCredential.user!.uid);
       if (userCredential.user == null) {
         throw Exception('User is null');
       }
+      final uid = userCredential.user!.uid;
+      print('--------------------------------->>>>>>>>>>>>>>>>>>' + uid);
+      final authUser = UserModel(name: name, email: email, uid: uid);
+
       return authUser;
     } catch (e) {
       rethrow;

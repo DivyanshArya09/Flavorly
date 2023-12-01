@@ -31,13 +31,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     isSignInResult.fold((l) {
       if (l is ConnectionFailure && user != null) {
-        emit(Authenticated(user!.name, user!.email));
+        emit(Authenticated(user!.name, user!.email, user!.uid));
       } else {
         emit(Unauthenticated());
       }
     }, (r) {
       if (r) {
-        emit(Authenticated(user!.name, user!.email));
+        emit(Authenticated(user!.name, user!.email, user!.uid));
       } else {
         emit(Unauthenticated());
       }

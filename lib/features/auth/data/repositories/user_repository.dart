@@ -5,12 +5,6 @@ import 'package:recipe_app/features/auth/domain/repository/user_repository.dart'
 
 class UserRepositoryImpl implements UserRepository {
   @override
-  Future<Either<Failure, AuthUser>> getUserFromFireStore() {
-    // TODO: implement getUserFromFireStore
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<Failure, void>> deleteUserFromLocalStorage() {
     // TODO: implement deleteUserFromLocalStorage
     throw UnimplementedError();
@@ -40,6 +34,12 @@ class UserRepositoryImpl implements UserRepository {
   Future<Either<Failure, void>> uploadUserToFireStore(
       String name, String email, String uid) {
     // TODO: implement uploadUserToFireStore
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, AuthUser>> getUserFromFireStore(String uid) {
+    // TODO: implement getUserFromFireStore
     throw UnimplementedError();
   }
 }
