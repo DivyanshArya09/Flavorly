@@ -8,14 +8,6 @@ class LocalDataSource {
 
   LocalDataSource(this._sharedPreferences);
 
-  Future<bool> isLoggedIn() async {
-    return _sharedPreferences.getBool('isLoggedIn') ?? false;
-  }
-
-  Future<void> setLoggedIn(bool value) async {
-    await _sharedPreferences.setBool('isLoggedIn', value);
-  }
-
   Future<void> clear() async {
     await _sharedPreferences.clear();
   }
@@ -33,5 +25,9 @@ class LocalDataSource {
       return null;
     }
     return UserModel.fromLocalJson(json);
+  }
+
+  Future<void> removeUser() async {
+    await _sharedPreferences.remove('user');
   }
 }

@@ -12,7 +12,7 @@ class DeleteUserFromLocalStorageUseCase implements UseCase<void, NoParams> {
     try {
       return await userRepository.deleteUserFromLocalStorage();
     } catch (e) {
-      return Left(CacheFailure(e.toString()));
+      return Left(UnknownError(e.toString()));
     }
   }
 }

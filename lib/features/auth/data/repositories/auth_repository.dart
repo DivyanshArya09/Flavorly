@@ -4,6 +4,7 @@ import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/core/network/network_info.dart';
 import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
 import 'package:recipe_app/features/auth/data/data_sources/local/local_data_source.dart';
+import 'package:recipe_app/features/auth/data/data_sources/remote/remote_fire_store_data_source.dart';
 import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../data_sources/remote/remote_data_source.dart';
@@ -12,11 +13,12 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final NetworkInfo networkInfo;
   final LocalDataSource localDataSource;
-
+  final RemoteFireStoreDataSource remoteFireStoreDataSource;
   AuthRepositoryImpl({
     required this.remoteDataSource,
     required this.networkInfo,
     required this.localDataSource,
+    required this.remoteFireStoreDataSource,
   });
 
   @override
@@ -28,6 +30,9 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final userModel =
           await remoteDataSource.signInWithEmailPassword(email, password);
+      await remoteFireStoreDataSource.uploadUserToFireStore(
+          userModel.name, userModel.email, userModel.uid);
+      await localDataSource.setUser(userModel);
       return Right(userModel.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
@@ -62,8 +67,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       UserModel authUser =
           await remoteDataSource.signUpWithEmailPassword(email, password, name);
-      await localDataSource.setUser(authUser);
-      await localDataSource.setLoggedIn(true);
+
       return Right(authUser.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
