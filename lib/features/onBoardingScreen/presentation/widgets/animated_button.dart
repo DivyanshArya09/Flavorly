@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipe_app/features/auth/presentation/pages/login_page.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../bloc/bloc_bloc.dart';
@@ -95,7 +96,14 @@ class _TweenAnimateState extends State<TweenAnimate>
                     children: [
                       const Text('Already have an account ?'),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
                         style: TextButton.styleFrom(
                           foregroundColor: AppColors.buttonColor1,
                         ),

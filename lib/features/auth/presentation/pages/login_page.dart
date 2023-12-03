@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
+import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/google_button.dart';
@@ -182,7 +183,14 @@ class _LoginPageState extends State<LoginPage> {
                               "Don't have an account?",
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SignUpPage(),
+                                  ),
+                                );
+                              },
                               child: const Text(
                                 'SignUp',
                               ),

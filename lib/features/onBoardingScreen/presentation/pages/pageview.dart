@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page1.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page2.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page3.dart';
@@ -10,14 +11,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../config/constants/app_colors.dart';
 import '../bloc/bloc_bloc.dart';
 
-class CustomPageView extends StatefulWidget {
-  const CustomPageView({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
 
   @override
-  State<CustomPageView> createState() => _CustomPageViewState();
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _CustomPageViewState extends State<CustomPageView> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
   late PageController verticalController;
   late PageController horizontalController;
 
@@ -136,7 +137,7 @@ class _CustomPageViewState extends State<CustomPageView> {
                           );
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       )
                     ],
@@ -157,6 +158,9 @@ class _CustomPageViewState extends State<CustomPageView> {
         break;
       case 1:
         blocBloc.add(StartSecondPageAnimation());
+      case 2:
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const SignUpPage()));
       default:
     }
   }

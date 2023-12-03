@@ -17,4 +17,6 @@ abstract class AuthRepository {
   Future<Either<Failure, bool>> isLoggedIn();
 
   Future<Either<Failure, AuthUser?>> getDataFromLocal();
+
+  Future<Either<Failure, bool>> isAppFirstTimeOpened();
 }

@@ -11,6 +11,7 @@ import 'package:recipe_app/features/auth/data/repositories/user_repository.dart'
 import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:recipe_app/features/auth/domain/repository/user_repository.dart';
 import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/get_user_from_local_data_base_usw_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/isAppFirstTimeOpened.dart';
 import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/is_sign_in_use_case.dart';
 import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_in_use_case.dart';
 import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_out_use_case.dart';
@@ -33,7 +34,7 @@ Future<void> init() async {
   //! Blocs registration
   //* Authentication blocs registration
   sl.registerFactory(() => LoginBloc(sl()));
-  sl.registerFactory(() => AuthBloc(sl(), sl()));
+  sl.registerFactory(() => AuthBloc(sl(), sl(), sl()));
   sl.registerFactory(() => SignOutBloc(sl()));
   sl.registerFactory(() => SignUpBloc(sl()));
 
@@ -44,8 +45,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SignOutUseCase(authRepository: sl()));
   sl.registerLazySingleton(() => SignInUseCase(authRepository: sl()));
   sl.registerLazySingleton(() => IsSignInUseCase(authRepository: sl()));
-  sl.registerLazySingleton(() => GetUserFromLocalStorageUseCase(
-      localDataSource: sl(), authRepository: sl()));
+  sl.registerLazySingleton(
+      () => GetUserFromLocalStorageUseCase(localDataSource: sl()));
+  sl.registerLazySingleton(() => IsAppFirstTimeOpenedUseCase(repository: sl()));
   // sl.registerLazySingleton(() => SignInWithGoogleUseCase(authRepository: sl()));
 
   //! User

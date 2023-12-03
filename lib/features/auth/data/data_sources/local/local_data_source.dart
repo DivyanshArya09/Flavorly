@@ -30,4 +30,12 @@ class LocalDataSource {
   Future<void> removeUser() async {
     await _sharedPreferences.remove('user');
   }
+
+  Future<void> setAppFirstTimeOpened() async {
+    await _sharedPreferences.setBool('appFirstTimeOpened', true);
+  }
+
+  Future<bool> isAppFirstTimeOpened() async {
+    return _sharedPreferences.getBool('appFirstTimeOpened') ?? false;
+  }
 }

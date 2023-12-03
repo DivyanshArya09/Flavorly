@@ -30,8 +30,9 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final userModel =
           await remoteDataSource.signInWithEmailPassword(email, password);
-
-      return Right(userModel.toEntity());
+      final userDetails =
+          await remoteFireStoreDataSource.getUserFromFireStore(userModel.uid);
+      return Right(userDetails.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
     } catch (e) {
@@ -48,6 +49,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failure, void>> signOut() async {
     try {
       await remoteDataSource.signOut();
+      await localDataSource.removeUser();
       return const Right(null);
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
@@ -68,7 +70,7 @@ class AuthRepositoryImpl implements AuthRepository {
       await remoteFireStoreDataSource.uploadUserToFireStore(
           userModel.name, userModel.email, userModel.uid);
       await localDataSource.setUser(userModel);
-
+      await localDataSource.setAppFirstTimeOpened();
       return Right(userModel.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
@@ -108,6 +110,16 @@ class AuthRepositoryImpl implements AuthRepository {
       final user = await localDataSource.getUser();
       if (user == null) return const Right(null);
       return Right(user.toEntity());
+    } catch (e) {
+      return Left(UnknownError(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> isAppFirstTimeOpened() async {
+    try {
+      bool isFirstTime = await localDataSource.isAppFirstTimeOpened();
+      return Right(isFirstTime);
     } catch (e) {
       return Left(UnknownError(e.toString()));
     }

@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignInPage(),
+                    builder: (context) => const SignUpPage(),
                   ));
             }
 
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignInPage(),
+                    builder: (context) => const SignUpPage(),
                   ));
             }
 

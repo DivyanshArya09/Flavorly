@@ -9,14 +9,14 @@ import 'package:recipe_app/features/auth/presentation/widgets/google_button.dart
 import 'package:recipe_app/features/auth/presentation/widgets/text_field.dart';
 import 'package:recipe_app/features/home/presentation/home_page.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController userNameController;

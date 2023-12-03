@@ -5,8 +5,10 @@ import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/home/presentation/home_page.dart';
+import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
 import 'package:recipe_app/firebase_options.dart';
 // import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
+import 'config/routes.dart';
 import 'features/onBoardingScreen/presentation/bloc/bloc_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
 
@@ -51,12 +53,15 @@ class MyApp extends StatelessWidget {
                 );
               }
               if (state is Unauthenticated) {
-                return const SignInPage();
+                return const SignUpPage();
               }
               if (state is AuthLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
+              }
+              if (state is AppFirstTimeOpened) {
+                return const OnBoardingScreen();
               }
               return Container();
             },

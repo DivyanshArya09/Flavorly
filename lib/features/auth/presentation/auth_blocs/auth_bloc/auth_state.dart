@@ -32,3 +32,5 @@ class ConnectionFailure extends AuthState {
   @override
   String toString() => 'ConnectionFailure { message: $message }';
 }
+
+class AppFirstTimeOpened extends AuthState {}
