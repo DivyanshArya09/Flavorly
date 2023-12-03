@@ -10,7 +10,7 @@ import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview
 import 'package:recipe_app/firebase_options.dart';
 // import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
 import 'config/routes.dart';
-import 'features/onBoardingScreen/presentation/bloc/bloc_bloc.dart';
+import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
 
 void main() async {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => BlocBloc(),
+            create: (context) => AnimationBloc(),
           ),
           BlocProvider<AuthBloc>(
               create: (context) => di.sl<AuthBloc>()..add(AppStarted())),

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';

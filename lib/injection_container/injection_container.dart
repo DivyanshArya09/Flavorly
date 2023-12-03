@@ -26,6 +26,7 @@ import 'package:recipe_app/features/auth/domain/usecases/user_repository_use_cas
 import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
 
@@ -38,6 +39,7 @@ Future<void> init() async {
   sl.registerFactory(() => AuthBloc(sl(), sl(), sl()));
   sl.registerFactory(() => SignOutBloc(sl()));
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
+  sl.registerLazySingleton(() => AnimationBloc());
 
   //* Use cases
   //! Auth

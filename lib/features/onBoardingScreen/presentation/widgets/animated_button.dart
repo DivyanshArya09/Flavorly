@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/login_page.dart';
 
 import '../../../../config/constants/app_colors.dart';
-import '../bloc/bloc_bloc.dart';
+import '../bloc/animation_bloc.dart';
 
 class TweenAnimate extends StatefulWidget {
-  final BlocBloc bloc;
+  final AnimationBloc bloc;
   final VoidCallback onTap;
   const TweenAnimate({super.key, required this.bloc, required this.onTap});
 
@@ -34,7 +34,7 @@ class _TweenAnimateState extends State<TweenAnimate>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onTap,
-      child: BlocListener<BlocBloc, BlocState>(
+      child: BlocListener<AnimationBloc, BlocState>(
         bloc: widget.bloc,
         listener: (context, state) {
           if (state is AnimateSecondPage) {

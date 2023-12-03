@@ -7,10 +7,10 @@ import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/constants/styles.dart';
 
 import '../../../../config/constants/animation_duration.dart';
-import '../bloc/bloc_bloc.dart';
+import '../bloc/animation_bloc.dart';
 
 class Page3 extends StatefulWidget {
-  final BlocBloc bloc;
+  final AnimationBloc bloc;
   const Page3({super.key, required this.bloc});
 
   @override
@@ -39,7 +39,7 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(horizontalPadding),
-      child: BlocListener<BlocBloc, BlocState>(
+      child: BlocListener<AnimationBloc, BlocState>(
         bloc: widget.bloc,
         listener: (context, state) {
           if (state is AnimateSecondPage) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get_it/get_it.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page1.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page2.dart';
@@ -9,7 +10,7 @@ import 'package:recipe_app/features/onBoardingScreen/presentation/widgets/animat
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../config/constants/app_colors.dart';
-import '../bloc/bloc_bloc.dart';
+import '../bloc/animation_bloc.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -38,7 +39,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
-  BlocBloc blocBloc = BlocBloc();
+  AnimationBloc blocBloc = GetIt.I.get<AnimationBloc>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
