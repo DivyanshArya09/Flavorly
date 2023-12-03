@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:recipe_app/features/auth/presentation/pages/login_page.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/google_button.dart';
@@ -53,9 +54,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => HomePage(
-                    name: userNameController.text,
-                    email: emailController.text,
-                    uid: '',
+                    name: state.name,
+                    email: state.email,
+                    uid: state.email,
                   ),
                 ));
           } else if (state is SignUpFireBaseError) {
@@ -182,7 +183,12 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                       const CustomDivider(),
-                      const SignInWithGoogleButton(),
+                      SignInWithGoogleButton(
+                        onTap: () {
+                          signUpBloc.add(SignInWithGoogleButtonPressed());
+                        },
+                        text: 'Sign Up with Google',
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -193,7 +199,13 @@ class _SignUpPageState extends State<SignUpPage> {
                               'Already have an account?',
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginPage(),
+                                    ));
+                              },
                               child: const Text(
                                 'Login',
                               ),

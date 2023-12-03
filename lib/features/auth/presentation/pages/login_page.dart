@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
+import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';
@@ -50,10 +51,10 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(
-                    name: '',
-                    email: '',
-                    uid: '',
+                  builder: (context) => HomePage(
+                    name: state.name,
+                    email: state.email,
+                    uid: state.uid,
                   ),
                 ));
           } else if (state is LoginFireBaseError) {
@@ -81,8 +82,6 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pop(context);
           }
         },
-        // buildWhen: (prev, current) =>
-        //     current is SignUpPassWordVisible || current is SignUpInitial,
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
@@ -172,7 +171,12 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                       const CustomDivider(),
-                      const SignInWithGoogleButton(),
+                      SignInWithGoogleButton(
+                        onTap: () {
+                          loginBloc.add(LoginWithGoogleButtonPressed());
+                        },
+                        text: 'Login with Google',
+                      ),
                       const SizedBox(
                         height: 20,
                       ),

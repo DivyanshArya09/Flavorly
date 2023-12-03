@@ -32,6 +32,7 @@ class AuthRepositoryImpl implements AuthRepository {
           await remoteDataSource.signInWithEmailPassword(email, password);
       final userDetails =
           await remoteFireStoreDataSource.getUserFromFireStore(userModel.uid);
+      await localDataSource.setUser(userDetails);
       return Right(userDetails.toEntity());
     } on firebase_auth.FirebaseAuthException catch (e) {
       return Left(FireBaseError(e.toString()));
@@ -41,8 +42,18 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, AuthUser>> signInWithGoogle() {
-    throw UnimplementedError();
+  Future<Either<Failure, AuthUser>> signInWithGoogle() async {
+    try {
+      final userModel = await remoteDataSource.signInWithGoogle();
+      await localDataSource.setUser(userModel);
+      await remoteFireStoreDataSource.uploadUserToFireStore(
+          userModel.name, userModel.email, userModel.uid);
+      return Right(userModel.toEntity());
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      return Left(FireBaseError(e.toString()));
+    } catch (e) {
+      return Left(SeverFailure(e.toString()));
+    }
   }
 
   @override

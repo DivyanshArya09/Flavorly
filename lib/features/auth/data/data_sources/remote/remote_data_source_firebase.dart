@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
 import 'package:recipe_app/features/auth/data/data_sources/remote/remote_data_source.dart';
 
@@ -28,8 +30,28 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserModel> signInWithGoogle() {
-    throw UnimplementedError();
+  Future<UserModel> signInWithGoogle() async {
+    final googleAccount = await GoogleSignIn().signIn();
+    final googleAuth = await googleAccount!.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    final userCredential = await _firebaseAuth.signInWithCredential(credential);
+
+    if (userCredential.user == null) {
+      throw Exception('User is null');
+    }
+
+    final uid = userCredential.user!.uid;
+
+    print('--------------------------------->>>>>>>>>>>>>>>>>>' + uid);
+
+    return UserModel(
+        email: userCredential.user!.email!,
+        uid: uid,
+        name: userCredential.user!.displayName!);
   }
 
   @override

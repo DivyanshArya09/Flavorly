@@ -5,13 +5,13 @@ import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart'
 
 import '../../../../../core/usecase/use_case.dart';
 
-class SignInWithGoogle implements UseCase<AuthUser, NoParams> {
+class SignInWithGoogleUseCase implements UseCase<AuthUser, NoParams> {
   final AuthRepository authRepository;
 
-  SignInWithGoogle({required this.authRepository});
+  SignInWithGoogleUseCase({required this.authRepository});
 
   @override
-  Future<Either<Failure, AuthUser>> call(NoParams params) {
-    throw UnimplementedError();
+  Future<Either<Failure, AuthUser>> call(NoParams params) async {
+    return await authRepository.signInWithGoogle();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
@@ -56,14 +57,24 @@ class MyApp extends StatelessWidget {
                 return const SignUpPage();
               }
               if (state is AuthLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
+                return const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.buttonColor1,
+                    ),
+                  ),
                 );
               }
               if (state is AppFirstTimeOpened) {
                 return const OnBoardingScreen();
               }
-              return Container();
+              return const Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.buttonColor1,
+                  ),
+                ),
+              );
             },
           ),
         ));

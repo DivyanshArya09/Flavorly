@@ -12,8 +12,9 @@ final class SignUpInitial extends SignUpState {}
 class SignUpLoading extends SignUpState {}
 
 class SignUpLoaded extends SignUpState {
-  final AuthUser user;
-  const SignUpLoaded(this.user);
+  final String name, uid, email;
+  const SignUpLoaded(
+      {required this.name, required this.uid, required this.email});
 }
 
 class SignUpError extends SignUpState {

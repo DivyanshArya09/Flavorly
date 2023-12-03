@@ -18,3 +18,5 @@ class SignUpButtonPressed extends SignUpEvent {
 }
 
 class PassWordIconPressed extends SignUpEvent {}
+
+class SignInWithGoogleButtonPressed extends SignUpEvent {}

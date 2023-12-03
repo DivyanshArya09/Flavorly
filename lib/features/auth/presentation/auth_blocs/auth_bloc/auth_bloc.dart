@@ -22,10 +22,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> _AppStartedEvent(
       AppStarted event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
+
     final isAppFirstTimeOpened =
         await isAppFirstTimeOpenedUseCase.call(NoParams());
     bool isAppFirstTimeOpenedResult = false;
-
     isAppFirstTimeOpened.fold((l) => isAppFirstTimeOpenedResult,
         (r) => isAppFirstTimeOpenedResult = r);
     if (!isAppFirstTimeOpenedResult) {

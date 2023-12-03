@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:recipe_app/core/usecase/use_case.dart';
+import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_in_with_google_use_case.dart';
 import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_up_use_case.dart';
 import '../../../../../core/error/failure.dart';
 import '../../../domain/entities/auth_user.dart';
@@ -9,9 +11,12 @@ part 'sign_up_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final SignUpUseCase signInUseCase;
-  bool isPassWordVisible = true;
-  SignUpBloc(this.signInUseCase) : super(SignUpInitial()) {
+  final SignInWithGoogleUseCase signInWithGoogleUseCase;
+  SignUpBloc(this.signInUseCase, this.signInWithGoogleUseCase)
+      : super(SignUpInitial()) {
     on<SignUpButtonPressed>((event, emit) => _signUpButtonPressed(event, emit));
+    on<SignInWithGoogleButtonPressed>(
+        (event, emit) => _signUpWithGoogleButtonPressed(event, emit));
   }
 
   Future<void> _signUpButtonPressed(
@@ -34,7 +39,38 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         emit(const SignUpError('some thing went wrong'));
       }
     }, (success) {
-      emit(SignUpLoaded(success));
+      emit(SignUpLoaded(
+        name: success.name,
+        email: success.email,
+        uid: success.uid,
+      ));
     });
+  }
+
+  Future<void> _signUpWithGoogleButtonPressed(
+      SignInWithGoogleButtonPressed event, Emitter<SignUpState> emit) async {
+    emit(SignUpLoading());
+    final signInWithGoogleResult =
+        await signInWithGoogleUseCase.call(NoParams());
+    signInWithGoogleResult.fold((l) {
+      if (l is SeverFailure) {
+        emit(StopLoading());
+        emit(SignUpServerFailure(l.message));
+      } else if (l is ConnectionFailure) {
+        emit(StopLoading());
+        emit(SignUpConnectionFailure(l.message));
+      } else if (l is FireBaseError) {
+        emit(StopLoading());
+        emit(SignUpFireBaseError(l.message));
+      } else {
+        emit(StopLoading());
+        emit(const SignUpError('some thing went wrong'));
+      }
+    },
+        (r) => emit(SignUpLoaded(
+              name: r.name,
+              email: r.email,
+              uid: r.uid,
+            )));
   }
 }

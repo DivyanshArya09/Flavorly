@@ -3,11 +3,15 @@ import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/config/constants/app_images.dart';
 
 class SignInWithGoogleButton extends StatelessWidget {
-  const SignInWithGoogleButton({super.key});
+  final VoidCallback onTap;
+  final String text;
+  const SignInWithGoogleButton(
+      {super.key, required this.onTap, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
         height: 50,
         width: 300,
@@ -15,20 +19,20 @@ class SignInWithGoogleButton extends StatelessWidget {
           border: Border.all(color: AppColors.darkGrey, width: 1),
           borderRadius: BorderRadius.circular(50),
         ),
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(
+            const Image(
               height: 25,
               image: AssetImage(AppImages.googleIconImage),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Text(
-              'Sign in with Google',
-              style: TextStyle(color: AppColors.darkGrey, fontSize: 16),
+              text,
+              style: const TextStyle(color: AppColors.darkGrey, fontSize: 16),
             ),
           ],
         ),

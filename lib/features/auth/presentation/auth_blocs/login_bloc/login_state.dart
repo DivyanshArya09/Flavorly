@@ -12,9 +12,10 @@ final class LoginInitial extends LoginState {}
 class LoginLoading extends LoginState {}
 
 class LoginLoaded extends LoginState {
-  final AuthUser user;
+  final String name, uid, email;
 
-  const LoginLoaded(this.user);
+  const LoginLoaded(
+      {required this.email, required this.name, required this.uid});
 }
 
 class LoginError extends LoginState {
