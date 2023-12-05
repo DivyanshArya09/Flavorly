@@ -50,9 +50,9 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               AppStrings.secondPageHeading,
-              style: AppTextStyles.heading2,
+              style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             )
                 .animate(
@@ -67,9 +67,9 @@ class _Page3State extends State<Page3> with TickerProviderStateMixin {
             const SizedBox(
               height: verticalPadding,
             ),
-            const Text(
+            Text(
               AppStrings.secondPageQuote,
-              style: AppTextStyles.subHeading,
+              style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             )
                 .animate(

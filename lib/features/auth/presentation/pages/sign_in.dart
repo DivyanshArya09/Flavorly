@@ -94,30 +94,25 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 SizedBox(
                   height: size.height * .2,
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Join our culinary\n community!',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.headlineMedium,
                           // textAlign: TextAlign.center,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
                           'Create an account',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        ),
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        )
                       ],
                     ),
                   ),
@@ -126,9 +121,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   padding: EdgeInsets.symmetric(
                       horizontal: 15, vertical: size.height * .05),
                   height: size.height * .8,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).cardColor,
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50),
                     ),
@@ -195,8 +190,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               'Already have an account?',
+                              style: Theme.of(context).textTheme.headlineSmall,
                             ),
                             TextButton(
                               onPressed: () {
@@ -206,8 +202,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                       builder: (context) => const LoginPage(),
                                     ));
                               },
-                              child: const Text(
+                              child: Text(
                                 'Login',
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
                               ),
                             )
                           ])

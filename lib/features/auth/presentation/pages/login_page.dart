@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 SizedBox(
                   height: size.height * .2,
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -97,21 +97,15 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Text(
                           'Welcome back!',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.headlineMedium,
                           // textAlign: TextAlign.center,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
                           'You have been missed!',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ],
                     ),
@@ -182,8 +176,9 @@ class _LoginPageState extends State<LoginPage> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               "Don't have an account?",
+                              style: Theme.of(context).textTheme.headlineSmall,
                             ),
                             TextButton(
                               onPressed: () {
@@ -194,8 +189,10 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 );
                               },
-                              child: const Text(
+                              child: Text(
                                 'SignUp',
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
                               ),
                             )
                           ])

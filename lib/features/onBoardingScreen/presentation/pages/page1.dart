@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/config/constants/app_images.dart';
+import 'package:recipe_app/config/theme/custom_themes/text_theme.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/widgets/Custom_button.dart';
 import '../../../../config/constants/app_colors.dart';
 
@@ -64,14 +65,8 @@ class _Page1State extends State<Page1> with TickerProviderStateMixin {
           FadeInDown(
             animate: animate,
             duration: Duration(milliseconds: duration + addition),
-            child: const Text(
-              "It's \nCooking \nTime !",
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: AppColors.textColor,
-              ),
-            ),
+            child: Text("It's \nCooking \nTime !",
+                style: Theme.of(context).textTheme.headlineLarge),
           ),
           SizedBox(
             height: .05 * size.height,

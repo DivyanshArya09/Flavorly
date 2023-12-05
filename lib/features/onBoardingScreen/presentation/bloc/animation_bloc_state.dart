@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-part of 'bloc_bloc.dart';
+part of 'animation_bloc.dart';
 
 @immutable
 sealed class BlocState {}

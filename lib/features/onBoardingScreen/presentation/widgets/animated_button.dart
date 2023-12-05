@@ -94,7 +94,10 @@ class _TweenAnimateState extends State<TweenAnimate>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already have an account ?'),
+                      Text(
+                        'Already have an account ?',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -107,8 +110,9 @@ class _TweenAnimateState extends State<TweenAnimate>
                         style: TextButton.styleFrom(
                           foregroundColor: AppColors.buttonColor1,
                         ),
-                        child: const Text(
+                        child: Text(
                           'Login',
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                     ],

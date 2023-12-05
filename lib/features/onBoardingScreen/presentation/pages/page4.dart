@@ -20,14 +20,14 @@ class Page4 extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Text(
+          Text(
             AppStrings.thirdPageHeading,
-            style: AppTextStyles.heading2,
+            style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
-          const Text(
+          Text(
             AppStrings.thirdPageQuote,
-            style: AppTextStyles.subHeading,
+            style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           )
         ],

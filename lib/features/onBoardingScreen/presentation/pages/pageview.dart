@@ -62,11 +62,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             )),
                         TextButton(
                           onPressed: () {},
-                          child: const Text('skip',
-                              style: TextStyle(
-                                  color: AppColors.textColor,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w400)),
+                          child: Text('skip',
+                              style: Theme.of(context).textTheme.headlineSmall),
                         ),
                       ])
                       .animate()

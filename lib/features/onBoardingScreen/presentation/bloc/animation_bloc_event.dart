@@ -1,4 +1,4 @@
-part of 'bloc_bloc.dart';
+part of 'animation_bloc.dart';
 
 abstract class BlocEvent {}
 

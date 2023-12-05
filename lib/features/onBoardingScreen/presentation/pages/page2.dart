@@ -66,9 +66,9 @@ class _Page2State extends State<Page2> with TickerProviderStateMixin {
             SizedBox(
               height: size.height * 0.02,
             ),
-            const Text(
+            Text(
               AppStrings.firstPageHeading,
-              style: AppTextStyles.heading2,
+              style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             )
                 .animate(
@@ -83,9 +83,9 @@ class _Page2State extends State<Page2> with TickerProviderStateMixin {
             const SizedBox(
               height: verticalPadding,
             ),
-            const Text(
+            Text(
               AppStrings.firstPageQuote,
-              style: AppTextStyles.subHeading,
+              style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             )
                 .animate(
