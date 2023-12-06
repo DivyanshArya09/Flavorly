@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/config/constants/app_images.dart';
-import 'package:recipe_app/config/theme/custom_themes/text_theme.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/widgets/Custom_button.dart';
 import '../../../../config/constants/app_colors.dart';
 

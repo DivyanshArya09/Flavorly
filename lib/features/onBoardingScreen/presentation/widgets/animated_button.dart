@@ -34,7 +34,7 @@ class _TweenAnimateState extends State<TweenAnimate>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onTap,
-      child: BlocListener<AnimationBloc, BlocState>(
+      child: BlocListener<AnimationBloc, AnimationState>(
         bloc: widget.bloc,
         listener: (context, state) {
           if (state is AnimateSecondPage) {

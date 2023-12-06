@@ -50,15 +50,17 @@ class _SignUpPageState extends State<SignUpPage> {
         bloc: signUpBloc,
         listener: (context, state) {
           if (state is SignUpLoaded) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePage(
-                    name: state.name,
-                    email: state.email,
-                    uid: state.email,
-                  ),
-                ));
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(
+                  name: state.name,
+                  email: state.email,
+                  uid: state.uid,
+                ),
+              ),
+              (Route<dynamic> route) => false,
+            );
           } else if (state is SignUpFireBaseError) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.message),
@@ -84,8 +86,6 @@ class _SignUpPageState extends State<SignUpPage> {
             Navigator.pop(context);
           }
         },
-        // buildWhen: (prev, current) =>
-        //     current is SignUpPassWordVisible || current is SignUpInitial,
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
@@ -111,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         Text(
                           'Create an account',
-                          style: Theme.of(context).textTheme.headlineLarge,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         )
                       ],
                     ),
@@ -128,88 +128,91 @@ class _SignUpPageState extends State<SignUpPage> {
                       topRight: Radius.circular(50),
                     ),
                   ),
-                  child: Column(
-                    children: [
-                      CustomTextField(
-                        hintText: 'Enter your name',
-                        obscureText: false,
-                        controller: userNameController,
-                        icon: const Icon(Icons.person),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CustomTextField(
-                        hintText: 'Enter your Email',
-                        obscureText: false,
-                        controller: emailController,
-                        icon: const Icon(Icons.email),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CustomTextField(
-                        hintText: 'Enter your password',
-                        obscureText: isVisible,
-                        controller: passwordController,
-                        icon: const Icon(Icons.lock),
-                        suffixIcon: IconButton(
-                          icon: !isVisible
-                              ? const Icon(Icons.visibility)
-                              : const Icon(Icons.visibility_off),
-                          onPressed: () {
-                            setState(() {
-                              isVisible = !isVisible;
-                            });
+                  child: Expanded(
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          hintText: 'Enter your name',
+                          obscureText: false,
+                          controller: userNameController,
+                          icon: const Icon(Icons.person),
+                        ),
+                        SizedBox(
+                          height: size.height * .02,
+                        ),
+                        CustomTextField(
+                          hintText: 'Enter your Email',
+                          obscureText: false,
+                          controller: emailController,
+                          icon: const Icon(Icons.email),
+                        ),
+                        SizedBox(
+                          height: size.height * .02,
+                        ),
+                        CustomTextField(
+                          hintText: 'Enter your password',
+                          obscureText: isVisible,
+                          controller: passwordController,
+                          icon: const Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            icon: !isVisible
+                                ? const Icon(Icons.visibility)
+                                : const Icon(Icons.visibility_off),
+                            onPressed: () {
+                              setState(() {
+                                isVisible = !isVisible;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height * .05,
+                        ),
+                        SignUpLoginButton(
+                          buttonText: 'Sign Up',
+                          onTap: () {
+                            signUpBloc.add(SignUpButtonPressed(
+                              name: userNameController.text.toString(),
+                              email: emailController.text.toString(),
+                              password: passwordController.text.toString(),
+                            ));
                           },
                         ),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      SignUpLoginButton(
-                        buttonText: 'Sign Up',
-                        onTap: () {
-                          signUpBloc.add(SignUpButtonPressed(
-                            name: userNameController.text.toString(),
-                            email: emailController.text.toString(),
-                            password: passwordController.text.toString(),
-                          ));
-                        },
-                      ),
-                      const CustomDivider(),
-                      SignInWithGoogleButton(
-                        onTap: () {
-                          signUpBloc.add(SignInWithGoogleButtonPressed());
-                        },
-                        text: 'Sign Up with Google',
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Already have an account?',
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoginPage(),
-                                    ));
-                              },
-                              child: Text(
-                                'Login',
+                        const CustomDivider(),
+                        SignInWithGoogleButton(
+                          onTap: () {
+                            signUpBloc.add(SignInWithGoogleButtonPressed());
+                          },
+                          text: 'Sign Up with Google',
+                        ),
+                        SizedBox(
+                          height: size.height * .02,
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Already have an account?',
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),
-                            )
-                          ])
-                    ],
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const LoginPage(),
+                                      ));
+                                },
+                                child: Text(
+                                  'Login',
+                                  style:
+                                      Theme.of(context).textTheme.headlineSmall,
+                                ),
+                              )
+                            ])
+                      ],
+                    ),
                   ),
                 ),
               ],

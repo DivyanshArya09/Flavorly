@@ -1,9 +1,9 @@
 part of 'animation_bloc.dart';
 
-abstract class BlocEvent {}
+abstract class AnimationEvent {}
 
-class StartFirstPageAnimation extends BlocEvent {}
+class StartFirstPageAnimation extends AnimationEvent {}
 
-class StartSecondPageAnimation extends BlocEvent {}
+class StartSecondPageAnimation extends AnimationEvent {}
 
-class StartThirdPageAnimation extends BlocEvent {}
+class StartThirdPageAnimation extends AnimationEvent {}

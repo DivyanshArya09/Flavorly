@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 part 'animation_bloc_event.dart';
 part 'animation_bloc_state.dart';
 
-class AnimationBloc extends Bloc<BlocEvent, BlocState> {
+class AnimationBloc extends Bloc<AnimationEvent, AnimationState> {
   AnimationBloc() : super(BlocInitial()) {
     on<StartFirstPageAnimation>((event, emit) => emit(AnimateFirstPage()));
     on<StartSecondPageAnimation>((event, emit) => emit(AnimateSecondPage(200)));

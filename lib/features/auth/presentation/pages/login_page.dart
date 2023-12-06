@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late LoginBloc loginBloc;
-  bool isVisible = false;
+  bool isVisible = true;
 
   @override
   void initState() {
@@ -47,15 +47,17 @@ class _LoginPageState extends State<LoginPage> {
         bloc: loginBloc,
         listener: (context, state) {
           if (state is LoginLoaded) {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePage(
-                    name: state.name,
-                    email: state.email,
-                    uid: state.uid,
-                  ),
-                ));
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(
+                  name: state.name,
+                  email: state.email,
+                  uid: state.uid,
+                ),
+              ),
+              (Route<dynamic> route) => false,
+            );
           } else if (state is LoginFireBaseError) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.message),
@@ -90,7 +92,8 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: size.height * .2,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,9 +118,9 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.symmetric(
                       horizontal: 15, vertical: size.height * .05),
                   height: size.height * .8,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).cardColor,
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50),
                     ),
@@ -130,8 +133,8 @@ class _LoginPageState extends State<LoginPage> {
                         controller: emailController,
                         icon: const Icon(Icons.email),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: size.height * .02,
                       ),
                       CustomTextField(
                         hintText: 'Enter your password',
@@ -149,8 +152,35 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 40,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                  activeColor: AppColors.buttonColor1,
+                                  value: true,
+                                  onChanged: (value) {}),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "Remember me",
+                                // style:
+                                //     Theme.of(context).textTheme.headlineSmall,
+                              ),
+                            ],
+                          ),
+                          TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Forgot Password ?',
+                                textAlign: TextAlign.right,
+                              )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: size.height * .05,
                       ),
                       SignUpLoginButton(
                         buttonText: 'Login',
@@ -170,32 +200,31 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         text: 'Login with Google',
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: size.height * .02,
                       ),
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Don't have an account?",
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Don't have an account?",
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignUpPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'SignUp',
                               style: Theme.of(context).textTheme.headlineSmall,
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SignUpPage(),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                'SignUp',
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
-                              ),
-                            )
-                          ])
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),

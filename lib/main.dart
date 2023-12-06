@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        // BlocProvider<AnimationBloc>(
-        //   create: (context) => di.sl<AnimationBloc>(),
-        // ),
+        BlocProvider<AnimationBloc>(
+          create: (context) => AnimationBloc(),
+        ),
         BlocProvider<AuthBloc>(
             create: (context) => di.sl<AuthBloc>()..add(AppStarted())),
         BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),

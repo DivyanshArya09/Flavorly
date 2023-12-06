@@ -33,11 +33,7 @@ class HomePage extends StatelessWidget {
           },
           listener: (BuildContext context, SignOutState state) {
             if (state is SignOutLoaded) {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignUpPage(),
-                  ));
+              Navigator.pop(context);
             }
 
             if (state is SignOutServerFailure) {
