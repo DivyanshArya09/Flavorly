@@ -128,91 +128,87 @@ class _SignUpPageState extends State<SignUpPage> {
                       topRight: Radius.circular(50),
                     ),
                   ),
-                  child: Expanded(
-                    child: Column(
-                      children: [
-                        CustomTextField(
-                          hintText: 'Enter your name',
-                          obscureText: false,
-                          controller: userNameController,
-                          icon: const Icon(Icons.person),
-                        ),
-                        SizedBox(
-                          height: size.height * .02,
-                        ),
-                        CustomTextField(
-                          hintText: 'Enter your Email',
-                          obscureText: false,
-                          controller: emailController,
-                          icon: const Icon(Icons.email),
-                        ),
-                        SizedBox(
-                          height: size.height * .02,
-                        ),
-                        CustomTextField(
-                          hintText: 'Enter your password',
-                          obscureText: isVisible,
-                          controller: passwordController,
-                          icon: const Icon(Icons.lock),
-                          suffixIcon: IconButton(
-                            icon: !isVisible
-                                ? const Icon(Icons.visibility)
-                                : const Icon(Icons.visibility_off),
-                            onPressed: () {
-                              setState(() {
-                                isVisible = !isVisible;
-                              });
-                            },
-                          ),
-                        ),
-                        SizedBox(
-                          height: size.height * .05,
-                        ),
-                        SignUpLoginButton(
-                          buttonText: 'Sign Up',
-                          onTap: () {
-                            signUpBloc.add(SignUpButtonPressed(
-                              name: userNameController.text.toString(),
-                              email: emailController.text.toString(),
-                              password: passwordController.text.toString(),
-                            ));
+                  child: Column(
+                    children: [
+                      CustomTextField(
+                        hintText: 'Enter your name',
+                        obscureText: false,
+                        controller: userNameController,
+                        icon: const Icon(Icons.person),
+                      ),
+                      SizedBox(
+                        height: size.height * .02,
+                      ),
+                      CustomTextField(
+                        hintText: 'Enter your Email',
+                        obscureText: false,
+                        controller: emailController,
+                        icon: const Icon(Icons.email),
+                      ),
+                      SizedBox(
+                        height: size.height * .02,
+                      ),
+                      CustomTextField(
+                        hintText: 'Enter your password',
+                        obscureText: isVisible,
+                        controller: passwordController,
+                        icon: const Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                          icon: !isVisible
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              isVisible = !isVisible;
+                            });
                           },
                         ),
-                        const CustomDivider(),
-                        SignInWithGoogleButton(
-                          onTap: () {
-                            signUpBloc.add(SignInWithGoogleButtonPressed());
-                          },
-                          text: 'Sign Up with Google',
-                        ),
-                        SizedBox(
-                          height: size.height * .02,
-                        ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Already have an account?',
+                      ),
+                      SizedBox(
+                        height: size.height * .05,
+                      ),
+                      SignUpLoginButton(
+                        buttonText: 'Sign Up',
+                        onTap: () {
+                          signUpBloc.add(SignUpButtonPressed(
+                            name: userNameController.text.toString(),
+                            email: emailController.text.toString(),
+                            password: passwordController.text.toString(),
+                          ));
+                        },
+                      ),
+                      const CustomDivider(),
+                      SignInWithGoogleButton(
+                        onTap: () {
+                          signUpBloc.add(SignInWithGoogleButtonPressed());
+                        },
+                        text: 'Sign Up with Google',
+                      ),
+                      SizedBox(
+                        height: size.height * .02,
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Already have an account?',
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginPage(),
+                                    ));
+                              },
+                              child: Text(
+                                'Login',
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const LoginPage(),
-                                      ));
-                                },
-                                child: Text(
-                                  'Login',
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
-                                ),
-                              )
-                            ])
-                      ],
-                    ),
+                            )
+                          ])
+                    ],
                   ),
                 ),
               ],

@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   late TextEditingController passwordController;
   late LoginBloc loginBloc;
   bool isVisible = true;
+  bool isVisibles = true;
 
   @override
   void initState() {
@@ -58,19 +59,32 @@ class _LoginPageState extends State<LoginPage> {
               ),
               (Route<dynamic> route) => false,
             );
-          } else if (state is LoginFireBaseError) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.message),
-            ));
-          } else if (state is LoginError) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.message),
-            ));
-          } else if (state is LoginConnectionFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.message),
-            ));
-          } else if (state is LoginLoading) {
+          }
+          if (state is LoginFireBaseError) {
+            String err = state.message;
+            int index = err.indexOf(']');
+            err = err.substring(index + 1, err.length);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(err),
+              ),
+            );
+          }
+          if (state is LoginError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+          }
+          if (state is LoginConnectionFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+          }
+          if (state is LoginLoading) {
             showDialog(
               context: context,
               builder: (context) {
@@ -79,10 +93,12 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
             );
-          } else if (state is StopLoginLoading) {
+          }
+          if (state is StopLoginLoading) {
             Navigator.pop(context);
           }
         },
+        // buildWhen: (cur, prev) => cur is CheckBoxValue,
         builder: (context, state) {
           return SingleChildScrollView(
             child: Column(
@@ -159,12 +175,16 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               Checkbox(
                                   activeColor: AppColors.buttonColor1,
-                                  value: true,
-                                  onChanged: (value) {}),
+                                  value: isVisibles,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      isVisibles = value!;
+                                    });
+                                  }),
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
+                              const Text(
                                 "Remember me",
                                 // style:
                                 //     Theme.of(context).textTheme.headlineSmall,

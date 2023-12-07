@@ -12,7 +12,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final SignInUseCase signInUseCase;
   final SignInWithGoogleUseCase signInWithGoogleUseCase;
   LoginBloc(this.signInUseCase, this.signInWithGoogleUseCase)
-      : super(LoginInitial()) {
+      : super(
+          LoginInitial(),
+        ) {
     on<LoginButtonPressed>((event, emit) => _loginButtonPressed(event, emit));
     on<LoginWithGoogleButtonPressed>(
         (event, emit) => _loginGoogleButtonPressed(event, emit));
@@ -50,24 +52,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final signInWithGoogleResult =
         await signInWithGoogleUseCase.call(NoParams());
 
-    signInWithGoogleResult.fold((failure) {
-      if (failure is SeverFailure) {
-        emit(StopLoginLoading());
-        emit(LoginServerFailure(failure.message));
-      }
-      if (failure is ConnectionFailure) {
-        emit(StopLoginLoading());
-        emit(LoginConnectionFailure(failure.message));
-      }
-      if (failure is FireBaseError) {
-        emit(StopLoginLoading());
-        emit(LoginFireBaseError(failure.message));
-      }
-    },
-        (success) => emit(LoginLoaded(
-              email: success.email,
-              name: success.name,
-              uid: success.uid,
-            )));
+    signInWithGoogleResult.fold(
+      (failure) {
+        if (failure is SeverFailure) {
+          emit(StopLoginLoading());
+          emit(LoginServerFailure(failure.message));
+        }
+        if (failure is ConnectionFailure) {
+          emit(StopLoginLoading());
+          emit(LoginConnectionFailure(failure.message));
+        }
+        if (failure is FireBaseError) {
+          emit(StopLoginLoading());
+          emit(LoginFireBaseError(failure.message));
+        }
+      },
+      (success) => emit(
+        LoginLoaded(
+          email: success.email,
+          name: success.name,
+          uid: success.uid,
+        ),
+      ),
+    );
   }
 }
