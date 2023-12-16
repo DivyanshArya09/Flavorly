@@ -55,8 +55,6 @@ class _SignUpPageState extends State<SignUpPage> {
               MaterialPageRoute(
                 builder: (context) => HomePage(
                   name: state.name,
-                  email: state.email,
-                  uid: state.uid,
                 ),
               ),
               (Route<dynamic> route) => false,

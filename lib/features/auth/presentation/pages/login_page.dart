@@ -53,8 +53,6 @@ class _LoginPageState extends State<LoginPage> {
               MaterialPageRoute(
                 builder: (context) => HomePage(
                   name: state.name,
-                  email: state.email,
-                  uid: state.uid,
                 ),
               ),
               (Route<dynamic> route) => false,

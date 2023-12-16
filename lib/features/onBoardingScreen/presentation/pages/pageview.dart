@@ -44,7 +44,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           isLastPage
               ? const SizedBox()
@@ -54,14 +55,25 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              horizontalController.previousPage(
+                                  duration: const Duration(milliseconds: 800),
+                                  curve: Curves.easeInOut);
+                            },
                             icon: const Icon(
                               Icons.chevron_left,
                               color: AppColors.buttonColor1,
                               size: 40,
                             )),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignUpPage(),
+                              ),
+                            );
+                          },
                           child: Text('skip',
                               style: Theme.of(context).textTheme.headlineSmall),
                         ),
@@ -95,51 +107,50 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     );
                   },
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: PageView(
-                          controller: horizontalController,
-                          children: [
-                            Page2(
-                              bloc: blocBloc,
-                            ),
-                            Page3(
-                              bloc: blocBloc,
-                            ),
-                            const Page4(),
-                          ],
-                        ),
+                Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: PageView(
+                        controller: horizontalController,
+                        children: [
+                          Page2(
+                            bloc: blocBloc,
+                          ),
+                          Page3(
+                            bloc: blocBloc,
+                          ),
+                          const Page4(),
+                        ],
                       ),
-                      SmoothPageIndicator(
-                          controller: horizontalController,
-                          count: 3,
-                          effect: const WormEffect(
-                            activeDotColor: AppColors.buttonColor1,
-                          )),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TweenAnimate(
-                        bloc: blocBloc,
-                        onTap: () {
-                          _animatePage();
-                          horizontalController.nextPage(
-                            duration: const Duration(milliseconds: 1300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      )
-                    ],
-                  ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SmoothPageIndicator(
+                        controller: horizontalController,
+                        count: 3,
+                        effect: const WormEffect(
+                          activeDotColor: AppColors.buttonColor1,
+                        )),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TweenAnimate(
+                      bloc: blocBloc,
+                      onTap: () {
+                        _animatePage();
+                        horizontalController.nextPage(
+                          duration: const Duration(milliseconds: 1300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    )
+                  ],
                 ),
               ],
             ),
