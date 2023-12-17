@@ -16,13 +16,14 @@ class CustomRow extends StatelessWidget {
           Text(
             text,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontSize: size.height * .025,
+                  fontSize: size.width * .054,
                 ),
           ),
           Text(
             'See all',
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: AppColors.buttonColor1,
+                  fontSize: size.width * .04,
                 ),
           ),
         ],

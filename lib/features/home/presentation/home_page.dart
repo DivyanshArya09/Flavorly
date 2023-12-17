@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
+import 'package:recipe_app/features/home/components/caresoul.dart';
 import 'package:recipe_app/features/home/components/categories_list.dart';
 import 'package:recipe_app/features/home/components/header.dart';
 import 'package:recipe_app/features/home/components/recommendation.dart';
@@ -79,9 +80,12 @@ class HomePage extends StatelessWidget {
                 ),
                 const CustomRow(text: 'Recommendation'),
                 SizedBox(
-                  height: size.height * .4,
+                  height: size.height * .34,
                   child: const RecommendedItems(),
-                )
+                ),
+                const CustomRow(text: 'Popular'),
+                const Carousel(),
+                const CustomRow(text: 'Cusines'),
               ],
             ),
           ),

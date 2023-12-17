@@ -37,9 +37,9 @@ class Header extends StatelessWidget {
           ],
         ),
         Container(
-          height: size.height * .06,
+          height: size.width * .14,
           // height: 60.h,
-          width: size.height * .06,
+          width: size.width * .14,
           // width: 60.h,
           decoration: BoxDecoration(
             color: AppColors.grey,

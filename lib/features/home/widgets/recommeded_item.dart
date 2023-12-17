@@ -11,8 +11,8 @@ class RecommendedDish extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: size.height * .25,
-          width: size.width * .4,
+          height: size.height * .23,
+          width: size.width * .38,
           decoration: const BoxDecoration(
             color: AppColors.grey,
             borderRadius: BorderRadius.all(
@@ -20,18 +20,18 @@ class RecommendedDish extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: size.height * .01,
+        const SizedBox(
+          height: 5,
         ),
         Text(
           'Cream Puff',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontSize: size.height * .025,
+                fontSize: size.width * .045,
               ),
         ),
-        SizedBox(
-          height: size.height * .01,
-        ),
+        // const SizedBox(
+        //   height: 3,
+        // ),
         Text(
           'By John Doe',
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
