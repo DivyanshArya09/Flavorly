@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
+import 'package:recipe_app/config/constants/font_sizes.dart';
+import 'package:recipe_app/config/utils/responsive.dart';
 
 class RecommendedDish extends StatelessWidget {
   const RecommendedDish({super.key});
@@ -11,8 +13,12 @@ class RecommendedDish extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: size.height * .23,
-          width: size.width * .38,
+          height: Responsive.isDesktop(context) || Responsive.isTablet(context)
+              ? 180
+              : size.height * .23,
+          width: Responsive.isDesktop(context) || Responsive.isTablet(context)
+              ? 220
+              : size.width * .38,
           decoration: const BoxDecoration(
             color: AppColors.grey,
             borderRadius: BorderRadius.all(
@@ -26,7 +32,7 @@ class RecommendedDish extends StatelessWidget {
         Text(
           'Cream Puff',
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontSize: size.width * .045,
+                fontSize: size.width > 400 ? largeFontSize : size.width * .045,
               ),
         ),
         // const SizedBox(
@@ -35,7 +41,7 @@ class RecommendedDish extends StatelessWidget {
         Text(
           'By John Doe',
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                fontSize: size.width * .035,
+                fontSize: size.width > 400 ? smallFontSize : size.width * .035,
               ),
         )
       ],

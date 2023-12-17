@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/config/constants/font_sizes.dart';
+import 'package:recipe_app/config/utils/responsive.dart';
 
 class CarouselItem extends StatelessWidget {
   const CarouselItem({super.key});
@@ -21,22 +23,34 @@ class CarouselItem extends StatelessWidget {
             children: [
               Positioned(
                 top: 10,
-                left: 10,
+                right: 10,
                 child: Icon(
-                  Icons.save,
-                  size: size.width * .06,
+                  Icons.favorite_border_outlined,
+                  size: size.width > 500 ? largeFontSize : size.width * .06,
+                ),
+              ),
+              Positioned(
+                bottom: 20,
+                left: 10,
+                child: Text(
+                  'Dish name',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontSize:
+                            size.width > 500 ? largeFontSize : size.width * .04,
+                      ),
                 ),
               ),
               Positioned(
                 bottom: 10,
                 right: 10,
                 child: Text(
-                  'Dish name',
+                  '30 . mins',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: size.width * .04,
+                        fontSize:
+                            size.width > 500 ? largeFontSize : size.width * .04,
                       ),
                 ),
-              )
+              ),
             ],
           ),
         ),

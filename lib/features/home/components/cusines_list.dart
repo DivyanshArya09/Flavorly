@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/features/home/widgets/cusine_tile.dart';
 
 class CusinesList extends StatelessWidget {
   const CusinesList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (_, index) => index < 9
+          ? const CusineTile()
+          : TextButton(onPressed: () {}, child: const Text('More Cusines ?')),
+    );
   }
 }

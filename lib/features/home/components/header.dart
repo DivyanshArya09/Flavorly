@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
+import 'package:recipe_app/config/constants/font_sizes.dart';
 
 class Header extends StatelessWidget {
   final String name;
@@ -20,7 +21,9 @@ class Header extends StatelessWidget {
               'Hello, $name',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     wordSpacing: 5,
-                    fontSize: size.width * .041,
+                    fontSize:
+                        size.width > 400 ? smallFontSize : size.width * .045,
+                    // fontSize: size.width * .041,
                   ),
             ),
             const SizedBox(
@@ -31,19 +34,25 @@ class Header extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     // letterSpacing: 1.,
                     // fontSize: size.width * .06,
-                    fontSize: size.width * .06,
+                    fontSize:
+                        size.width > 400 ? largeFontSize : size.width * .06,
                   ),
             ),
           ],
         ),
         Container(
-          height: size.width * .14,
+          height: size.width > 450 ? 70 : size.width * .14,
           // height: 60.h,
-          width: size.width * .14,
+          width: size.width > 450 ? 70 : size.width * .14,
           // width: 60.h,
           decoration: BoxDecoration(
             color: AppColors.grey,
             borderRadius: BorderRadius.circular(size.width),
+          ),
+          child: const Center(
+            child: Icon(
+              Icons.person,
+            ),
           ),
         ),
       ],
