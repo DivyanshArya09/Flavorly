@@ -35,8 +35,9 @@ class CarouselItem extends StatelessWidget {
                 child: Text(
                   'Dish name',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize:
-                            size.width > 500 ? largeFontSize : size.width * .04,
+                        fontSize: size.width > 500
+                            ? largeFontSize
+                            : size.width * .038,
                       ),
                 ),
               ),

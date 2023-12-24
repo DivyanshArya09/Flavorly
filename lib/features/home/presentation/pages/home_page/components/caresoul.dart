@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/widgets/carousel_item.dart';
+import 'package:recipe_app/features/home/presentation/widgets/carousel_item.dart';
 
 class Carousel extends StatelessWidget {
   const Carousel({super.key});

@@ -5,19 +5,19 @@ import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/home/components/caresoul.dart';
-import 'package:recipe_app/features/home/components/categories_list.dart';
-import 'package:recipe_app/features/home/components/cusines_list.dart';
-import 'package:recipe_app/features/home/components/grid_view.dart';
-import 'package:recipe_app/features/home/components/header.dart';
-import 'package:recipe_app/features/home/components/recommendation.dart';
-import 'package:recipe_app/features/home/components/search_bar.dart';
-import 'package:recipe_app/features/home/widgets/cusine_tile.dart';
-import 'package:recipe_app/features/home/widgets/custom_row.dart';
-import 'package:recipe_app/features/home/widgets/grid_item.dart';
-import 'package:recipe_app/features/home/widgets/seprator.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/caresoul.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/cusines_list.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/grid_view.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/header.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/recommendation.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:recipe_app/features/home/presentation/widgets/cusine_tile.dart';
+import 'package:recipe_app/features/home/presentation/widgets/custom_row.dart';
+import 'package:recipe_app/features/home/presentation/widgets/grid_item.dart';
+import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
 
-import '../../../config/constants/app_colors.dart';
+import '../../../../../config/constants/app_colors.dart';
 
 // 384 -> old mobiles
 // 640 > normal mobiles
@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Header(name: 'Anne'),
                 const CustomSeperator(),
@@ -79,18 +80,16 @@ class HomePage extends StatelessWidget {
                 const CustomSeperator(),
                 const CustomRow(text: 'Categories'),
                 const CustomSeperator(),
-                SizedBox(
-                  height: size.height * .1,
-                  child: const Categories(),
+                const SizedBox(
+                  height: 90,
+                  child: Categories(),
                 ),
                 const CustomSeperator(),
                 const CustomRow(text: 'Recommendation'),
                 SizedBox(
-                  height: Responsive.isTablet(context)
-                      ? size.height * .23
-                      : size.height * .34,
-                  child: const RecommendedItems(),
-                ),
+                    height:
+                        Responsive.isMobile(context) ? size.height * .35 : 250,
+                    child: const RecommendedItems()),
                 const CustomRow(text: 'Popular'),
                 const CustomSeperator(),
                 Visibility(
@@ -99,12 +98,10 @@ class HomePage extends StatelessWidget {
                 ),
                 Visibility(
                   visible: Responsive.isDesktop(context),
-                  child: SizedBox(
-                    height: Responsive.isTablet(context)
-                        ? size.height * .23
-                        : size.height * .34,
+                  child: const SizedBox(
+                    height: 220,
                     // : size.height * .34,
-                    child: const RecommendedItems(),
+                    child: RecommendedItems(),
                   ),
                 ),
                 const CustomRow(text: 'Cusines'),

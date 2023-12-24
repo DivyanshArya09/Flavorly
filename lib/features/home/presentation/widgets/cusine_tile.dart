@@ -60,7 +60,7 @@ class CusineTile extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                           fontSize: size.width > 500
                               ? largeFontSize
-                              : size.width * .032,
+                              : size.width * .035,
                         ),
                   ),
                 ),
@@ -84,7 +84,7 @@ class CusineTile extends StatelessWidget {
                             color: AppColors.buttonColor1,
                             fontSize: size.width > 500
                                 ? largeFontSize
-                                : size.width * .035,
+                                : size.width * .034,
                           ),
                     ),
                   ],

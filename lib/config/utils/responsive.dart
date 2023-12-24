@@ -6,12 +6,11 @@ class Responsive {
   }
 
   static bool isDesktop(BuildContext context) {
-    return MediaQuery.of(context).size.width >= 1100 &&
-        MediaQuery.of(context).size.width >= 851;
+    return MediaQuery.of(context).size.width >= 951;
   }
 
   static bool isTablet(BuildContext context) {
-    return MediaQuery.of(context).size.width >= 800 &&
-        MediaQuery.of(context).size.width < 1100;
+    return MediaQuery.of(context).size.width >= 700 &&
+        MediaQuery.of(context).size.width < 950;
   }
 }

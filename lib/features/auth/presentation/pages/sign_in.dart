@@ -8,7 +8,7 @@ import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/google_button.dart';
 import 'package:recipe_app/features/auth/presentation/widgets/text_field.dart';
-import 'package:recipe_app/features/home/presentation/home_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

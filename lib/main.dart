@@ -7,7 +7,7 @@ import 'package:recipe_app/config/theme/theme.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/home/presentation/home_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
@@ -28,62 +28,57 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider<AnimationBloc>(
-            create: (context) => AnimationBloc(),
-          ),
-          // BlocProvider<AuthBloc>(
-          //     create: (context) => di.sl<AuthBloc>()..add(AppStarted())),
-          // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
-        ],
-        child: ScreenUtilInit(
-            designSize: const Size(360, 690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            builder: (context, child) {
-              return MaterialApp(
-                themeMode: ThemeMode.system,
-                darkTheme: AppTheme.darkTheme,
-                debugShowCheckedModeBanner: false,
-                title: 'Flutter Demo',
-                theme: AppTheme.lightTheme,
-                home: const HomePage(
-                  name: 'Flutter Demo Home Page',
-                ),
-                // home: BlocBuilder<AuthBloc, AuthState>(
-                //   builder: (context, state) {
-                //     if (state is Authenticated) {
-                //       return HomePage(
-                //         name: state.name,
-                //         email: state.email,
-                //         uid: state.uid,
-                //       );
-                //     }
-                //     if (state is Unauthenticated) {
-                //       return const SignUpPage();
-                //     }
-                //     if (state is AuthLoading) {
-                //       return const Scaffold(
-                //         body: Center(
-                //           child: CircularProgressIndicator(
-                //             color: AppColors.buttonColor1,
-                //           ),
-                //         ),
-                //       );
-                //     }
-                //     if (state is AppFirstTimeOpened) {
-                //       return const OnBoardingScreen();
-                //     }
-                //     return const Scaffold(
-                //       body: Center(
-                //         child: CircularProgressIndicator(
-                //           color: AppColors.buttonColor1,
-                //         ),
-                //       ),
-                //     );
-                //   },
-                // ),
-              );
-            }));
+      providers: [
+        BlocProvider<AnimationBloc>(
+          create: (context) => AnimationBloc(),
+        ),
+        // BlocProvider<AuthBloc>(
+        //     create: (context) => di.sl<AuthBloc>()..add(AppStarted())),
+        // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
+      ],
+      child: MaterialApp(
+        themeMode: ThemeMode.system,
+        darkTheme: AppTheme.darkTheme,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: AppTheme.lightTheme,
+        home: const HomePage(
+          name: 'Flutter Demo Home Page',
+        ),
+        // home: BlocBuilder<AuthBloc, AuthState>(
+        //   builder: (context, state) {
+        //     if (state is Authenticated) {
+        //       return HomePage(
+        //         name: state.name,
+        //         email: state.email,
+        //         uid: state.uid,
+        //       );
+        //     }
+        //     if (state is Unauthenticated) {
+        //       return const SignUpPage();
+        //     }
+        //     if (state is AuthLoading) {
+        //       return const Scaffold(
+        //         body: Center(
+        //           child: CircularProgressIndicator(
+        //             color: AppColors.buttonColor1,
+        //           ),
+        //         ),
+        //       );
+        //     }
+        //     if (state is AppFirstTimeOpened) {
+        //       return const OnBoardingScreen();
+        //     }
+        //     return const Scaffold(
+        //       body: Center(
+        //         child: CircularProgressIndicator(
+        //           color: AppColors.buttonColor1,
+        //         ),
+        //       ),
+        //     );
+        //   },
+        // ),
+      ),
+    );
   }
 }
