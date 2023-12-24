@@ -42,13 +42,15 @@ class CusineTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  'Dish name',
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontSize: size.width > 500
-                            ? largeFontSize
-                            : size.width * .035,
-                      ),
+                FittedBox(
+                  child: Text(
+                    'Dish name',
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontSize: size.width > 500
+                              ? largeFontSize
+                              : size.width * .035,
+                        ),
+                  ),
                 ),
                 SizedBox(
                   width: size.width > 500 ? size.width * .32 : size.width * .5,

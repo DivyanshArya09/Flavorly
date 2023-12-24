@@ -40,30 +40,6 @@ class HomePage extends StatelessWidget {
     // final bloc = GetIt.I.get<SignOutBloc>();
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: AppColors.buttonColor1,
-        //   title: Responsive.isTablet(context)
-        //       ? const Text('Tablet')
-        //       : const Text('Mobile'),
-        // ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //     backgroundColor: AppColors.buttonColor1,
-        //     currentIndex: 1,
-        //     onTap: (value) {},
-        //     items: const <BottomNavigationBarItem>[
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.home),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.person),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.settings),
-        //       ),
-        //       BottomNavigationBarItem(
-        //         icon: Icon(Icons.logout),
-        //       ),
-        //     ]),
         body: Padding(
           padding: EdgeInsets.symmetric(
               horizontal:
@@ -99,7 +75,7 @@ class HomePage extends StatelessWidget {
                 Visibility(
                   visible: Responsive.isDesktop(context),
                   child: const SizedBox(
-                    height: 220,
+                    height: 230,
                     // : size.height * .34,
                     child: RecommendedItems(),
                   ),

@@ -49,7 +49,8 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.CategoryEntity>>> getCategories(
+  _i4.Future<
+      _i2.Either<_i5.Failure, List<_i6.CategoryEntity>>> getCategoriesOfRecipes(
           String? cuisine) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -69,7 +70,7 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>
-      getRecommendation() => (super.noSuchMethod(
+      getRecommendedRecipes() => (super.noSuchMethod(
             Invocation.method(
               #getRecommendation,
               [],
@@ -87,27 +88,28 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
               .Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i8.PopularEntity>>> getPopular(
-          String? cuisine) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getPopular,
-          [cuisine],
-        ),
-        returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i8.PopularEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i8.PopularEntity>>(
-          this,
-          Invocation.method(
-            #getPopular,
-            [cuisine],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i8.PopularEntity>>>);
+  _i4.Future<_i2.Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>
+      getRecipesByNutrients(String? cuisine) => (super.noSuchMethod(
+            Invocation.method(
+              #getPopular,
+              [cuisine],
+            ),
+            returnValue: _i4.Future<
+                    _i2
+                    .Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i8.NutrientRecipeEntity>>(
+              this,
+              Invocation.method(
+                #getPopular,
+                [cuisine],
+              ),
+            )),
+          ) as _i4
+              .Future<_i2.Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>
-      getRandom() => (super.noSuchMethod(
+      getRandomRecipes() => (super.noSuchMethod(
             Invocation.method(
               #getRandom,
               [],

@@ -15,13 +15,8 @@ class RecommendedDish extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height:
-                Responsive.isDesktop(context) || Responsive.isTablet(context)
-                    ? 150
-                    : size.height * .25,
-            width: Responsive.isDesktop(context) || Responsive.isTablet(context)
-                ? 220
-                : size.width * .38,
+            height: !Responsive.isMobile(context) ? 150 : size.height * .25,
+            width: !Responsive.isMobile(context) ? 220 : size.width * .38,
             decoration: const BoxDecoration(
               color: AppColors.grey,
               borderRadius: BorderRadius.all(
@@ -29,31 +24,26 @@ class RecommendedDish extends StatelessWidget {
               ),
             ),
           ),
-          FittedBox(
-            fit: BoxFit.contain,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: size.height * 0.01 - 3.5),
-              child: Text(
-                'Cream Puff vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontSize:
-                          size.width > 400 ? mediumFontSize : size.width * .045,
-                    ),
-              ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: size.height * 0.01 - 3.5),
+            child: Text(
+              'Cream Puff vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontSize:
+                        size.width > 400 ? mediumFontSize : size.width * .045,
+                  ),
             ),
           ),
           // const SizedBox(
           //   height: 3,
           // ),
-          FittedBox(
-            fit: BoxFit.contain,
-            child: Text(
-              'By John Doe',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    fontSize:
-                        size.width > 400 ? smallFontSize : size.width * .035,
-                  ),
-            ),
+          Text(
+            'By John Doe',
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  fontSize:
+                      size.width > 400 ? smallFontSize : size.width * .035,
+                ),
           )
         ],
       ),

@@ -1,6 +1,7 @@
 const apiKey = '2c1b0e52091f4f3696b5642181e5d4b6';
 // recommeded = https://api.spoonacular.com/recipes/random
 // popular = https://api.spoonacular.com/recipes/search?apiKey=2c1b0e52091f4f3696b5642181e5d4b6&number=10&cuisine=indian
+// byNurtrients = https://api.spoonacular.com/recipes/findByNutrients?minCarbs=10&maxCarbs=50&number=2
 List<String> categories = [
   "American",
   "Indian",
