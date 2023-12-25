@@ -9,10 +9,12 @@ abstract class HomeRepository {
   Future<Either<Failure, List<CategoryEntity>>> getCategoriesOfRecipes(
       String cuisine);
 
-  Future<Either<Failure, List<RecommendRecipeEntity>>> getRecommendedRecipes();
+  Future<Either<Failure, List<RecommendRecipeEntity>>> getRecommendedRecipes(
+      int id);
 
   Future<Either<Failure, List<NutrientRecipeEntity>>> getRecipesByNutrients(
       String nutrient);
 
-  Future<Either<Failure, List<RandomRecipeEntity>>> getRandomRecipes();
+  Future<Either<Failure, List<RandomRecipeEntity>>> getRandomRecipes(
+      int number);
 }

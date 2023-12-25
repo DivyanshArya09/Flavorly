@@ -73,7 +73,7 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendRecipeEntity>>>
-      getRecommendedRecipes() => (super.noSuchMethod(
+      getRecommendedRecipes(int? id) => (super.noSuchMethod(
             Invocation.method(
               #getRecommendation,
               [],
@@ -112,22 +112,22 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
               .Future<_i2.Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>
-      getRandomRecipes() => (super.noSuchMethod(
-            Invocation.method(
-              #getRandom,
-              [],
-            ),
-            returnValue: _i4.Future<
-                    _i2
-                    .Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i7.RandomRecipeEntity>>(
-              this,
-              Invocation.method(
-                #getRandom,
-                [],
-              ),
-            )),
-          ) as _i4
-              .Future<_i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>);
+  _i4.Future<
+      _i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>> getRandomRecipes(
+          int? number) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRandom,
+          [],
+        ),
+        returnValue: _i4.Future<
+                _i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>.value(
+            _FakeEither_0<_i5.Failure, List<_i7.RandomRecipeEntity>>(
+          this,
+          Invocation.method(
+            #getRandom,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>);
 }

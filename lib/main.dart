@@ -8,6 +8,7 @@ import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:recipe_app/features/home/presentation/sample_test.dart/sample_page.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
@@ -42,9 +43,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        home: const HomePage(
-          name: 'Flutter Demo Home Page',
-        ),
+        home: const TestApiPage(),
+        // home: const HomePage(
+        //   name: 'Flutter Demo Home Page',
+        // ),
         // home: BlocBuilder<AuthBloc, AuthState>(
         //   builder: (context, state) {
         //     if (state is Authenticated) {

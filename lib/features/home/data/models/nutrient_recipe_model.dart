@@ -37,4 +37,17 @@ class NutrientRecipeModel extends NutrientRecipeEntity {
     data['title'] = title;
     return data;
   }
+
+  NutrientRecipeEntity toEntity() {
+    return NutrientRecipeEntity(
+      id: id,
+      image: image,
+      fat: fat,
+      title: title,
+      imageType: imageType,
+      protein: protein,
+      calories: calories,
+      carbs: carbs,
+    );
+  }
 }

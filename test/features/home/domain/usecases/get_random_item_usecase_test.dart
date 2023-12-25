@@ -19,7 +19,7 @@ void main() {
       getRandomRecipeUseCase =
           GetRandomRecipeUseCase(repository: mockHomeRepository);
 
-      RandomRecipeEntity dummyData = RandomRecipeEntity(
+      RandomRecipeEntity dummyData = const RandomRecipeEntity(
         id: 1,
         aisle: 'Aisle 1',
         image: 'image_url',
@@ -41,11 +41,12 @@ void main() {
       test(
         'should get recommended items list from the repository',
         () async {
-          when(mockHomeRepository.getRandomRecipes())
+          when(mockHomeRepository.getRandomRecipes(2324))
               .thenAnswer((_) async => Right(dummyDataList));
 
           // assert
-          final result = await getRandomRecipeUseCase.call(NoParams());
+          final result = await getRandomRecipeUseCase
+              .call(const RandomRecipeParams(number: 1));
 
           // assert
           expect(result, Right(dummyDataList));

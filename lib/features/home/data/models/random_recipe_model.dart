@@ -1,4 +1,5 @@
 import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
+import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
 
 class RandomRecipeModel extends RandomRecipeEntity {
   const RandomRecipeModel(
@@ -29,6 +30,23 @@ class RandomRecipeModel extends RandomRecipeEntity {
       unit: json['unit'],
       meta: List<String>.from(json['meta']),
       measures: MeasuresModel.fromJson(json['measures']),
+    );
+  }
+
+  RandomRecipeEntity toEntity() {
+    return RandomRecipeEntity(
+      id: id,
+      aisle: aisle,
+      image: image,
+      consistency: consistency,
+      name: name,
+      nameClean: nameClean,
+      original: original,
+      originalName: originalName,
+      amount: amount,
+      unit: unit,
+      meta: meta,
+      measures: measures,
     );
   }
 }
