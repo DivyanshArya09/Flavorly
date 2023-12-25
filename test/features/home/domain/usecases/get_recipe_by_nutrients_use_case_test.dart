@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/features/home/domain/entites/popular_entity.dart';
+import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
 
 import '../../helper/test_helper.mocks.dart';

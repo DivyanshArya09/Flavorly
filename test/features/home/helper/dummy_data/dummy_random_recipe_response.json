@@ -1,0 +1,25 @@
+{
+    "id": 1014582,
+    "aisle": "Oil, Vinegar, Salad Dressing",
+    "image": "vegetable-oil.jpg",
+    "consistency": "LIQUID",
+    "name": "canola oil",
+    "nameClean": "canola oil",
+    "original": "2 T. canola oil",
+    "originalName": "canola oil",
+    "amount": 2.0,
+    "unit": "T",
+    "meta": [],
+    "measures": {
+        "us": {
+            "amount": 2.0,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+        },
+        "metric": {
+            "amount": 2.0,
+            "unitShort": "Tbsps",
+            "unitLong": "Tbsps"
+        }
+    }
+}

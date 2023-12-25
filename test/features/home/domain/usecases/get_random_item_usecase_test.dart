@@ -2,7 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/home/domain/entites/recommended_entity.dart';
+import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_random_recipes_use_case.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
 
 import '../../helper/test_helper.mocks.dart';
@@ -10,15 +11,15 @@ import '../../helper/test_helper.mocks.dart';
 void main() {
   MockHomeRepository mockHomeRepository;
 
-  GetRecommendedItemUseCase getRecommendedItemUseCase;
+  GetRandomRecipeUseCase getRandomRecipeUseCase;
 
   setUp(
     () {
       mockHomeRepository = MockHomeRepository();
-      getRecommendedItemUseCase =
-          GetRecommendedItemUseCase(homeRepository: mockHomeRepository);
+      getRandomRecipeUseCase =
+          GetRandomRecipeUseCase(repository: mockHomeRepository);
 
-      RecommendedEntity dummyData = RecommendedEntity(
+      RandomRecipeEntity dummyData = RandomRecipeEntity(
         id: 1,
         aisle: 'Aisle 1',
         image: 'image_url',
@@ -35,16 +36,16 @@ void main() {
             metric: Us(amount: 1, unitLong: 'metric', unitShort: 'metric')),
       );
 
-      List<RecommendedEntity> dummyDataList = [dummyData, dummyData];
+      List<RandomRecipeEntity> dummyDataList = [dummyData, dummyData];
 
       test(
         'should get recommended items list from the repository',
         () async {
-          when(mockHomeRepository.getRecommendedRecipes())
+          when(mockHomeRepository.getRandomRecipes())
               .thenAnswer((_) async => Right(dummyDataList));
 
           // assert
-          final result = await getRecommendedItemUseCase.call(NoParams());
+          final result = await getRandomRecipeUseCase.call(NoParams());
 
           // assert
           expect(result, Right(dummyDataList));

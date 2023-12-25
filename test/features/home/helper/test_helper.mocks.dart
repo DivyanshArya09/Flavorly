@@ -8,12 +8,15 @@ import 'dart:async' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:recipe_app/core/error/failure.dart' as _i5;
-import 'package:recipe_app/features/home/domain/entites/category_entity.dart'
+import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart'
     as _i6;
-import 'package:recipe_app/features/home/domain/entites/popular_entity.dart'
+import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart'
     as _i8;
-import 'package:recipe_app/features/home/domain/entites/recommended_entity.dart'
+import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart'
     as _i7;
+import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart'
+    as _i7;
+
 import 'package:recipe_app/features/home/domain/repositories/home_repository.dart'
     as _i3;
 
@@ -69,23 +72,24 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
       ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.CategoryEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>
+  _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendRecipeEntity>>>
       getRecommendedRecipes() => (super.noSuchMethod(
             Invocation.method(
               #getRecommendation,
               [],
             ),
             returnValue: _i4.Future<
-                    _i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i7.RecommendedEntity>>(
+                    _i2.Either<_i5.Failure,
+                        List<_i7.RecommendRecipeEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i7.RecommendRecipeEntity>>(
               this,
               Invocation.method(
                 #getRecommendation,
                 [],
               ),
             )),
-          ) as _i4
-              .Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>);
+          ) as _i4.Future<
+              _i2.Either<_i5.Failure, List<_i7.RecommendRecipeEntity>>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>
@@ -108,15 +112,16 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
               .Future<_i2.Either<_i5.Failure, List<_i8.NutrientRecipeEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>
+  _i4.Future<_i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>
       getRandomRecipes() => (super.noSuchMethod(
             Invocation.method(
               #getRandom,
               [],
             ),
             returnValue: _i4.Future<
-                    _i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i7.RecommendedEntity>>(
+                    _i2
+                    .Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i7.RandomRecipeEntity>>(
               this,
               Invocation.method(
                 #getRandom,
@@ -124,5 +129,5 @@ class MockHomeRepository extends _i1.Mock implements _i3.HomeRepository {
               ),
             )),
           ) as _i4
-              .Future<_i2.Either<_i5.Failure, List<_i7.RecommendedEntity>>>);
+              .Future<_i2.Either<_i5.Failure, List<_i7.RandomRecipeEntity>>>);
 }
