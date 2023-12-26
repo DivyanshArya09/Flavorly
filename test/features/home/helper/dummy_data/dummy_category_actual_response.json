@@ -1,0 +1,90 @@
+{
+    "results": [
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://foodandspice.blogspot.com/2016/08/spicy-black-eyed-pea-curry-with-swiss.html",
+            "image": "spicy-black-eyed-pea-curry-with-swiss-chard-and-roasted-eggplant-798400.jpg",
+            "servings": 6,
+            "id": 798400,
+            "title": "Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://www.foodista.com/recipe/G6ZJW56S/gujarati-dry-mung-bean-curry",
+            "image": "Gujarati-Dry-Mung-Bean-Curry-646043.jpg",
+            "servings": 4,
+            "id": 646043,
+            "title": "Gujarati Dry Mung Bean Curry"
+        },
+        {
+            "readyInMinutes": 30,
+            "sourceUrl": "http://www.foodista.com/recipe/2LQW8RTQ/indian-style-dill-and-turmeric-potatoes",
+            "image": "Indian-Style-Dill-and-Turmeric-Potatoes-647875.jpg",
+            "servings": 4,
+            "id": 647875,
+            "title": "Indian-Style Dill and Turmeric Potato Salad"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://www.foodista.com/recipe/Z5MXNR2V/slow-cooker-lamb-curry",
+            "image": "Slow-Cooker-Lamb-Curry-660290.jpg",
+            "servings": 8,
+            "id": 660290,
+            "title": "Slow Cooker Lamb Curry"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "https://www.foodista.com/recipe/4ZL4SYFD/curry-mussels",
+            "image": "Curry-Mussels-641128.jpg",
+            "servings": 2,
+            "id": 641128,
+            "title": "Curry Mussels"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://www.foodista.com/recipe/VVMBG4PD/authentic-jamaican-curry-chicken",
+            "image": "Authentic-Jamaican-Curry-Chicken-633088.jpg",
+            "servings": 4,
+            "id": 633088,
+            "title": "Authentic Jamaican Curry Chicken"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://www.foodista.com/recipe/HFH8GVJS/fried-pumpkin-indian-style",
+            "image": "Fried-Pumpkin--Indian-Style-643775.jpg",
+            "servings": 12,
+            "id": 643775,
+            "title": "Indian-Style Pumpkin Side Dish"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "https://www.foodista.com/recipe/7Q3RC88N/easy-chicken-tikka-masala",
+            "servings": 4,
+            "id": 641908,
+            "title": "Easy Chicken Tikka Masala"
+        },
+        {
+            "readyInMinutes": 30,
+            "sourceUrl": "http://www.foodista.com/recipe/WKQQKG5K/luscious-palak-paneer",
+            "image": "Luscious-Palak-Paneer-650484.jpg",
+            "servings": 2,
+            "id": 650484,
+            "title": "Luscious Palak Paneer"
+        },
+        {
+            "readyInMinutes": 45,
+            "sourceUrl": "http://www.foodista.com/recipe/RVGM5HG8/green-curry-chicken-salad",
+            "image": "Green-Curry-Chicken-Salad-651726.jpg",
+            "servings": 2,
+            "id": 651726,
+            "title": "Green Curry Chicken Salad"
+        }
+    ],
+    "baseUri": "https://spoonacular.com/recipeImages/",
+    "offset": 0,
+    "number": 10,
+    "totalResults": 122,
+    "processingTimeMs": 20,
+    "expires": 1703759539066,
+    "isStale": false
+}

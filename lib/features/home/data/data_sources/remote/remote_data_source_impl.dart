@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:recipe_app/config/constants/api_constants/constants.dart';
 import 'package:recipe_app/config/constants/api_key.dart';
+import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart';
 import 'package:recipe_app/features/home/data/models/category_model.dart';
 import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
@@ -7,37 +9,29 @@ import 'package:recipe_app/features/home/data/models/random_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
-  final Dio dio = Dio();
+  final Dio dio;
+
+  HomeRemoteDataSourceImpl({required this.dio});
 
   @override
   Future<List<CategoryModel>> getCategoriesOfRecipes(String category) async {
-    var response = await dio.get(
-        '$baseUrl/recipes/search?apiKey=$apiKey&number=10&cuisine=$category');
-    var data = response.data;
-
+    var response = await dio.get(ApiUrls.getCategoriesRecipeUrl(category, 10));
     if (response.statusCode == 200) {
+      var data = response.data;
       return (data['results'] as List)
           .map((e) => CategoryModel.fromJson(e))
           .toList();
     } else {
-      throw Exception('Failed to load data');
+      print('--------------------------------Failed to load data');
+      throw ServerException();
     }
   }
 
   @override
   Future<List<NutrientRecipeModel>> getNutrientRecipes(
       List<String> nutrient, int concentration) async {
-    String query = '';
-    for (var element in nutrient) {
-      query += '&$element=$concentration';
-    }
-    query = query.replaceAll(
-      ',',
-      '',
-    );
-
     var response = await dio.get(
-      '$baseUrl/recipes/findByNutrients?apiKey=$apiKey$query',
+      ApiUrls.getRecipeByNutrientsUrl(nutrient, concentration),
     );
     var data = response.data;
     if (response.statusCode == 200) {
@@ -45,14 +39,14 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           .map((e) => NutrientRecipeModel.fromJson(e))
           .toList();
     } else {
-      throw Exception('Failed to load data');
+      throw ServerException();
     }
   }
 
   @override
   Future<List<RandomRecipeModel>> getRandomRecipes(int number) async {
     var response = await dio.get(
-      '$baseUrl/recipes/random?apiKey=$apiKey&number=$number',
+      ApiUrls.getRandomRecipesUrl(number),
     );
     var data = response.data;
     if (response.statusCode == 200) {
@@ -67,14 +61,15 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   @override
   Future<List<RecommendedRecipeModel>> getRecommendedRecipes(int id) async {
     var response = await dio.get(
-      '$baseUrl/recipes/$id/similar?apiKey=$apiKey',
+      ApiUrls.getRecommendedRecipesUrl(id),
     );
     var data = response.data;
-
     if (response.statusCode == 200) {
-      return data.map((e) => RecommendedRecipeModel.fromJson(e)).toList();
+      return (data as List)
+          .map((e) => RecommendedRecipeModel.fromJson(e))
+          .toList();
     } else {
-      throw Exception('Failed to load data');
+      throw ServerException(message: 'Failed to load data');
     }
   }
 }

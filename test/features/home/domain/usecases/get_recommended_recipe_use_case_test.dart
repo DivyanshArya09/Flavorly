@@ -45,7 +45,7 @@ void main() {
 
   test('should get recipes list of random from the repository', () async {
     // arrange
-    when(mockHomeRepository.getRecommendedRecipes(1))
+    when(mockHomeRepository.getRecommendedRecipes(6345))
         .thenAnswer((realInvocation) async => Right(dummyRandomRecipesList));
 
     // act

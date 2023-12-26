@@ -7,7 +7,8 @@ import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.
 import '../../helper/json_reader.dart';
 
 void main() {
-  RecommendedRecipeModel dummyRecommendedRecipeModel = RecommendedRecipeModel(
+  RecommendedRecipeModel dummyRecommendedRecipeModel =
+      const RecommendedRecipeModel(
     id: 9751,
     title: "Dinner Tonight: Roasted Beet Bruschetta",
     imageType: "jpg",

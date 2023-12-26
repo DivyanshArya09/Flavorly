@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/caresoul.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/cusines_list.dart';
@@ -12,12 +8,8 @@ import 'package:recipe_app/features/home/presentation/pages/home_page/components
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/header.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/recommendation.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
-import 'package:recipe_app/features/home/presentation/widgets/cusine_tile.dart';
 import 'package:recipe_app/features/home/presentation/widgets/custom_row.dart';
-import 'package:recipe_app/features/home/presentation/widgets/grid_item.dart';
 import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
-
-import '../../../../../config/constants/app_colors.dart';
 
 // 384 -> old mobiles
 // 640 > normal mobiles

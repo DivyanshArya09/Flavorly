@@ -1,15 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/config/theme/theme.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/home/presentation/sample_test.dart/sample_page.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
+import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
@@ -43,7 +36,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        home: const TestApiPage(),
+        home: const SkeltonHomePage(),
         // home: const HomePage(
         //   name: 'Flutter Demo Home Page',
         // ),
