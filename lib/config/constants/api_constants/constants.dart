@@ -24,8 +24,12 @@ class ApiUrls {
   static String getRecommendedRecipesUrl(int id) =>
       '$baseUrl/recipes/$id/similar?apiKey=$apiKey';
 
+  static String getMenuRecipesUrl(String menuItem, int number) =>
+      '$baseUrl/food/menuItems/search?apiKey=$apiKey&number=$number&query=$menuItem';
+
 // popular = https://api.spoonacular.com/recipes/search?apiKey=2c1b0e52091f4f3696b5642181e5d4b6&number=10&cuisine=indian
 // byNurtrients = https://api.spoonacular.com/recipes/findByNutrients?minCarbs=10&maxCarbs=50&number=2
+// menuitems = https://api.spoonacular.com/food/menuItems/search?apiKey=2c1b0e52091f4f3696b5642181e5d4b6&query=pizza&number=5
   static List<String> categories = [
     "American",
     "Indian",

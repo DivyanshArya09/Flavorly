@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:recipe_app/features/home/presentation/widgets/carousel_item.dart';
 
 class Carousel extends StatelessWidget {
@@ -19,6 +20,10 @@ class Carousel extends StatelessWidget {
         enlargeFactor: .15,
         autoPlay: true,
       ),
-    );
+    ).animate().fadeIn(
+          duration: const Duration(seconds: 1),
+          curve: Curves.easeInOutCubic,
+          begin: 0,
+        );
   }
 }

@@ -32,56 +32,60 @@ class HomePage extends StatelessWidget {
     // final bloc = GetIt.I.get<SignOutBloc>();
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal:
-                  size.width > 850 ? size.width * .13 : horizontalPadding),
-          child: SingleChildScrollView(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Header(name: 'Anne'),
-                const CustomSeperator(),
-                const CustomSearchBar(),
-                const CustomSeperator(),
-                const CustomRow(text: 'Categories'),
-                const CustomSeperator(),
-                const SizedBox(
-                  height: 90,
-                  child: Categories(),
-                ),
-                const CustomSeperator(),
-                const CustomRow(text: 'Recommendation'),
-                SizedBox(
-                    height:
-                        Responsive.isMobile(context) ? size.height * .35 : 250,
-                    child: const RecommendedItems()),
-                const CustomRow(text: 'Popular'),
-                const CustomSeperator(),
-                Visibility(
-                  visible: !Responsive.isDesktop(context),
-                  child: const Carousel(),
-                ),
-                Visibility(
-                  visible: Responsive.isDesktop(context),
-                  child: const SizedBox(
-                    height: 230,
-                    // : size.height * .34,
-                    child: RecommendedItems(),
+        body: Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
+            constraints: const BoxConstraints(
+              maxWidth: 1200,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Header(name: 'Anne'),
+                  const CustomSeperator(),
+                  const CustomSearchBar(),
+                  const CustomSeperator(),
+                  const CustomRow(text: 'Categories'),
+                  const CustomSeperator(),
+                  const SizedBox(
+                    height: 90,
+                    child: Categories(),
                   ),
-                ),
-                const CustomRow(text: 'Cusines'),
-                const CustomSeperator(),
-                Visibility(
+                  const CustomSeperator(),
+                  const CustomRow(text: 'Recommendation'),
+                  SizedBox(
+                      height: Responsive.isMobile(context)
+                          ? size.height * .35
+                          : 250,
+                      child: const RecommendedItems()),
+                  const CustomRow(text: 'Menu Items'),
+                  const CustomSeperator(),
+                  Visibility(
                     visible: !Responsive.isDesktop(context),
-                    child: const CusinesList()),
-                Visibility(
-                  visible: Responsive.isDesktop(context),
-                  child: const MyGrid(),
-                )
-              ],
+                    child: const Carousel(),
+                  ),
+                  Visibility(
+                    visible: Responsive.isDesktop(context),
+                    child: const SizedBox(
+                      height: 230,
+                      // : size.height * .34,
+                      child: RecommendedItems(),
+                    ),
+                  ),
+                  const CustomRow(text: 'Cusines'),
+                  const CustomSeperator(),
+                  Visibility(
+                      visible: !Responsive.isDesktop(context),
+                      child: const CusinesList()),
+                  Visibility(
+                    visible: Responsive.isDesktop(context),
+                    child: const MyGrid(),
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:recipe_app/config/constants/api_constants/constants.dart';
-import 'package:recipe_app/config/constants/api_key.dart';
 import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart';
 import 'package:recipe_app/features/home/data/models/category_model.dart';
+import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/random_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
@@ -22,7 +22,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           .map((e) => CategoryModel.fromJson(e))
           .toList();
     } else {
-      print('--------------------------------Failed to load data');
+      // print('--------------------------------Failed to load data');
       throw ServerException();
     }
   }
@@ -70,6 +70,23 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           .toList();
     } else {
       throw ServerException(message: 'Failed to load data');
+    }
+  }
+
+  @override
+  Future<List<MenuRecipeModel>> getMenuRecipes(
+      String menuItem, int number) async {
+    var response = await Dio().get(
+      ApiUrls.getMenuRecipesUrl(menuItem, number),
+    );
+
+    if (response.statusCode == 200) {
+      var data = response.data;
+      return (data['menuItems'] as List)
+          .map((e) => MenuRecipeModel.fromJson(e))
+          .toList();
+    } else {
+      throw ServerException();
     }
   }
 }

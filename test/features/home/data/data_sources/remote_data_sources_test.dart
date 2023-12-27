@@ -5,6 +5,7 @@ import 'package:recipe_app/config/constants/api_constants/constants.dart';
 import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source_impl.dart';
 import 'package:recipe_app/features/home/data/models/category_model.dart';
+import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
 import '../../helper/test_helper.mocks.dart';
@@ -340,6 +341,94 @@ void main() {
           //act
           final result = await homeRemoteDataSourceImpl
               .getNutrientRecipes(['minCrabs'], 10);
+          //assert
+          expect(result, throwsA(isA<ServerException>()));
+        },
+      );
+    },
+  );
+
+  group(
+    'getMenuRecipe test',
+    () {
+      test(
+        'GetMenuRecipe function should return valid List<MenuRecipeModel>',
+        () async {
+          // arrange
+          when(
+            mockDio.get(
+              ApiUrls.getMenuRecipesUrl('breakfast', 10),
+            ),
+          ).thenAnswer(
+            (realInvocation) async {
+              return Response(
+                statusCode: 200,
+                data: [
+                  {
+                    "type": "menuItem",
+                    "menuItems": [
+                      {
+                        "_id": "pizza_my_heart_combo_pizza_slice",
+                        "id": 387582,
+                        "title": "Combo Pizza (Slice)",
+                        "image":
+                            "https://images.spoonacular.com/file/wximages/387582-312x231.png",
+                        "imageType": "png",
+                        "restaurantChain": "Pizza My Heart",
+                        "servings": {
+                          "number": 1.0,
+                          "size": 1.0,
+                          "unit": "slice"
+                        }
+                      }
+                    ],
+                    "offset": 0,
+                    "number": 1,
+                    "totalMenuItems": 10954,
+                    "processingTimeMs": 372
+                  }
+                ],
+                requestOptions: RequestOptions(
+                  path: ApiUrls.getMenuRecipesUrl('breakfast', 10),
+                ),
+              );
+            },
+          );
+
+          // act
+          final result = await homeRemoteDataSourceImpl.getMenuRecipes(
+            'breakfast',
+            10,
+          );
+
+          // assert
+          expect(result, isA<List<MenuRecipeModel>>());
+        },
+      );
+
+      test(
+        'GetMenuRecipe should throw a ServerException',
+        () async {
+          // arrange
+          when(mockDio.get(
+            ApiUrls.getMenuRecipesUrl('breakfast', 10),
+          )).thenAnswer(
+            (realInvocation) async {
+              return Response(
+                statusCode: 404,
+                requestOptions: RequestOptions(
+                  path: ApiUrls.getMenuRecipesUrl('breakfast', 10),
+                ),
+                data: 'Not found',
+              );
+            },
+          );
+          // act
+          final result = homeRemoteDataSourceImpl.getMenuRecipes(
+            'breakfast',
+            10,
+          );
+
           //assert
           expect(result, throwsA(isA<ServerException>()));
         },

@@ -1,0 +1,13 @@
+{
+    "_id": "pizza_my_heart_combo_pizza_slice",
+    "id": 387582,
+    "title": "Combo Pizza (Slice)",
+    "image": "https://images.spoonacular.com/file/wximages/387582-312x231.png",
+    "imageType": "png",
+    "restaurantChain": "Pizza My Heart",
+    "servings": {
+        "number": 1.0,
+        "size": 1.0,
+        "unit": "slice"
+    }
+}
