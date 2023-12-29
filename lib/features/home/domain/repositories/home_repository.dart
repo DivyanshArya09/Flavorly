@@ -14,7 +14,7 @@ abstract class HomeRepository {
       int id);
 
   Future<Either<Failure, List<NutrientRecipeEntity>>> getRecipesByNutrients(
-      String nutrient);
+      List<String> nutrients, int concentration);
 
   Future<Either<Failure, List<RandomRecipeEntity>>> getRandomRecipes(
       int number);

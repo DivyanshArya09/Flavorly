@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
+import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/core/network/network_info.dart';
 import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart';
@@ -24,6 +27,8 @@ class HomeRepositoryImpl implements HomeRepository {
     try {
       final result = await homeRemoteDataSource.getCategoriesOfRecipes(cuisine);
       return Right(result.map((e) => e.toEntity()).toList());
+    } on SocketException catch (e) {
+      return Left(ConnectionFailure(e.toString()));
     } catch (e) {
       return Left(SeverFailure(e.toString()));
     }
@@ -45,9 +50,19 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<NutrientRecipeEntity>>> getRecipesByNutrients(
-      String nutrient) {
-    // TODO: implement getRecipesByNutrients
-    throw UnimplementedError();
+      List<String> nutrients, int concentration) async {
+    if (!await networkInfo.isConnected) {
+      return Left(ConnectionFailure('No internet connection'));
+    }
+    try {
+      var result = await homeRemoteDataSource.getNutrientRecipes(
+          nutrients, concentration);
+      return Right(result.map((e) => e.toEntity()).toList());
+    } on ServerException catch (e) {
+      return Left(SeverFailure(e.toString()));
+    } catch (e) {
+      return Left(SeverFailure(e.toString()));
+    }
   }
 
   @override
@@ -66,8 +81,15 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<MenuRecipeEntity>>> getMenuItems(
-      String menuItem, int number) {
-    // TODO: implement getMenuItems
-    throw UnimplementedError();
+      String menuItem, int number) async {
+    if (!await networkInfo.isConnected) {
+      return Left(ConnectionFailure('No internet connection'));
+    }
+    try {
+      var result = await homeRemoteDataSource.getMenuRecipes(menuItem, number);
+      return Right(result.map((e) => e.toEntity()).toList());
+    } catch (e) {
+      return Left(SeverFailure(e.toString()));
+    }
   }
 }

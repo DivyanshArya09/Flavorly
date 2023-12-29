@@ -17,7 +17,7 @@ void main() {
     getMenuRecipeUseCase = GetMenuRecipeUseCase(repository: mockHomeRepository);
   });
 
-  List<MenuRecipeEntity> expectedResult = [
+  List<MenuRecipeEntity> expectedResult = const [
     MenuRecipeEntity(
       sId: '1',
       id: 101,
@@ -56,6 +56,7 @@ void main() {
     ),
     // Add more sample entities as needed
   ];
+
   test('should get recipes list of MenuRecipeEntity from the repository',
       () async {
     // arrange

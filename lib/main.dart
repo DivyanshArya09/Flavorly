@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/config/theme/theme.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
@@ -32,14 +33,14 @@ class MyApp extends StatelessWidget {
         // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
       ],
       child: MaterialApp(
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
         // home: const SkeltonHomePage(),
         home: const HomePage(
-          name: 'Flutter Demo Home Page',
+          name: 'Divyansh',
         ),
         // home: BlocBuilder<AuthBloc, AuthState>(
         //   builder: (context, state) {

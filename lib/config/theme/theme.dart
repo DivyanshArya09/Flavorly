@@ -12,6 +12,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.white,
     textTheme: CustomTextTheme.lightTextTheme,
     inputDecorationTheme: CustomTextFieldTheme.inputDecorationThemeLightMode,
+    // cardColor:
   );
 
   static ThemeData darkTheme = ThemeData(

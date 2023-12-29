@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:recipe_app/core/utils/category_constant.dart';
 import 'package:recipe_app/features/home/presentation/widgets/single_category.dart';
 
 class Categories extends StatelessWidget {
@@ -11,7 +12,7 @@ class Categories extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: CategoryConstants.categories.length,
         itemBuilder: (context, index) {
           return AnimationConfiguration.staggeredList(
             position: index,
@@ -24,7 +25,11 @@ class Categories extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: 8, bottom: 8, left: index == 0 ? 0 : 10, right: 10),
-                  child: const Category(),
+                  child: Category(
+                    onTap: () {},
+                    imageUrl: CategoryConstants.categorypngs[index],
+                    title: CategoryConstants.categories[index],
+                  ),
                 ),
               ),
             ),

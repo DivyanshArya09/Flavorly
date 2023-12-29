@@ -53,13 +53,12 @@ void main() {
 
   test('should get recipes list from the repository by nutrients', () async {
     // arrange
-    const String nutrients = 'nutrients';
-    when(mockHomeRepository.getRecipesByNutrients(nutrients))
+    when(mockHomeRepository.getRecipesByNutrients(['minCrabs'], 10))
         .thenAnswer((realInvocation) async => Right(dummyList));
 
     // act
-    final result = await getRecipesByNutrientsUseCase
-        .call(const NutrientsParams(nutrients: nutrients));
+    final result = await getRecipesByNutrientsUseCase.call(
+        const NutrientsParams(nutrients: ['minCrabs'], concentration: 10));
 
     // assert
     expect(result, Right(dummyList));

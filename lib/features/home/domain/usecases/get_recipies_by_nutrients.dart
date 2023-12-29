@@ -16,14 +16,16 @@ class GetRecipesByNutrientsUseCase
   @override
   Future<Either<Failure, List<NutrientRecipeEntity>>> call(
       NutrientsParams params) async {
-    return await homeRepository.getRecipesByNutrients(params.nutrients);
+    return await homeRepository.getRecipesByNutrients(
+        params.nutrients, params.concentration);
   }
 }
 
 class NutrientsParams extends Equatable {
-  final String nutrients;
+  final List<String> nutrients;
+  final int concentration;
 
-  const NutrientsParams({required this.nutrients});
+  const NutrientsParams({required this.nutrients, required this.concentration});
 
   @override
   List<Object?> get props => [nutrients];

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
+import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/caresoul.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/cusines_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/grid_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/header.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/recipe_card.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/components/recipe_card_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/recommendation.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 import 'package:recipe_app/features/home/presentation/widgets/custom_row.dart';
 import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
 
@@ -19,12 +25,32 @@ import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
 // 1536 > Desktop
 // 4k > large desktop
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   final String name;
   const HomePage({
     super.key,
     required this.name,
   });
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late HomeBloc homeBloc;
+
+  @override
+  void initState() {
+    homeBloc = GetIt.I.get<HomeBloc>()
+      ..add(const HomeInitialEvent(
+          category: 'indian',
+          id: 4673,
+          menuItem: 'pizza',
+          numberOfMenuItemsYouWant: 10,
+          nutrients: ['maxCarbs'],
+          concentration: 20));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,54 +64,76 @@ class HomePage extends StatelessWidget {
             constraints: const BoxConstraints(
               maxWidth: 1200,
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Header(name: 'Anne'),
-                  const CustomSeperator(),
-                  const CustomSearchBar(),
-                  const CustomSeperator(),
-                  const CustomRow(text: 'Categories'),
-                  const CustomSeperator(),
-                  const SizedBox(
-                    height: 90,
-                    child: Categories(),
-                  ),
-                  const CustomSeperator(),
-                  const CustomRow(text: 'Recommendation'),
-                  SizedBox(
-                      height: Responsive.isMobile(context)
-                          ? size.height * .35
-                          : 250,
-                      child: const RecommendedItems()),
-                  const CustomRow(text: 'Menu Items'),
-                  const CustomSeperator(),
-                  Visibility(
-                    visible: !Responsive.isDesktop(context),
-                    child: const Carousel(),
-                  ),
-                  Visibility(
-                    visible: Responsive.isDesktop(context),
-                    child: const SizedBox(
-                      height: 230,
-                      // : size.height * .34,
-                      child: RecommendedItems(),
+            child: BlocConsumer<HomeBloc, HomeState>(
+              bloc: homeBloc,
+              listener: (context, state) {},
+              // buildWhen:  ( previous, current) => current is H,
+              builder: (context, state) {
+                if (state.status == HomeStatus.loading) {
+                  return const SkeltonHomePage();
+                }
+                if (state.status == HomeStatus.success) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Header(name: 'Divyansh'),
+                        const CustomSeperator(),
+                        const CustomSearchBar(),
+                        const CustomSeperator(),
+                        const CustomRow(text: 'Categories'),
+                        const CustomSeperator(),
+                        const SizedBox(
+                          height: 90,
+                          child: Categories(),
+                        ),
+                        const CustomSeperator(),
+                        const CustomRow(text: 'By Nutrients'),
+                        SizedBox(
+                            height: Responsive.isMobile(context)
+                                ? size.height * .38
+                                : 250,
+                            child: NutrientRecipes(
+                              nutrientRecipes: state.nutrients ?? [],
+                            )),
+                        const CustomRow(text: 'Menu Items'),
+                        const CustomSeperator(),
+                        Visibility(
+                          visible: !Responsive.isDesktop(context),
+                          child: Carousel(
+                            menuItems: state.menuItems ?? [],
+                          ),
+                        ),
+                        Visibility(
+                          visible: Responsive.isDesktop(context),
+                          child: SizedBox(
+                            height: 230,
+                            // : size.height * .34,
+                            child: NutrientRecipes(
+                              nutrientRecipes: state.nutrients ?? [],
+                            ),
+                          ),
+                        ),
+                        const CustomRow(text: 'Cusines'),
+                        const CustomSeperator(),
+                        RecipeCardList(
+                          recipes: state.categories ?? [],
+                        ),
+                        // Visibility(
+                        //     visible: !Responsive.isDesktop(context),
+                        //     child: const CusinesList()),
+                        Visibility(
+                          visible: Responsive.isDesktop(context),
+                          child: const MyGrid(),
+                        )
+                      ],
                     ),
-                  ),
-                  const CustomRow(text: 'Cusines'),
-                  const CustomSeperator(),
-                  Visibility(
-                      visible: !Responsive.isDesktop(context),
-                      child: const CusinesList()),
-                  Visibility(
-                    visible: Responsive.isDesktop(context),
-                    child: const MyGrid(),
-                  )
-                ],
-              ),
+                  );
+                }
+                return const CircularProgressIndicator();
+              },
             ),
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:recipe_app/core/network/network_info.dart';
@@ -26,6 +27,15 @@ import 'package:recipe_app/features/auth/domain/usecases/user_repository_use_cas
 import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
 import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart';
+import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source_impl.dart';
+import 'package:recipe_app/features/home/data/repositories/home_repository_impl.dart';
+import 'package:recipe_app/features/home/domain/repositories/home_repository.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_categories_recipes_use_case.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_menu_recipe_use_case.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
+import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
@@ -40,6 +50,7 @@ Future<void> init() async {
   sl.registerFactory(() => SignOutBloc(sl()));
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
   sl.registerLazySingleton(() => AnimationBloc());
+  sl.registerFactory(() => HomeBloc(sl(), sl(), sl(), sl()));
 
   //* Use cases
   //! Auth
@@ -67,7 +78,16 @@ Future<void> init() async {
   //     () => DeleteUserFromLocalStorageUseCase(userRepository: sl()));
   sl.registerLazySingleton(() => GetUserFromLocalStorage(userRepository: sl()));
 
-  //! Repository
+  //! Home
+  sl.registerLazySingleton(
+      () => GetCategoriesRecipesUseCase(homeRepository: sl()));
+  sl.registerLazySingleton(
+      () => GetRecipesByNutrientsUseCase(homeRepository: sl()));
+  sl.registerLazySingleton(
+      () => GetRecommendedItemUseCase(homeRepository: sl()));
+  sl.registerLazySingleton(() => GetMenuRecipeUseCase(repository: sl()));
+
+  //! Auth Repository
   sl.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(
         remoteDataSource: sl(),
@@ -78,7 +98,7 @@ Future<void> init() async {
 
   sl.registerLazySingleton<UserRepository>(() => UserRepositoryImpl());
 
-  //! Data sources
+  //! Auth Data sources
   sl.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(),
   );
@@ -87,11 +107,23 @@ Future<void> init() async {
   sl.registerLazySingleton<RemoteFireStoreDataSource>(
       () => RemoteFireStoreDataSourceImpl());
 
+//! Home Repositories
+  sl.registerLazySingleton<HomeRepository>(
+      () => HomeRepositoryImpl(homeRemoteDataSource: sl(), networkInfo: sl()));
+
+  //! Home Repository data sources
+  sl.registerLazySingleton<HomeRemoteDataSource>(
+    () => HomeRemoteDataSourceImpl(dio: sl()),
+  );
+
   //* core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
   //! External
   sl.registerLazySingleton(() => InternetConnectionChecker());
+
+  //! Dio
+  sl.registerLazySingleton(() => Dio());
 
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);

@@ -15,6 +15,19 @@ import 'package:dio/src/response.dart' as _i7;
 import 'package:dio/src/transformer.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:recipe_app/core/error/failure.dart' as _i10;
+import 'package:recipe_app/core/network/network_info.dart' as _i24;
+import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart'
+    as _i18;
+import 'package:recipe_app/features/home/data/models/category_model.dart'
+    as _i19;
+import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart'
+    as _i23;
+import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart'
+    as _i22;
+import 'package:recipe_app/features/home/data/models/random_recipe_model.dart'
+    as _i21;
+import 'package:recipe_app/features/home/data/models/recommended_item_model.dart'
+    as _i20;
 import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart'
     as _i11;
 import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart'
@@ -27,6 +40,14 @@ import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.
     as _i12;
 import 'package:recipe_app/features/home/domain/repositories/home_repository.dart'
     as _i8;
+import 'package:recipe_app/features/home/domain/usecases/get_categories_recipes_use_case.dart'
+    as _i25;
+import 'package:recipe_app/features/home/domain/usecases/get_menu_recipe_use_case.dart'
+    as _i27;
+import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart'
+    as _i26;
+import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart'
+    as _i28;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -102,6 +123,17 @@ class _FakeResponse_5<T1> extends _i1.SmartFake implements _i7.Response<T1> {
         );
 }
 
+class _FakeHomeRepository_6 extends _i1.SmartFake
+    implements _i8.HomeRepository {
+  _FakeHomeRepository_6(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [HomeRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -150,10 +182,17 @@ class MockHomeRepository extends _i1.Mock implements _i8.HomeRepository {
 
   @override
   _i9.Future<_i2.Either<_i10.Failure, List<_i13.NutrientRecipeEntity>>>
-      getRecipesByNutrients(String? nutrient) => (super.noSuchMethod(
+      getRecipesByNutrients(
+    List<String>? nutrients,
+    int? concentration,
+  ) =>
+          (super.noSuchMethod(
             Invocation.method(
               #getRecipesByNutrients,
-              [nutrient],
+              [
+                nutrients,
+                concentration,
+              ],
             ),
             returnValue: _i9.Future<
                     _i2.Either<_i10.Failure,
@@ -162,7 +201,10 @@ class MockHomeRepository extends _i1.Mock implements _i8.HomeRepository {
               this,
               Invocation.method(
                 #getRecipesByNutrients,
-                [nutrient],
+                [
+                  nutrients,
+                  concentration,
+                ],
               ),
             )),
           ) as _i9.Future<
@@ -922,4 +964,254 @@ class MockDio extends _i1.Mock implements _i16.Dio {
           ),
         )),
       ) as _i9.Future<_i7.Response<T>>);
+}
+
+/// A class which mocks [HomeRemoteDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHomeRemoteDataSource extends _i1.Mock
+    implements _i18.HomeRemoteDataSource {
+  MockHomeRemoteDataSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<List<_i19.CategoryModel>> getCategoriesOfRecipes(
+          String? category) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCategoriesOfRecipes,
+          [category],
+        ),
+        returnValue:
+            _i9.Future<List<_i19.CategoryModel>>.value(<_i19.CategoryModel>[]),
+      ) as _i9.Future<List<_i19.CategoryModel>>);
+
+  @override
+  _i9.Future<List<_i20.RecommendedRecipeModel>> getRecommendedRecipes(
+          int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRecommendedRecipes,
+          [id],
+        ),
+        returnValue: _i9.Future<List<_i20.RecommendedRecipeModel>>.value(
+            <_i20.RecommendedRecipeModel>[]),
+      ) as _i9.Future<List<_i20.RecommendedRecipeModel>>);
+
+  @override
+  _i9.Future<List<_i21.RandomRecipeModel>> getRandomRecipes(int? number) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRandomRecipes,
+          [number],
+        ),
+        returnValue: _i9.Future<List<_i21.RandomRecipeModel>>.value(
+            <_i21.RandomRecipeModel>[]),
+      ) as _i9.Future<List<_i21.RandomRecipeModel>>);
+
+  @override
+  _i9.Future<List<_i22.NutrientRecipeModel>> getNutrientRecipes(
+    List<String>? query,
+    int? concentration,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getNutrientRecipes,
+          [
+            query,
+            concentration,
+          ],
+        ),
+        returnValue: _i9.Future<List<_i22.NutrientRecipeModel>>.value(
+            <_i22.NutrientRecipeModel>[]),
+      ) as _i9.Future<List<_i22.NutrientRecipeModel>>);
+
+  @override
+  _i9.Future<List<_i23.MenuRecipeModel>> getMenuRecipes(
+    String? menuItem,
+    int? number,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getMenuRecipes,
+          [
+            menuItem,
+            number,
+          ],
+        ),
+        returnValue: _i9.Future<List<_i23.MenuRecipeModel>>.value(
+            <_i23.MenuRecipeModel>[]),
+      ) as _i9.Future<List<_i23.MenuRecipeModel>>);
+}
+
+/// A class which mocks [NetworkInfo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNetworkInfo extends _i1.Mock implements _i24.NetworkInfo {
+  MockNetworkInfo() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<bool> get isConnected => (super.noSuchMethod(
+        Invocation.getter(#isConnected),
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
+}
+
+/// A class which mocks [GetCategoriesRecipesUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCategoriesRecipesUseCase extends _i1.Mock
+    implements _i25.GetCategoriesRecipesUseCase {
+  MockGetCategoriesRecipesUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.HomeRepository get homeRepository => (super.noSuchMethod(
+        Invocation.getter(#homeRepository),
+        returnValue: _FakeHomeRepository_6(
+          this,
+          Invocation.getter(#homeRepository),
+        ),
+      ) as _i8.HomeRepository);
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, List<_i11.CategoryEntity>>> call(
+          _i25.CategoriesParams? params) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [params],
+        ),
+        returnValue: _i9
+            .Future<_i2.Either<_i10.Failure, List<_i11.CategoryEntity>>>.value(
+            _FakeEither_0<_i10.Failure, List<_i11.CategoryEntity>>(
+          this,
+          Invocation.method(
+            #call,
+            [params],
+          ),
+        )),
+      ) as _i9.Future<_i2.Either<_i10.Failure, List<_i11.CategoryEntity>>>);
+}
+
+/// A class which mocks [GetRecipesByNutrientsUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetRecipesByNutrientsUseCase extends _i1.Mock
+    implements _i26.GetRecipesByNutrientsUseCase {
+  MockGetRecipesByNutrientsUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.HomeRepository get homeRepository => (super.noSuchMethod(
+        Invocation.getter(#homeRepository),
+        returnValue: _FakeHomeRepository_6(
+          this,
+          Invocation.getter(#homeRepository),
+        ),
+      ) as _i8.HomeRepository);
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, List<_i13.NutrientRecipeEntity>>> call(
+          _i26.NutrientsParams? params) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [params],
+        ),
+        returnValue: _i9.Future<
+                _i2
+                .Either<_i10.Failure, List<_i13.NutrientRecipeEntity>>>.value(
+            _FakeEither_0<_i10.Failure, List<_i13.NutrientRecipeEntity>>(
+          this,
+          Invocation.method(
+            #call,
+            [params],
+          ),
+        )),
+      ) as _i9
+          .Future<_i2.Either<_i10.Failure, List<_i13.NutrientRecipeEntity>>>);
+}
+
+/// A class which mocks [GetMenuRecipeUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetMenuRecipeUseCase extends _i1.Mock
+    implements _i27.GetMenuRecipeUseCase {
+  MockGetMenuRecipeUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.HomeRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeHomeRepository_6(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i8.HomeRepository);
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, List<_i15.MenuRecipeEntity>>> call(
+          _i27.MenuRecipeParams? params) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [params],
+        ),
+        returnValue: _i9.Future<
+                _i2.Either<_i10.Failure, List<_i15.MenuRecipeEntity>>>.value(
+            _FakeEither_0<_i10.Failure, List<_i15.MenuRecipeEntity>>(
+          this,
+          Invocation.method(
+            #call,
+            [params],
+          ),
+        )),
+      ) as _i9.Future<_i2.Either<_i10.Failure, List<_i15.MenuRecipeEntity>>>);
+}
+
+/// A class which mocks [GetRecommendedItemUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetRecommendedItemUseCase extends _i1.Mock
+    implements _i28.GetRecommendedItemUseCase {
+  MockGetRecommendedItemUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.HomeRepository get homeRepository => (super.noSuchMethod(
+        Invocation.getter(#homeRepository),
+        returnValue: _FakeHomeRepository_6(
+          this,
+          Invocation.getter(#homeRepository),
+        ),
+      ) as _i8.HomeRepository);
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, List<_i12.RecommendRecipeEntity>>> call(
+          _i28.RecommendedRecipeParams? params) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [params],
+        ),
+        returnValue: _i9.Future<
+                _i2
+                .Either<_i10.Failure, List<_i12.RecommendRecipeEntity>>>.value(
+            _FakeEither_0<_i10.Failure, List<_i12.RecommendRecipeEntity>>(
+          this,
+          Invocation.method(
+            #call,
+            [params],
+          ),
+        )),
+      ) as _i9
+          .Future<_i2.Either<_i10.Failure, List<_i12.RecommendRecipeEntity>>>);
 }

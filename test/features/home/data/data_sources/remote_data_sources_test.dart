@@ -325,7 +325,7 @@ void main() {
           // arrange
           when(
             mockDio.get(
-              ApiUrls.getRecipeByNutrientsUrl(['maxCrabs'], 40),
+              ApiUrls.getRecipeByNutrientsUrl([' '], 0),
             ),
           ).thenAnswer(
             (realInvocation) async {
@@ -333,14 +333,13 @@ void main() {
                 data: 'Not Found',
                 statusCode: 404,
                 requestOptions: RequestOptions(
-                  path: ApiUrls.getRecipeByNutrientsUrl(['maxCrabs'], 40),
+                  path: ApiUrls.getRecipeByNutrientsUrl([' '], 0),
                 ),
               );
             },
           );
           //act
-          final result = await homeRemoteDataSourceImpl
-              .getNutrientRecipes(['minCrabs'], 10);
+          final result = homeRemoteDataSourceImpl.getNutrientRecipes([' '], 0);
           //assert
           expect(result, throwsA(isA<ServerException>()));
         },
@@ -411,26 +410,23 @@ void main() {
         () async {
           // arrange
           when(mockDio.get(
-            ApiUrls.getMenuRecipesUrl('breakfast', 10),
+            ApiUrls.getMenuRecipesUrl(' ', -1),
           )).thenAnswer(
             (realInvocation) async {
               return Response(
                 statusCode: 404,
                 requestOptions: RequestOptions(
-                  path: ApiUrls.getMenuRecipesUrl('breakfast', 10),
+                  path: ApiUrls.getMenuRecipesUrl('#', -1),
                 ),
                 data: 'Not found',
               );
             },
           );
           // act
-          final result = homeRemoteDataSourceImpl.getMenuRecipes(
-            'breakfast',
-            10,
-          );
+          final result2 = homeRemoteDataSourceImpl.getMenuRecipes('#', -1);
 
           //assert
-          expect(result, throwsA(isA<ServerException>()));
+          expect(result2, throwsA(isA<ServerException>()));
         },
       );
     },

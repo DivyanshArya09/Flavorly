@@ -23,6 +23,8 @@ class Header extends StatelessWidget {
                     wordSpacing: 5,
                     fontSize:
                         size.width > 400 ? smallFontSize : size.width * .045,
+                    color: AppColors.buttonColor1,
+                    fontWeight: FontWeight.w500,
                     // fontSize: size.width * .041,
                   ),
             ),

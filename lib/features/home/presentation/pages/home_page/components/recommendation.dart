@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recommeded_item.dart';
 
-class RecommendedItems extends StatelessWidget {
-  const RecommendedItems({super.key});
+class NutrientRecipes extends StatelessWidget {
+  final List<NutrientRecipeEntity> nutrientRecipes;
+  const NutrientRecipes({super.key, required this.nutrientRecipes});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class RecommendedItems extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: nutrientRecipes.length,
         itemBuilder: (context, index) {
           return AnimationConfiguration.staggeredList(
             position: index,
@@ -24,7 +26,11 @@ class RecommendedItems extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: 8, bottom: 8, left: index == 0 ? 0 : 10, right: 10),
-                  child: const RecommendedDish(),
+                  child: RecommendedDish(
+                    title: nutrientRecipes[index].title.toString(),
+                    imageUrl: nutrientRecipes[index].image.toString(),
+                    onTap: () {},
+                  ),
                 ),
               ),
             ),

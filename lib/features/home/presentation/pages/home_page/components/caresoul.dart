@@ -1,21 +1,27 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
 import 'package:recipe_app/features/home/presentation/widgets/carousel_item.dart';
 
 class Carousel extends StatelessWidget {
-  const Carousel({super.key});
+  final List<MenuRecipeEntity> menuItems;
+  const Carousel({super.key, required this.menuItems});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return CarouselSlider.builder(
-      itemCount: 4,
+      itemCount: menuItems.length,
       itemBuilder: (context, index, realIndex) {
-        return const CarouselItem();
+        return CarouselItem(
+          title: menuItems[index].title.toString(),
+          imageUrl: menuItems[index].image.toString(),
+          onTap: () {},
+        );
       },
       options: CarouselOptions(
-        height: size.height * .25,
+        height: size.height * .35,
         enlargeCenterPage: true,
         enlargeFactor: .15,
         autoPlay: true,

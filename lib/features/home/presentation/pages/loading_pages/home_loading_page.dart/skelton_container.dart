@@ -12,9 +12,13 @@ class SkeltonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      period: const Duration(milliseconds: 500),
-      baseColor: Colors.grey,
-      highlightColor: Colors.white,
+      // period: const Duration(seconds: 10),
+      baseColor: Theme.of(context).brightness == Brightness.dark
+          ? const Color.fromARGB(255, 33, 32, 32)
+          : const Color.fromARGB(255, 212, 210, 210),
+      highlightColor: Theme.of(context).brightness == Brightness.dark
+          ? const Color.fromARGB(255, 65, 63, 63)
+          : const Color.fromARGB(255, 232, 231, 231),
       child: Container(
         height: height,
         width: width,

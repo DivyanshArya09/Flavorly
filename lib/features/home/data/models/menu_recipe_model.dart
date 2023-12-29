@@ -21,6 +21,17 @@ class MenuRecipeModel extends MenuRecipeEntity {
       servings: ServingModel.fromJson(json['servings']),
     );
   }
+
+  MenuRecipeEntity toEntity() {
+    return MenuRecipeEntity(
+        sId: sId,
+        id: id,
+        title: title,
+        image: image,
+        imageType: imageType,
+        restaurantChain: restaurantChain,
+        servings: servings);
+  }
 }
 
 class ServingModel extends Servings {

@@ -23,7 +23,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           .toList();
     } else {
       // print('--------------------------------Failed to load data');
-      throw ServerException();
+      throw ServerException(message: 'Failed to load data');
     }
   }
 
@@ -33,13 +33,13 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     var response = await dio.get(
       ApiUrls.getRecipeByNutrientsUrl(nutrient, concentration),
     );
-    var data = response.data;
     if (response.statusCode == 200) {
+      var data = response.data;
       return (data as List)
           .map((e) => NutrientRecipeModel.fromJson(e))
           .toList();
     } else {
-      throw ServerException();
+      throw ServerException(message: 'Failed to load data');
     }
   }
 
@@ -48,13 +48,13 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     var response = await dio.get(
       ApiUrls.getRandomRecipesUrl(number),
     );
-    var data = response.data;
     if (response.statusCode == 200) {
+      var data = response.data;
       return (data['recipes'] as List)
           .map((e) => RandomRecipeModel.fromJson(e))
           .toList();
     } else {
-      throw Exception('Failed to load data');
+      throw ServerException(message: 'Failed to load data');
     }
   }
 
@@ -63,8 +63,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     var response = await dio.get(
       ApiUrls.getRecommendedRecipesUrl(id),
     );
-    var data = response.data;
     if (response.statusCode == 200) {
+      var data = response.data;
       return (data as List)
           .map((e) => RecommendedRecipeModel.fromJson(e))
           .toList();
@@ -86,7 +86,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
           .map((e) => MenuRecipeModel.fromJson(e))
           .toList();
     } else {
-      throw ServerException();
+      print('--------------------------------Failed to load data');
+      throw ServerException(message: 'Failed to load data');
     }
   }
 }
