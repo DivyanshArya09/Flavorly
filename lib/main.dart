@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/config/theme/theme.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
-// import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;

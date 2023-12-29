@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:recipe_app/core/error/failure.dart' as failure;
 import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
@@ -36,6 +37,7 @@ void main() {
       expect(homeBloc.state.status, HomeStatus.initial);
     },
   );
+
   blocTest<HomeBloc, HomeState>(
     'should emits [loading, success] when HomeEvent is added.',
     build: () {
@@ -58,15 +60,49 @@ void main() {
         concentration: 1)),
     wait: const Duration(milliseconds: 500),
     expect: () => <HomeState>[
-      HomeState(
+      const HomeState(
         status: HomeStatus.loading,
       ),
-      HomeState(
+      const HomeState(
         status: HomeStatus.success,
-        categories: const <CategoryEntity>[],
-        nutrients: const <NutrientRecipeEntity>[],
-        recommendedItems: const <RecommendRecipeEntity>[],
-        menuItems: const <MenuRecipeEntity>[],
+        categories: <CategoryEntity>[],
+        nutrients: <NutrientRecipeEntity>[],
+        recommendedItems: <RecommendRecipeEntity>[],
+        menuItems: <MenuRecipeEntity>[],
+      ),
+    ],
+  );
+
+// ConnectionFailure
+
+  blocTest<HomeBloc, HomeState>(
+    'should emits [loading, error] when HomeEvent is added.',
+    build: () {
+      when(mockGetCategoriesRecipesUseCase.call(any))
+          .thenAnswer((realInvocation) async => Left(failure.SeverFailure('')));
+      when(mockGetRecipesByNutrientsUseCase.call(any))
+          .thenAnswer((realInvocation) async => Left(failure.SeverFailure('')));
+      when(mockGetMenuRecipeUseCase.call(any))
+          .thenAnswer((realInvocation) async => Left(failure.SeverFailure('')));
+      when(mockGetRecommendedItemUseCase.call(any))
+          .thenAnswer((realInvocation) async => Left(failure.SeverFailure('')));
+      return homeBloc;
+    },
+    act: (bloc) => bloc.add(const HomeInitialEvent(
+        category: 'category',
+        id: 56,
+        menuItem: 'sample',
+        numberOfMenuItemsYouWant: 1,
+        nutrients: ['nutrient'],
+        concentration: 1)),
+    wait: const Duration(milliseconds: 500),
+    expect: () => <HomeState>[
+      const HomeState(
+        status: HomeStatus.loading,
+      ),
+      const HomeState(
+        status: HomeStatus.error,
+        failure: Failure.server,
       ),
     ],
   );

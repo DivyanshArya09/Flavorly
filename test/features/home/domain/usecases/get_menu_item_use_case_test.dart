@@ -1,12 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
-import 'package:recipe_app/features/home/domain/usecases/get_categories_recipes_use_case.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_menu_recipe_use_case.dart';
 
-import '../helper/test_helper.mocks.dart';
+import '../../helper/test_helper.mocks.dart';
 
 void main() {
   late MockHomeRepository mockHomeRepository;

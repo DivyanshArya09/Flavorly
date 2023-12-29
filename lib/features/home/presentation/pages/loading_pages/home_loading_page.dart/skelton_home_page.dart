@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/header.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
 import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/caresoul_skelton.dart';
