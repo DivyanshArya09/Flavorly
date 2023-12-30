@@ -49,7 +49,7 @@ Future<void> init() async {
   sl.registerFactory(() => AuthBloc(sl(), sl(), sl()));
   sl.registerFactory(() => SignOutBloc(sl()));
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
-  sl.registerLazySingleton(() => AnimationBloc());
+  sl.registerFactory(() => AnimationBloc());
   sl.registerFactory(() => HomeBloc(sl(), sl(), sl(), sl()));
 
   //* Use cases

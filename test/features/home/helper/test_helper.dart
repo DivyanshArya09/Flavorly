@@ -9,6 +9,7 @@ import 'package:recipe_app/features/home/domain/usecases/get_categories_recipes_
 import 'package:recipe_app/features/home/domain/usecases/get_menu_recipe_use_case.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
+import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
 
 @GenerateMocks([
   HomeRepository,

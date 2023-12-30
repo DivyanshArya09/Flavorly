@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/config/theme/theme.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
@@ -37,9 +38,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
         // home: const SkeltonHomePage(),
-        home: const HomePage(
-          name: 'Divyansh',
-        ),
+        // home: const HomePage(
+        //   name: 'Divyansh',
+        // ),
+        home: const RecipeDetailPage(),
         // home: BlocBuilder<AuthBloc, AuthState>(
         //   builder: (context, state) {
         //     if (state is Authenticated) {
