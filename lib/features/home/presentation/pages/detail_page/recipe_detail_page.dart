@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/ingredient_list.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/recipe_over_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/recipe_card.dart';
 
 class RecipeDetailPage extends StatelessWidget {
@@ -11,355 +14,97 @@ class RecipeDetailPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: AppColors.buttonColor1,
-        onPressed: () {}, label: const Text('Like bdsjdsjkbdskjbjdksb'),
-        // isExtended: true,
-      ),
+        onPressed: () {},
+        label: const Text(
+          'Get Instructions',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+      ).animate().scaleXY(
+            duration: const Duration(milliseconds: 500),
+            begin: 0,
+            end: 1,
+          ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            actions: [
-              IconButton(
+            leading: Container(
+              margin: const EdgeInsets.all(10),
+              alignment: Alignment.center,
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(80),
+              ),
+              child: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.bookmark_border),
+                icon: const Icon(Icons.arrow_back_ios_new_outlined, size: 20),
+              ),
+            ),
+            actions: [
+              Container(
+                height: 40,
+                width: 40,
+                margin: const EdgeInsets.all(10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(80),
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.bookmark_outline_rounded,
+                    size: 20,
+                  ),
+                ),
               ),
             ],
             stretch: true,
             elevation: 0,
             // pinned: true,
             expandedHeight: size.height * .35,
-            flexibleSpace: const FlexibleSpaceBar(
-              stretchModes: [
-                StretchMode.zoomBackground,
+            flexibleSpace: Stack(
+              children: [
+                const Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        "https://images.pexels.com/photos/62389/pexels-photo-62389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+                      ),
+                    )),
+                Positioned(
+                  bottom: -1,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    height: 30,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(50),
+                      ),
+                    ),
+                  ),
+                ),
               ],
-              background: Image(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D'),
-              ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              padding: const EdgeInsets.all(20),
-              alignment: Alignment.bottomCenter,
-              child: const Column(children: [
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-                Text(
-                  'Recipe Title',
-                ),
-              ]),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                const RecipeOverView(),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
   }
-}
-
-class MyPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  double get minExtent =>
-      50.0; // Minimum height of the header when it's not expanded
-
-  @override
-  double get maxExtent =>
-      100.0; // Maximum height of the header when it's fully expanded
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    // Build your persistent header widget here
-    return Container(
-      color: Colors.blue,
-      alignment: Alignment.bottomCenter,
-      child: Expanded(
-        child: SliverList(
-            delegate: SliverChildListDelegate([
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-          RecipeCard(
-              imageUrl:
-                  'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-              title: 'title',
-              onTap: () {},
-              readyInMinutes: '20'),
-        ])),
-      ),
-    );
-  }
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false; // Only rebuild if necessary (e.g., when parameters change)
-  }
-/*
- SliverList(
-              delegate: SliverChildListDelegate([
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-            RecipeCard(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D',
-                title: 'title',
-                onTap: () {},
-                readyInMinutes: '20'),
-          ])),
-          
-
-*/
 }
