@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/ingredients_item.dart';
+import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_equipment_builder.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
 
 class StepsPage extends StatelessWidget {
-  const StepsPage({super.key});
+  final String stepNumber;
+  final String step;
+  final List<Ingredients> ingredients;
+  final List<Equipment> equipment;
+  const StepsPage(
+      {super.key,
+      required this.stepNumber,
+      required this.step,
+      required this.ingredients,
+      required this.equipment});
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +22,12 @@ class StepsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Step: 1", style: Theme.of(context).textTheme.titleMedium),
+          Text("Step: $stepNumber",
+              style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(
             height: 10,
           ),
-          Text(
-              "In a small bowl, whisk the mayonnaise, lemon juice, lemon zest and the remaining 2 tablespoons of olive oil. Season the dressing with salt and pepper.",
-              style: Theme.of(context).textTheme.headlineSmall),
+          Text(step, style: Theme.of(context).textTheme.headlineSmall),
           const SizedBox(
             height: 20,
           ),
@@ -25,10 +35,12 @@ class StepsPage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          RecipeIngredientBuilder(ingredients: ingredients),
           Text('Equipments', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(
             height: 10,
           ),
+          RecipeEquipmentBuilder(equipments: equipment),
         ],
       ),
     );

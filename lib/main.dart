@@ -7,6 +7,7 @@ import 'package:recipe_app/core/shared/dialog_box.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/responsive/dekstop_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/get_instructions_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
@@ -42,9 +43,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        home: Responsive.buildResponsive(
-            mobile: const RecipeDetailPage(),
-            desktop: const DekStopDetailLayout()),
+        home: const HomePage(name: 'anne'),
+        // home: Responsive.buildResponsive(
+        //     mobile: const RecipeDetailPage(),
+        //     desktop: const DekStopDetailLayout()),
         // home: BlocBuilder<AuthBloc, AuthState>(
         //   builder: (context, state) {
         //     if (state is Authenticated) {

@@ -79,35 +79,36 @@ class RecipeDetailModel extends RecipeDetailEntity {
 
   RecipeDetailEntity toEntity() {
     return RecipeDetailEntity(
-        vegetarian: vegetarian,
-        vegan: vegan,
-        glutenFree: glutenFree,
-        dairyFree: dairyFree,
-        veryHealthy: veryHealthy,
-        cheap: cheap,
-        veryPopular: veryPopular,
-        sustainable: sustainable,
-        lowFodmap: lowFodmap,
-        weightWatcherSmartPoints: weightWatcherSmartPoints,
-        gaps: gaps,
-        preparationMinutes: preparationMinutes,
-        cookingMinutes: cookingMinutes,
-        aggregateLikes: aggregateLikes,
-        healthScore: healthScore,
-        creditsText: creditsText,
-        sourceName: sourceName,
-        pricePerServing: pricePerServing,
-        extendedIngredients: extendedIngredients,
-        id: id,
-        title: title,
-        readyInMinutes: readyInMinutes,
-        servings: servings,
-        sourceUrl: sourceUrl,
-        image: image,
-        imageType: imageType,
-        summary: summary,
-        instructions: instructions,
-        analyzedInstructions: analyzedInstructions);
+      vegetarian: vegetarian,
+      vegan: vegan,
+      glutenFree: glutenFree,
+      dairyFree: dairyFree,
+      veryHealthy: veryHealthy,
+      cheap: cheap,
+      veryPopular: veryPopular,
+      sustainable: sustainable,
+      lowFodmap: lowFodmap,
+      weightWatcherSmartPoints: weightWatcherSmartPoints,
+      gaps: gaps,
+      preparationMinutes: preparationMinutes,
+      cookingMinutes: cookingMinutes,
+      aggregateLikes: aggregateLikes,
+      healthScore: healthScore,
+      creditsText: creditsText,
+      sourceName: sourceName,
+      pricePerServing: pricePerServing,
+      extendedIngredients: extendedIngredients,
+      id: id,
+      title: title,
+      readyInMinutes: readyInMinutes,
+      servings: servings,
+      sourceUrl: sourceUrl,
+      image: image,
+      imageType: imageType,
+      summary: summary,
+      instructions: instructions,
+      analyzedInstructions: analyzedInstructions,
+    );
   }
 }
 
@@ -143,23 +144,6 @@ class ExtendedIngredientModel extends ExtendedIngredients {
       measures: MeasuresModel.fromJson(json['measures'] ?? {}),
     );
   }
-
-  ExtendedIngredients toEntity() {
-    return ExtendedIngredients(
-      id: id,
-      aisle: aisle,
-      image: image,
-      consistency: consistency,
-      name: name,
-      nameClean: nameClean,
-      original: original,
-      originalName: originalName,
-      amount: amount,
-      unit: unit,
-      meta: meta,
-      measures: const MeasuresModel().toEntity(),
-    );
-  }
 }
 
 class MeasuresModel extends Measures {
@@ -172,13 +156,6 @@ class MeasuresModel extends Measures {
     return MeasuresModel(
       us: UsModel.fromJson(json['us']),
       metric: MetricModel.fromJson(json['metric']),
-    );
-  }
-
-  Measures toEntity() {
-    return Measures(
-      us: const UsModel().toEntity(),
-      metric: const MetricModel().toEntity(),
     );
   }
 }
@@ -197,14 +174,6 @@ class MetricModel extends Metric {
       unitLong: json['unitLong'],
     );
   }
-
-  Metric toEntity() {
-    return Metric(
-      amount: amount,
-      unitShort: unitShort,
-      unitLong: unitLong,
-    );
-  }
 }
 
 class UsModel extends Us {
@@ -219,14 +188,6 @@ class UsModel extends Us {
       amount: json['amount'],
       unitShort: json['unitShort'],
       unitLong: json['unitLong'],
-    );
-  }
-
-  Us toEntity() {
-    return Us(
-      amount: amount,
-      unitShort: unitShort,
-      unitLong: unitLong,
     );
   }
 }

@@ -4,7 +4,7 @@ class NutrientRecipeEntity extends Equatable {
   final int? calories;
   final String? carbs;
   final String? fat;
-  final int? id;
+  final int id;
   final String? image;
   final String? imageType;
   final String? protein;
@@ -14,7 +14,7 @@ class NutrientRecipeEntity extends Equatable {
       {this.calories,
       this.carbs,
       this.fat,
-      this.id,
+      required this.id,
       this.image,
       this.imageType,
       this.protein,

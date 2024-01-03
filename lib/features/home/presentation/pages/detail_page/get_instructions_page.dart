@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/steps_page.dart';
 
 class GetInstructions extends StatelessWidget {
-  const GetInstructions({super.key});
+  final List<Steps> steps;
+  const GetInstructions({super.key, required this.steps});
 
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController();
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
@@ -40,9 +51,16 @@ class GetInstructions extends StatelessWidget {
             ),
             child: PageView.builder(
               controller: pageController,
-              itemCount: 5,
+              itemCount: steps.length,
               itemBuilder: (context, index) {
-                return const SingleChildScrollView(child: StepsPage());
+                return SingleChildScrollView(
+                  child: StepsPage(
+                    stepNumber: steps[index].number.toString(),
+                    step: steps[index].step.toString(),
+                    ingredients: steps[index].ingredients as List<Ingredients>,
+                    equipment: steps[index].equipment as List<Equipment>,
+                  ),
+                );
               },
             ),
           ),

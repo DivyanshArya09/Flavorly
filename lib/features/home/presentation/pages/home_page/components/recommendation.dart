@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recommeded_item.dart';
 
 class NutrientRecipes extends StatelessWidget {
@@ -29,7 +30,12 @@ class NutrientRecipes extends StatelessWidget {
                   child: RecommendedDish(
                     title: nutrientRecipes[index].title.toString(),
                     imageUrl: nutrientRecipes[index].image.toString(),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return RecipeDetailPage(id: nutrientRecipes[index].id);
+                      }));
+                    },
                   ),
                 ),
               ),

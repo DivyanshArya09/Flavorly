@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class MenuRecipeEntity extends Equatable {
   final String? sId;
-  final int? id;
+  final int id;
   final String? title;
   final String? image;
   final String? imageType;
@@ -11,7 +11,7 @@ class MenuRecipeEntity extends Equatable {
 
   const MenuRecipeEntity(
       {this.sId,
-      this.id,
+      required this.id,
       this.title,
       this.image,
       this.imageType,

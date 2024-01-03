@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/ingredient_list.dart';
+import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/extended_ingredient.dart';
 
 class RecipeOverView extends StatelessWidget {
-  const RecipeOverView({super.key});
+  final String? title;
+  final String? timeToCook;
+  final String? healthScore;
+  final String? likes;
+  final List<ExtendedIngredients> ingredients;
+
+  const RecipeOverView({
+    super.key,
+    this.title,
+    this.timeToCook,
+    this.healthScore,
+    this.likes,
+    required this.ingredients,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +30,7 @@ class RecipeOverView extends StatelessWidget {
           SizedBox(
             width: size.width * .8,
             child: Text(
-              "Dinner Tonight: Crispy Tilapia With Pico De Gallo Salsa",
+              title ?? "",
               style: Theme.of(context).textTheme.titleMedium,
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
@@ -44,21 +57,21 @@ class RecipeOverView extends StatelessWidget {
                       Icons.timer_outlined,
                       color: Colors.blueGrey,
                     ),
-                    "25 min",
+                    "$timeToCook min",
                     context),
                 _recipeStats(
                     const Icon(
                       color: Colors.blueGrey,
                       Icons.health_and_safety_outlined,
                     ),
-                    "Heath score",
+                    " $healthScore",
                     context),
                 _recipeStats(
                     const Icon(
                       color: Colors.blueGrey,
                       Icons.thumb_up_alt_outlined,
                     ),
-                    "Likes",
+                    likes ?? '',
                     context),
               ],
             )
@@ -80,15 +93,9 @@ class RecipeOverView extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const RecipeIngredientsAndEquipmentBuilder(),
-          Text(
-            "Equipments",
-            style: Theme.of(context).textTheme.titleMedium,
+          ExtendedIngredientWidget(
+            ingredients: ingredients,
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const RecipeIngredientsAndEquipmentBuilder(),
         ],
       ),
     );
