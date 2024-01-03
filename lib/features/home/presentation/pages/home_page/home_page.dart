@@ -72,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                 }
                 if (state.status == HomeStatus.success) {
                   return SingleChildScrollView(
+                    key: const Key('homePageWithRecipeData'),
                     child: Column(
                       // mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,

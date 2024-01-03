@@ -33,9 +33,11 @@ import 'package:recipe_app/features/home/data/repositories/home_repository_impl.
 import 'package:recipe_app/features/home/domain/repositories/home_repository.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_categories_recipes_use_case.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_menu_recipe_use_case.dart';
+import 'package:recipe_app/features/home/domain/usecases/get_recipe_detail_use_case.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
 import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
@@ -51,6 +53,8 @@ Future<void> init() async {
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
   sl.registerFactory(() => AnimationBloc());
   sl.registerFactory(() => HomeBloc(sl(), sl(), sl(), sl()));
+  sl.registerFactory(() => RecipeDetailBloc(sl()));
+  // sl.registerFactory(() => RecommendedItemBloc(sl(), sl()));
 
   //* Use cases
   //! Auth
@@ -86,6 +90,7 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => GetRecommendedItemUseCase(homeRepository: sl()));
   sl.registerLazySingleton(() => GetMenuRecipeUseCase(repository: sl()));
+  sl.registerLazySingleton(() => GetRecipeDetailUseCase(repository: sl()));
 
   //! Auth Repository
   sl.registerLazySingleton<AuthRepository>(

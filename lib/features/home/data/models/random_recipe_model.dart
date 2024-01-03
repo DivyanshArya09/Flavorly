@@ -1,5 +1,4 @@
 import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
 
 class RandomRecipeModel extends RandomRecipeEntity {
   const RandomRecipeModel(

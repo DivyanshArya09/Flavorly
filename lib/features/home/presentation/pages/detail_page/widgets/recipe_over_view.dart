@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/ingredient_list.dart';
 
 class RecipeOverView extends StatelessWidget {
@@ -79,7 +80,15 @@ class RecipeOverView extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const IngredientsList(),
+          const RecipeIngredientsAndEquipmentBuilder(),
+          Text(
+            "Equipments",
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const RecipeIngredientsAndEquipmentBuilder(),
         ],
       ),
     );

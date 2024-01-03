@@ -12,6 +12,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.white,
     textTheme: CustomTextTheme.lightTextTheme,
     inputDecorationTheme: CustomTextFieldTheme.inputDecorationThemeLightMode,
+    cardColor: Colors.white,
     // cardColor:
   );
 
@@ -22,5 +23,6 @@ class AppTheme {
     scaffoldBackgroundColor: const Color.fromARGB(255, 54, 54, 54),
     textTheme: CustomTextTheme.darkTextTheme,
     inputDecorationTheme: CustomTextFieldTheme.inputDecorationThemeDarkMode,
+    cardColor: const Color.fromARGB(255, 54, 54, 54),
   );
 }

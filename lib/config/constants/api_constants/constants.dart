@@ -2,6 +2,9 @@ class ApiUrls {
   static const apiKey = '2c1b0e52091f4f3696b5642181e5d4b6';
   static const baseUrl = 'https://api.spoonacular.com';
 
+  static String getRecipesDetailUrl(int id) =>
+      '$baseUrl/recipes/$id/information?apiKey=$apiKey';
+
   static String getCategoriesRecipeUrl(String category, int number) =>
       '$baseUrl/recipes/search?apiKey=$apiKey&number=$number&cuisine=$category';
 

@@ -2,8 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/config/theme/theme.dart';
+import 'package:recipe_app/config/utils/responsive.dart';
+import 'package:recipe_app/core/shared/dialog_box.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/responsive/dekstop_detail_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/get_instructions_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
+// import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
+// import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
@@ -32,16 +37,14 @@ class MyApp extends StatelessWidget {
         // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
       ],
       child: MaterialApp(
-        themeMode: ThemeMode.light,
+        themeMode: ThemeMode.dark,
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        // home: const SkeltonHomePage(),
-        // home: const HomePage(
-        //   name: 'Divyansh',
-        // ),
-        home: const RecipeDetailPage(),
+        home: Responsive.buildResponsive(
+            mobile: const RecipeDetailPage(),
+            desktop: const DekStopDetailLayout()),
         // home: BlocBuilder<AuthBloc, AuthState>(
         //   builder: (context, state) {
         //     if (state is Authenticated) {

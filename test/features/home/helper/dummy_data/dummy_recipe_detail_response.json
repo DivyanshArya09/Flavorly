@@ -1,0 +1,380 @@
+{
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "dairyFree": true,
+    "veryHealthy": false,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "lowFodmap": false,
+    "weightWatcherSmartPoints": 13,
+    "gaps": "no",
+    "preparationMinutes": -1,
+    "cookingMinutes": -1,
+    "aggregateLikes": 23,
+    "healthScore": 33,
+    "creditsText": "Dashing Dish",
+    "sourceName": "Dashing Dish",
+    "pricePerServing": 468.36,
+    "extendedIngredients": [
+        {
+            "id": 93747,
+            "aisle": "Health Foods",
+            "image": "coconut-flour-or-other-gluten-free-flour.jpg",
+            "consistency": "SOLID",
+            "name": "coconut flour",
+            "nameClean": "coconut flour",
+            "original": "1 Tbs Coconut flour (or oat flour, or flour)",
+            "originalName": "Coconut flour (or oat flour, or flour)",
+            "amount": 1.0,
+            "unit": "Tbs",
+            "meta": [
+                "(or oat flour, or flour)"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "Tbs",
+                    "unitLong": "Tb"
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "Tbs",
+                    "unitLong": "Tb"
+                }
+            }
+        },
+        {
+            "id": 1124,
+            "aisle": "Milk, Eggs, Other Dairy",
+            "image": "egg-white.jpg",
+            "consistency": "SOLID",
+            "name": "egg white",
+            "nameClean": "egg whites",
+            "original": "1 Egg white",
+            "originalName": "Egg white",
+            "amount": 1.0,
+            "unit": "",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                }
+            }
+        },
+        {
+            "id": 1022020,
+            "aisle": "Spices and Seasonings",
+            "image": "garlic-powder.png",
+            "consistency": "SOLID",
+            "name": "garlic powder",
+            "nameClean": "garlic powder",
+            "original": "1/4 tsp Garlic powder",
+            "originalName": "Garlic powder",
+            "amount": 0.25,
+            "unit": "tsp",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 0.25,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                },
+                "metric": {
+                    "amount": 0.25,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                }
+            }
+        },
+        {
+            "id": 10018079,
+            "aisle": "Oil, Vinegar, Salad Dressing",
+            "image": "panko.jpg",
+            "consistency": "SOLID",
+            "name": "panko breadcrumbs",
+            "nameClean": "panko",
+            "original": "1/4 cup Panko breadcrumbs (or breadcrumbs)",
+            "originalName": "Panko breadcrumbs (or breadcrumbs)",
+            "amount": 0.25,
+            "unit": "cup",
+            "meta": [
+                "(or breadcrumbs)"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 0.25,
+                    "unitShort": "cups",
+                    "unitLong": "cups"
+                },
+                "metric": {
+                    "amount": 15.0,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 1002030,
+            "aisle": "Spices and Seasonings",
+            "image": "pepper.jpg",
+            "consistency": "SOLID",
+            "name": "pepper",
+            "nameClean": "black pepper",
+            "original": "1/8 tsp Pepper",
+            "originalName": "Pepper",
+            "amount": 0.125,
+            "unit": "tsp",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 0.125,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                },
+                "metric": {
+                    "amount": 0.125,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                }
+            }
+        },
+        {
+            "id": 2047,
+            "aisle": "Spices and Seasonings",
+            "image": "salt.jpg",
+            "consistency": "SOLID",
+            "name": "salt",
+            "nameClean": "table salt",
+            "original": "1/4 tsp Salt",
+            "originalName": "Salt",
+            "amount": 0.25,
+            "unit": "tsp",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 0.25,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                },
+                "metric": {
+                    "amount": 0.25,
+                    "unitShort": "tsps",
+                    "unitLong": "teaspoons"
+                }
+            }
+        },
+        {
+            "id": 93628,
+            "aisle": "Baking",
+            "image": "stevia.png",
+            "consistency": "SOLID",
+            "name": "optional: pkt stevia added to the breadcrumb mixture",
+            "nameClean": "stevia",
+            "original": "Optional: 1 pkt stevia added to the breadcrumb mixture for a slightly sweet/salty taste",
+            "originalName": "Optional: pkt stevia added to the breadcrumb mixture for a slightly sweet/salty taste",
+            "amount": 1.0,
+            "unit": "",
+            "meta": [
+                "for a slightly sweet/salty taste"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                }
+            }
+        },
+        {
+            "id": 15261,
+            "aisle": "Seafood",
+            "image": "raw-tilapia.jpg",
+            "consistency": "SOLID",
+            "name": "tilapia fillets",
+            "nameClean": "tilapia",
+            "original": "2 Tilapia Fillets, (about 1/2 lb or 4 oz each)",
+            "originalName": "Tilapia Fillets, (about or 4 oz each)",
+            "amount": 0.5,
+            "unit": "lb",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 0.5,
+                    "unitShort": "lb",
+                    "unitLong": "pounds"
+                },
+                "metric": {
+                    "amount": 226.796,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 12108,
+            "aisle": "Baking",
+            "image": "coconut-flakes.png",
+            "consistency": "SOLID",
+            "name": "coconut flakes",
+            "nameClean": "unsweetened coconut",
+            "original": "1/4 cup Coconut flakes, (I used unsweetened)",
+            "originalName": "Coconut flakes, (I used unsweetened)",
+            "amount": 0.25,
+            "unit": "cup",
+            "meta": [
+                "unsweetened",
+                "(I used )"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 0.25,
+                    "unitShort": "cups",
+                    "unitLong": "cups"
+                },
+                "metric": {
+                    "amount": 21.25,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 12108,
+            "aisle": "Baking",
+            "image": "shredded-coconut.jpg",
+            "consistency": "SOLID",
+            "name": "coconut flakes",
+            "nameClean": "unsweetened coconut",
+            "original": "1/4 cup Coconut flakes, (I used unsweetened)",
+            "originalName": "Coconut flakes, (I used unsweetened)",
+            "amount": 0.25,
+            "unit": "cup",
+            "meta": [
+                "unsweetened",
+                "(I used )"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 0.25,
+                    "unitShort": "cups",
+                    "unitLong": "cups"
+                },
+                "metric": {
+                    "amount": 21.25,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        }
+    ],
+    "id": 6783,
+    "title": "Crispy Baked Coconut Crusted Tilapia",
+    "readyInMinutes": 45,
+    "servings": 1,
+    "sourceUrl": "http://dashingdish.com/recipe/crispy-baked-coconut-crusted-tilapia/",
+    "image": "https://spoonacular.com/recipeImages/6783-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "Crispy Baked Coconut Crusted Tilapia requires around <b>45 minutes</b> from start to finish. This recipe serves 1. This main course has <b>466 calories</b>, <b>53g of protein</b>, and <b>19g of fat</b> per serving. For <b>$4.68 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. It is a good option if you're following a <b>dairy free and pescatarian</b> diet. 23 people were glad they tried this recipe. It is brought to you by Dashing Dish. If you have coconut flakes, optional: pkt stevian added to the breadcrumb mixture, panko breadcrumbs, and a few other ingredients on hand, you can make it. With a spoonacular <b>score of 87%</b>, this dish is super. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/baked-crispy-coconut-crusted-tilapia-800457\">Baked Crispy Coconut Crusted Tilapia</a>, <a href=\"https://spoonacular.com/recipes/slenderized-baked-coconut-crusted-tilapia-627235\">Slenderized Baked Coconut Crusted Tilapia</a>, and <a href=\"https://spoonacular.com/recipes/slenderized-baked-coconut-crusted-tilapia-1300287\">Slenderized Baked Coconut Crusted Tilapia</a>.",
+    "cuisines": [],
+    "dishTypes": [
+        "lunch",
+        "main course",
+        "main dish",
+        "dinner"
+    ],
+    "diets": [
+        "dairy free",
+        "pescatarian"
+    ],
+    "occasions": [],
+    "winePairing": {
+        "pairedWines": [
+            "pinot noir",
+            "sparkling wine",
+            "pinot grigio",
+            "gruener veltliner"
+        ],
+        "pairingText": "Tilapia works really well with Pinot Noir, Sparkling Wine, and Pinot Grigio. Though different seafoods can certainly call for different wines, generally a crisp, light-bodied white wine or a sparkling white wine will do the trick and not drown out any subtle flavors. You could try Bodega Chacra Treinta y Dos Pinot Noir. Reviewers quite like it with a 5 out of 5 star rating and a price of about 100 dollars per bottle.",
+        "productMatches": [
+            {
+                "id": 434919,
+                "title": "Bodega Chacra Treinta y Dos Pinot Noir",
+                "description": "Chacra Treinta y Dos is a single vineyard wine, made from old vineyards planted in 1932 on a land layered with clay, sand and pebbles. The most structured of all Chacra’s wines, Chacra Treinta y Dos is meant to be aged. Its soft characteristics and velvety tannins, however, make it drinkable at a younger age. This red balances toasted spice and mesquite notes with the macerated cherry fruit character, remaining fresh through the mineral-tinged finish.",
+                "price": "$99.98999786376953",
+                "imageUrl": "https://spoonacular.com/productImages/434919-312x231.jpg",
+                "averageRating": 1.0,
+                "ratingCount": 5.0,
+                "score": 0.9375,
+                "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fbodega-chacra-treinta-y-dos-pinot-noir-2015%2F289653"
+            }
+        ]
+    },
+    "instructions": "Preheat oven to 425 degrees. Line a baking pan with foil, (for easy clean up), andset a wire rack on top. Spray the rack with non-stick spray. (Note: Awire rack allows for both sides of the fish to get crispy without the need to flip the fish mid-way through cooking. If you don't have a wire cooling rack, simply place the fish on a baking sheet and gently flip halfway through cooking.)",
+    "analyzedInstructions": [
+        {
+            "name": "",
+            "steps": [
+                {
+                    "number": 1,
+                    "step": "Preheat oven to 425 degrees. Line a baking pan with foil, (for easy clean up), andset a wire rack on top. Spray the rack with non-stick spray. (Note: Awire rack allows for both sides of the fish to get crispy without the need to flip the fish mid-way through cooking. If you don't have a wire cooling rack, simply place the fish on a baking sheet and gently flip halfway through cooking.)",
+                    "ingredients": [
+                        {
+                            "id": 10115261,
+                            "name": "fish",
+                            "localizedName": "fish",
+                            "image": "fish-fillet.jpg"
+                        }
+                    ],
+                    "equipment": [
+                        {
+                            "id": 404727,
+                            "name": "baking sheet",
+                            "localizedName": "baking sheet",
+                            "image": "baking-sheet.jpg"
+                        },
+                        {
+                            "id": 405900,
+                            "name": "wire rack",
+                            "localizedName": "wire rack",
+                            "image": "wire-rack.jpg"
+                        },
+                        {
+                            "id": 404646,
+                            "name": "baking pan",
+                            "localizedName": "baking pan",
+                            "image": "roasting-pan.jpg"
+                        },
+                        {
+                            "id": 404765,
+                            "name": "aluminum foil",
+                            "localizedName": "aluminum foil",
+                            "image": "aluminum-foil.png"
+                        },
+                        {
+                            "id": 404784,
+                            "name": "oven",
+                            "localizedName": "oven",
+                            "image": "oven.jpg"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "originalId": null,
+    "spoonacularScore": 87.91950988769531
+}

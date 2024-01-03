@@ -109,6 +109,9 @@ flutter:
     - assets/categories/salad.png
     - assets/categories/vegan.png
 
+    # dialog box images
+    - assets/dialog_images/no-internet.png
+
 
     
 

@@ -13,4 +13,18 @@ class Responsive {
     return MediaQuery.of(context).size.width >= 700 &&
         MediaQuery.of(context).size.width < 950;
   }
+
+  static Widget buildResponsive({
+    required Widget mobile,
+    Widget? tablet,
+    Widget? desktop,
+  }) {
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth >= 800) {
+        return desktop!;
+      } else {
+        return mobile;
+      }
+    });
+  }
 }

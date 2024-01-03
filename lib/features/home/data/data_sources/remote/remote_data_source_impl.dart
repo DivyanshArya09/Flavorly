@@ -6,7 +6,9 @@ import 'package:recipe_app/features/home/data/models/category_model.dart';
 import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/random_recipe_model.dart';
+import 'package:recipe_app/features/home/data/models/recipe_detail_model.dart';
 import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
+import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final Dio dio;
@@ -85,6 +87,19 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       return (data['menuItems'] as List)
           .map((e) => MenuRecipeModel.fromJson(e))
           .toList();
+    } else {
+      print('--------------------------------Failed to load data');
+      throw ServerException(message: 'Failed to load data');
+    }
+  }
+
+  @override
+  Future<RecipeDetailModel> getRecipeDetails(int id) async {
+    var response = await Dio().get(ApiUrls.getRecipesDetailUrl(id));
+
+    if (response.statusCode == 200) {
+      var data = response.data;
+      return RecipeDetailModel.fromJson(data);
     } else {
       print('--------------------------------Failed to load data');
       throw ServerException(message: 'Failed to load data');

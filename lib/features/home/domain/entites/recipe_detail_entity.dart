@@ -1,4 +1,6 @@
-class RecipeDetails {
+import 'package:equatable/equatable.dart';
+
+class RecipeDetailEntity extends Equatable {
   final bool? vegetarian;
   final bool? vegan;
   final bool? glutenFree;
@@ -17,7 +19,7 @@ class RecipeDetails {
   final String? creditsText;
   final String? sourceName;
   final double? pricePerServing;
-  final List<ExtendedIngredient>? extendedIngredients;
+  final List<ExtendedIngredients>? extendedIngredients;
   final int? id;
   final String? title;
   final int? readyInMinutes;
@@ -26,17 +28,10 @@ class RecipeDetails {
   final String? image;
   final String? imageType;
   final String? summary;
-  final List<dynamic>? cuisines;
-  final List<String>? dishTypes;
-  final List<String>? diets;
-  final List<dynamic>? occasions;
-  final WinePairing? winePairing;
   final String? instructions;
-  final List<AnalyzedInstruction>? analyzedInstructions;
-  final dynamic originalId;
-  final double? spoonacularScore;
+  final List<AnalyzedInstructions>? analyzedInstructions;
 
-  RecipeDetails({
+  const RecipeDetailEntity({
     this.vegetarian,
     this.vegan,
     this.glutenFree,
@@ -64,75 +59,49 @@ class RecipeDetails {
     this.image,
     this.imageType,
     this.summary,
-    this.cuisines,
-    this.dishTypes,
-    this.diets,
-    this.occasions,
-    this.winePairing,
     this.instructions,
     this.analyzedInstructions,
-    this.originalId,
-    this.spoonacularScore,
   });
+
+  @override
+  List<Object?> get props => [
+        vegetarian,
+        vegan,
+        glutenFree,
+        dairyFree,
+        veryHealthy,
+        cheap,
+        veryPopular,
+        sustainable,
+        lowFodmap,
+        weightWatcherSmartPoints,
+        gaps,
+        preparationMinutes,
+        cookingMinutes,
+        aggregateLikes,
+        healthScore,
+        creditsText,
+        sourceName,
+        pricePerServing,
+        extendedIngredients,
+        id,
+        title,
+        readyInMinutes,
+        servings,
+        sourceUrl,
+        image,
+        imageType,
+        summary,
+        instructions,
+        analyzedInstructions,
+      ];
 }
 
-class AnalyzedInstruction {
-  final String? name;
-  final List<Step>? steps;
-
-  AnalyzedInstruction({
-    this.name,
-    this.steps,
-  });
-}
-
-class Step {
-  final int? number;
-  final String? step;
-  final List<Ent>? ingredients;
-  final List<Ent>? equipment;
-  final Length? length;
-
-  Step({
-    this.number,
-    this.step,
-    this.ingredients,
-    this.equipment,
-    this.length,
-  });
-}
-
-class Ent {
-  final int? id;
-  final String? name;
-  final String? localizedName;
-  final String? image;
-  final Length? temperature;
-
-  Ent({
-    this.id,
-    this.name,
-    this.localizedName,
-    this.image,
-    this.temperature,
-  });
-}
-
-class Length {
-  final int? number;
-  final String? unit;
-
-  Length({
-    this.number,
-    this.unit,
-  });
-}
-
-class ExtendedIngredient {
+class ExtendedIngredients extends Equatable {
   final int? id;
   final String? aisle;
   final String? image;
-  final Consistency? consistency;
+  final String? consistency;
   final String? name;
   final String? nameClean;
   final String? original;
@@ -142,78 +111,161 @@ class ExtendedIngredient {
   final List<String>? meta;
   final Measures? measures;
 
-  ExtendedIngredient({
-    this.id,
-    this.aisle,
-    this.image,
-    this.consistency,
-    this.name,
-    this.nameClean,
-    this.original,
-    this.originalName,
-    this.amount,
-    this.unit,
-    this.meta,
-    this.measures,
-  });
+  const ExtendedIngredients(
+      {this.id,
+      this.aisle,
+      this.image,
+      this.consistency,
+      this.name,
+      this.nameClean,
+      this.original,
+      this.originalName,
+      this.amount,
+      this.unit,
+      this.meta,
+      this.measures});
+
+  @override
+  List<Object?> get props => [
+        id,
+        aisle,
+        image,
+        consistency,
+        name,
+        nameClean,
+        original,
+        originalName,
+        amount,
+        unit,
+        meta,
+        measures
+      ];
 }
 
-enum Consistency { LIQUID, SOLID }
-
-class Measures {
-  final Metric? us;
+class Measures extends Equatable {
+  final Us? us;
   final Metric? metric;
 
-  Measures({
-    this.us,
-    this.metric,
-  });
+  const Measures({this.us, this.metric});
+
+  @override
+  List<Object?> get props => [us, metric];
 }
 
-class Metric {
+class Us extends Equatable {
   final double? amount;
   final String? unitShort;
   final String? unitLong;
 
-  Metric({
-    this.amount,
-    this.unitShort,
-    this.unitLong,
-  });
+  const Us({this.amount, this.unitShort, this.unitLong});
+
+  @override
+  List<Object?> get props => [amount, unitShort, unitLong];
 }
 
-class WinePairing {
-  final List<String>? pairedWines;
-  final String? pairingText;
-  final List<ProductMatch>? productMatches;
+class Metric extends Equatable {
+  final double? amount;
+  final String? unitShort;
+  final String? unitLong;
 
-  WinePairing({
-    this.pairedWines,
-    this.pairingText,
-    this.productMatches,
-  });
+  const Metric({this.amount, this.unitShort, this.unitLong});
+
+  @override
+  List<Object?> get props => [amount, unitShort, unitLong];
 }
 
-class ProductMatch {
+class ProductMatches extends Equatable {
   final int? id;
   final String? title;
   final String? description;
   final String? price;
   final String? imageUrl;
-  final int? averageRating;
+  final double? averageRating;
   final int? ratingCount;
   final double? score;
   final String? link;
 
-  ProductMatch({
-    this.id,
-    this.title,
-    this.description,
-    this.price,
-    this.imageUrl,
-    this.averageRating,
-    this.ratingCount,
-    this.score,
-    this.link,
-  });
+  const ProductMatches(
+      {this.id,
+      this.title,
+      this.description,
+      this.price,
+      this.imageUrl,
+      this.averageRating,
+      this.ratingCount,
+      this.score,
+      this.link});
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        description,
+        price,
+        imageUrl,
+        averageRating,
+        ratingCount,
+        score,
+        link
+      ];
+}
+
+class AnalyzedInstructions extends Equatable {
+  final String? name;
+  final List<Steps>? steps;
+
+  const AnalyzedInstructions({this.name, this.steps});
+
+  @override
+  List<Object?> get props => [name, steps];
+}
+
+class Steps extends Equatable {
+  final int? number;
+  final String? step;
+  final List<Ingredients>? ingredients;
+  final List<Equipment>? equipment;
+  final Temperature? length;
+
+  const Steps(
+      {this.number, this.step, this.ingredients, this.equipment, this.length});
+
+  @override
+  List<Object?> get props => [number, step, ingredients, equipment, length];
+}
+
+class Ingredients extends Equatable {
+  final int? id;
+  final String? name;
+  final String? localizedName;
+  final String? image;
+
+  const Ingredients({this.id, this.name, this.localizedName, this.image});
+
+  @override
+  List<Object?> get props => [id, name, localizedName, image];
+}
+
+class Equipment extends Equatable {
+  final int? id;
+  final String? name;
+  final String? localizedName;
+  final String? image;
+  final Temperature? temperature;
+
+  const Equipment(
+      {this.id, this.name, this.localizedName, this.image, this.temperature});
+
+  @override
+  List<Object?> get props => [id, name, localizedName, image, temperature];
+}
+
+class Temperature extends Equatable {
+  final int? number;
+  final String? unit;
+
+  const Temperature({this.number, this.unit});
+
+  @override
+  List<Object?> get props => [number, unit];
 }
