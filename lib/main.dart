@@ -47,8 +47,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
         // home: const ,
-        // home: const SeeAllPage(),
-        home: const HomePage(name: 'anne'),
+        home: const SeeAllPage(),
+        // home: const HomePage(name: 'anne'),
         // home: Responsive.buildResponsive(
         //     mobile: const RecipeDetailPage(),
         //     desktop: const DekStopDetailLayout()),

@@ -15,7 +15,7 @@ class SeeAllPage extends StatelessWidget {
         // backgroundColor: Colors.black,
         body: Center(
           child: Container(
-            color: Colors.yellow,
+            // color: Colors.yellow,
             constraints: const BoxConstraints(
               maxWidth: 1200,
             ),
@@ -48,7 +48,9 @@ class SeeAllPage extends StatelessWidget {
                   'Results for Breakfast',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                const Expanded(child: RecipeGridBuilder()),
+                const Expanded(
+                  child: RecipeGridBuilder(),
+                ),
               ],
             ),
           ),
