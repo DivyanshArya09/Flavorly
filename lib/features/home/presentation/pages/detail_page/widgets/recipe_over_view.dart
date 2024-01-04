@@ -87,13 +87,16 @@ class RecipeOverView extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          Text(
-            "Ingredients",
-            style: Theme.of(context).textTheme.titleMedium,
+          Visibility(
+            visible: ingredients.isNotEmpty,
+            child: Text(
+              "Ingredients",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
           ExtendedIngredientWidget(
             ingredients: ingredients,
           ),

@@ -33,13 +33,12 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
     var size = MediaQuery.of(context).size;
     return BlocConsumer<RecipeDetailBloc, RecipeDetailState>(
       bloc: recipeDetailBloc,
-      listener: (context, state) {
+      listener: (context, state) {},
+      builder: (context, state) {
         if (state.failure == RecipeDetailFailure.connection ||
             state.failure == RecipeDetailFailure.server) {
-          openDialog(context);
+          return Scaffold(body: Center(child: Text(state.failure.toString())));
         }
-      },
-      builder: (context, state) {
         if (state.status == RecipeDetailStatus.loading) {
           return const Scaffold(
             body: Center(
@@ -107,6 +106,8 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                         color: Theme.of(context).cardColor,
                         borderRadius: BorderRadius.circular(80),
                       ),
+
+                      //! this feature is pending
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(
@@ -128,7 +129,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                         right: 0,
                         bottom: 0,
                         child: CachedNetworkImage(
-                          imageUrl: state.recipeDetail!.image!,
+                          imageUrl: state.recipeDetail?.image ?? '',
                           fit: BoxFit.cover,
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
@@ -146,8 +147,8 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                             width: double.infinity,
                             radius: 20,
                           ),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
+                          errorWidget: (context, url, error) => const Image(
+                              image: AssetImage('assets/halo-halo.png')),
                         ),
                       ),
                       Positioned(

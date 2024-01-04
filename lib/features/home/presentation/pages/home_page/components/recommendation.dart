@@ -31,10 +31,15 @@ class NutrientRecipes extends StatelessWidget {
                     title: nutrientRecipes[index].title.toString(),
                     imageUrl: nutrientRecipes[index].image.toString(),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return RecipeDetailPage(id: nutrientRecipes[index].id);
-                      }));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RecipeDetailPage(
+                                id: nutrientRecipes[index].id);
+                          },
+                        ),
+                      );
                     },
                   ),
                 ),

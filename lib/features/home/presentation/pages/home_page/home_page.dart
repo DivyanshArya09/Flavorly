@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
+import 'package:recipe_app/core/shared/dialog_box.dart';
 import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/caresoul.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
@@ -65,7 +66,11 @@ class _HomePageState extends State<HomePage> {
             ),
             child: BlocConsumer<HomeBloc, HomeState>(
               bloc: homeBloc,
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state.failure == Failure.connection) {
+                  openDialog(context);
+                }
+              },
               // buildWhen:  ( previous, current) => current is H,
               builder: (context, state) {
                 if (state.status == HomeStatus.loading) {
@@ -81,7 +86,9 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         const Header(name: 'Divyansh'),
                         const CustomSeperator(),
-                        const CustomSearchBar(),
+                        const CustomSearchBar(
+                          text: 'Search Recipe any recipe',
+                        ),
                         const CustomSeperator(),
                         const CustomRow(text: 'Categories'),
                         const CustomSeperator(),
@@ -132,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }
-                return const CircularProgressIndicator();
+                return const SkeltonHomePage();
               },
             ),
           ),

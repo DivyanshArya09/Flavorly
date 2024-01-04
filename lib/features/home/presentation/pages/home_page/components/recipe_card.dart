@@ -25,8 +25,8 @@ class RecipeCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
         // padding: const EdgeInsets.symmetric(vertical: 8),
-        height: Responsive.isMobile(context) ? size.height * .35 : 270,
-        width: Responsive.isMobile(context) ? size.width : 220,
+        height: Responsive.isMobile(context) ? size.height * .35 : 300,
+        width: Responsive.isMobile(context) ? size.width : 400,
         decoration: const BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.all(
@@ -77,8 +77,8 @@ class RecipeCard extends StatelessWidget {
               top: 10,
               right: 10,
               child: Container(
-                height: size.height * .1,
-                width: size.width * .23,
+                height: Responsive.isMobile(context) ? size.height * .1 : 100,
+                width: Responsive.isMobile(context) ? size.height * .1 : 100,
                 decoration: const BoxDecoration(
                   color: AppColors.buttonColor1,
                   borderRadius: BorderRadius.all(

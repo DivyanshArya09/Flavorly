@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
 
 class RecipeIngredientsAndEquipmentWidget extends StatelessWidget {
   final String title, imageUrl;
@@ -17,7 +19,28 @@ class RecipeIngredientsAndEquipmentWidget extends StatelessWidget {
             width: 80,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image(fit: BoxFit.cover, image: NetworkImage(imageUrl)),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl,
+                fit: BoxFit.cover,
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: imageProvider,
+                    ),
+                  ),
+                ),
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    const SkeltonContainer(
+                  height: double.infinity,
+                  width: double.infinity,
+                  radius: 20,
+                ),
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.error,
+                ),
+              ),
             ),
           ),
           // const SizedBox(

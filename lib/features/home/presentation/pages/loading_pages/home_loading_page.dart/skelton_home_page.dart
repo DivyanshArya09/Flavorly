@@ -33,7 +33,9 @@ class SkeltonHomePage extends StatelessWidget {
                 //space between header and searchBar
                 const CustomSeperator(),
                 //search bar
-                const CustomSearchBar(),
+                const CustomSearchBar(
+                  text: 'Search Recipes any recipes',
+                ),
                 //space between searchBar and categories
                 const CustomSeperator(),
                 //categories

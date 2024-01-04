@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/ingredients_item.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/extended_ingredient_tile.dart';
 
 class ExtendedIngredientWidget extends StatelessWidget {
   final List<ExtendedIngredients> ingredients;
@@ -24,16 +25,15 @@ class ExtendedIngredientWidget extends StatelessWidget {
               horizontalOffset: -50.0,
               child: FadeInAnimation(
                 duration: const Duration(seconds: 1),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: RecipeIngredientsAndEquipmentWidget(
-                      title: ingredients[index].name.toString(),
-                      imageUrl:
-                          'https://spoonacular.com/cdn/ingredients_100x100/${ingredients[index].image.toString()}',
-                    ),
-                  ),
+                child: ExtendedIngredientTile(
+                  name: ingredients[index].name.toString(),
+                  amount: ingredients[index].amount.toString(),
+                  unit: ingredients[index].unit.toString(),
+                  imageUrl: ingredients[index].image.toString(),
+                  aisle: ingredients[index].aisle.toString(),
+                  consistency: ingredients[index].consistency.toString(),
+                  unitShort:
+                      ingredients[index].measures!.us!.unitShort.toString(),
                 ),
               ),
             ),
