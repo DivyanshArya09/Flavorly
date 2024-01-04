@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/recipe_card.dart';
 
 class RecipeCardList extends StatelessWidget {
@@ -17,7 +19,16 @@ class RecipeCardList extends StatelessWidget {
           imageUrl: recipes[index].image.toString(),
           title: recipes[index].title.toString(),
           readyInMinutes: recipes[index].readyInMinutes.toString(),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return RecipeDetailPage(id: recipes[index].id);
+                },
+              ),
+            );
+          },
         );
       },
     );

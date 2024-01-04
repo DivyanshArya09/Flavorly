@@ -20,102 +20,105 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      // padding: const EdgeInsets.symmetric(vertical: 8),
-      height: Responsive.isMobile(context) ? size.height * .35 : 270,
-      width: Responsive.isMobile(context) ? size.width : 220,
-      decoration: const BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        // padding: const EdgeInsets.symmetric(vertical: 8),
+        height: Responsive.isMobile(context) ? size.height * .35 : 270,
+        width: Responsive.isMobile(context) ? size.width : 220,
+        decoration: const BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
         ),
-      ),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: CachedNetworkImage(
-                imageUrl: 'https://spoonacular.com/recipeImages/$imageUrl',
-                fit: BoxFit.fill,
-                imageBuilder: (context, imageProvider) => Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: imageProvider,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: CachedNetworkImage(
+                  imageUrl: 'https://spoonacular.com/recipeImages/$imageUrl',
+                  fit: BoxFit.fill,
+                  imageBuilder: (context, imageProvider) => Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: imageProvider,
+                          ),
                         ),
                       ),
-                    ),
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    const SkeltonContainer(
-                      height: double.infinity,
-                      width: double.infinity,
-                      radius: 20,
-                    ),
-                errorWidget: (context, url, error) {
-                  return const Image(
-                    image: AssetImage('assets/halo-halo.png'),
-                    fit: BoxFit.contain,
-                    height: 100,
-                    width: 100,
-                  );
-                }),
-          ),
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      const SkeltonContainer(
+                        height: double.infinity,
+                        width: double.infinity,
+                        radius: 20,
+                      ),
+                  errorWidget: (context, url, error) {
+                    return const Image(
+                      image: AssetImage('assets/halo-halo.png'),
+                      fit: BoxFit.contain,
+                      height: 100,
+                      width: 100,
+                    );
+                  }),
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: Container(
-              height: size.height * .1,
-              width: size.width * .23,
-              decoration: const BoxDecoration(
-                color: AppColors.buttonColor1,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5),
+            Positioned(
+              top: 10,
+              right: 10,
+              child: Container(
+                height: size.height * .1,
+                width: size.width * .23,
+                decoration: const BoxDecoration(
+                  color: AppColors.buttonColor1,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.watch_later_outlined,
+                      color: AppColors.white,
+                    ),
+                    Text(
+                      '$readyInMinutes min',
+                      style: const TextStyle(
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.watch_later_outlined,
-                    color: AppColors.white,
-                  ),
-                  Text(
-                    '$readyInMinutes min',
-                    style: const TextStyle(
-                      color: AppColors.white,
-                    ),
-                  ),
-                ],
+            ),
+            Positioned(
+              bottom: 20,
+              left: 10,
+              child: SizedBox(
+                width: size.width * .8,
+                child: Text(
+                  title,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: AppColors.white,
+                      ),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 20,
-            left: 10,
-            child: SizedBox(
-              width: size.width * .8,
-              child: Text(
-                title,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: AppColors.white,
-                    ),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

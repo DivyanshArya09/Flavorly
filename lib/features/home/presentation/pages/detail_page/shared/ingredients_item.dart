@@ -17,7 +17,7 @@ class RecipeIngredientsAndEquipmentWidget extends StatelessWidget {
             width: 80,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image(fit: BoxFit.fill, image: NetworkImage(imageUrl)),
+              child: Image(fit: BoxFit.cover, image: NetworkImage(imageUrl)),
             ),
           ),
           // const SizedBox(

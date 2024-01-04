@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Center(
           child: Container(
+            margin: const EdgeInsets.only(top: 30),
             padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
             constraints: const BoxConstraints(
               maxWidth: 1200,

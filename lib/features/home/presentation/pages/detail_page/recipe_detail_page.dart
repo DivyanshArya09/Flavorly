@@ -90,7 +90,9 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                       borderRadius: BorderRadius.circular(80),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                       icon: const Icon(Icons.arrow_back_ios_new_outlined,
                           size: 20),
                     ),

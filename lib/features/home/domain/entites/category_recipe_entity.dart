@@ -5,7 +5,7 @@ class CategoryEntity extends Equatable {
   final String? sourceUrl;
   final String? image;
   final int? servings;
-  final int? id;
+  final int id;
   final String? title;
 
   const CategoryEntity(
@@ -13,7 +13,7 @@ class CategoryEntity extends Equatable {
       this.sourceUrl,
       this.image,
       this.servings,
-      this.id,
+      required this.id,
       this.title});
 
   @override

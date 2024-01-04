@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/extended_ingredient.dart';
 
@@ -55,21 +56,21 @@ class RecipeOverView extends StatelessWidget {
                 _recipeStats(
                     const Icon(
                       Icons.timer_outlined,
-                      color: Colors.blueGrey,
+                      color: AppColors.buttonColor1,
                     ),
                     "$timeToCook min",
                     context),
                 _recipeStats(
                     const Icon(
-                      color: Colors.blueGrey,
+                      color: AppColors.buttonColor1,
                       Icons.health_and_safety_outlined,
                     ),
-                    " $healthScore",
+                    "heath score $healthScore",
                     context),
                 _recipeStats(
                     const Icon(
-                      color: Colors.blueGrey,
-                      Icons.thumb_up_alt_outlined,
+                      color: AppColors.buttonColor1,
+                      Icons.thumb_up_outlined,
                     ),
                     likes ?? '',
                     context),

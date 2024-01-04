@@ -45,7 +45,7 @@ class GetInstructions extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            margin: const EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.only(top: 20),
             constraints: const BoxConstraints(
               maxWidth: 1200,
             ),

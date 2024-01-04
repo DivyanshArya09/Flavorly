@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
       ],
       child: MaterialApp(
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

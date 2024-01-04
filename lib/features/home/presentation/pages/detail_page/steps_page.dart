@@ -23,7 +23,7 @@ class StepsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Step: $stepNumber",
-              style: Theme.of(context).textTheme.titleMedium),
+              style: Theme.of(context).textTheme.headlineLarge),
           const SizedBox(
             height: 10,
           ),
@@ -31,12 +31,18 @@ class StepsPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Text('Ingredients', style: Theme.of(context).textTheme.titleMedium),
+          Visibility(
+              visible: ingredients.isNotEmpty,
+              child: Text('Ingredients',
+                  style: Theme.of(context).textTheme.titleMedium)),
           const SizedBox(
             height: 10,
           ),
           RecipeIngredientBuilder(ingredients: ingredients),
-          Text('Equipments', style: Theme.of(context).textTheme.titleMedium),
+          Visibility(
+              visible: equipment.isNotEmpty,
+              child: Text('Equipments',
+                  style: Theme.of(context).textTheme.titleMedium)),
           const SizedBox(
             height: 10,
           ),
