@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
@@ -99,10 +100,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         if (isError) {
           return;
         } else {
-          final nutrientRecipeResult = await getRecipesByNutrientsUseCase.call(
-              NutrientsParams(
-                  nutrients: event.nutrients,
-                  concentration: event.concentration));
+          final nutrientRecipeResult =
+              await getRecipesByNutrientsUseCase.call(NutrientsParams(
+            nutrients: event.nutrients,
+          ));
 
           // Checking errors for Nutrient Results
           nutrientRecipeResult.fold((error) {

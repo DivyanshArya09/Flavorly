@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:recipe_app/config/constants/api_constants/constants.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source.dart';
 import 'package:recipe_app/features/home/data/models/category_model.dart';
@@ -8,7 +9,6 @@ import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart'
 import 'package:recipe_app/features/home/data/models/random_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/recipe_detail_model.dart';
 import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final Dio dio;
@@ -31,9 +31,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
   @override
   Future<List<NutrientRecipeModel>> getNutrientRecipes(
-      List<String> nutrient, int concentration) async {
+      List<NutrientModel> nutrient) async {
     var response = await dio.get(
-      ApiUrls.getRecipeByNutrientsUrl(nutrient, concentration),
+      ApiUrls.getRecipeByNutrientsUrl(nutrient),
     );
     if (response.statusCode == 200) {
       var data = response.data;

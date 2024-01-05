@@ -1,3 +1,5 @@
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
+
 class ApiUrls {
   static const apiKey = '2c1b0e52091f4f3696b5642181e5d4b6';
   static const baseUrl = 'https://api.spoonacular.com';
@@ -8,16 +10,15 @@ class ApiUrls {
   static String getCategoriesRecipeUrl(String category, int number) =>
       '$baseUrl/recipes/search?apiKey=$apiKey&number=$number&cuisine=$category';
 
-  static String getRecipeByNutrientsUrl(
-      List<String> nutrients, int concentration) {
+  static String getRecipeByNutrientsUrl(List<NutrientModel> nutrients) {
     String query = '';
     for (var element in nutrients) {
-      query += '&$element=$concentration';
+      query += '&${element.name}=${element.unit}';
     }
-    query = query.replaceAll(
-      ',',
-      '',
-    );
+    // query = query.replaceAll(
+    //   ',',
+    //   '',
+    // );
     return '$baseUrl/recipes/findByNutrients?apiKey=$apiKey$query';
   }
 

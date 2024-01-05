@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
@@ -15,7 +16,7 @@ abstract class HomeRepository {
       int id);
 
   Future<Either<Failure, List<NutrientRecipeEntity>>> getRecipesByNutrients(
-      List<String> nutrients, int concentration);
+      List<NutrientModel> nutrients);
 
   Future<Either<Failure, List<RandomRecipeEntity>>> getRandomRecipes(
       int number);

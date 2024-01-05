@@ -1,3 +1,4 @@
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/features/home/data/models/category_model.dart';
 import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
 import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
@@ -13,7 +14,7 @@ abstract class HomeRemoteDataSource {
   Future<List<RandomRecipeModel>> getRandomRecipes(int number);
 
   Future<List<NutrientRecipeModel>> getNutrientRecipes(
-      List<String> query, int concentration);
+      List<NutrientModel> nutrients);
 
   Future<List<MenuRecipeModel>> getMenuRecipes(String menuItem, int number);
   Future<RecipeDetailModel> getRecipeDetails(int id);

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
 import 'package:recipe_app/core/shared/dialog_box.dart';
@@ -41,13 +43,14 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     homeBloc = GetIt.I.get<HomeBloc>()
-      ..add(const HomeInitialEvent(
+      ..add(HomeInitialEvent(
           category: 'indian',
           id: 4673,
           menuItem: 'pizza',
           numberOfMenuItemsYouWant: 10,
-          nutrients: ['maxCarbs'],
-          concentration: 20));
+          nutrients: [
+            NutrientsConstants.allNutrients[0],
+          ]));
     super.initState();
   }
 

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/core/network/network_info.dart';
@@ -51,13 +52,12 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<NutrientRecipeEntity>>> getRecipesByNutrients(
-      List<String> nutrients, int concentration) async {
+      List<NutrientModel> nutrients) async {
     if (!await networkInfo.isConnected) {
       return Left(ConnectionFailure('No internet connection'));
     }
     try {
-      var result = await homeRemoteDataSource.getNutrientRecipes(
-          nutrients, concentration);
+      var result = await homeRemoteDataSource.getNutrientRecipes(nutrients);
       return Right(result.map((e) => e.toEntity()).toList());
     } on ServerException catch (e) {
       return Left(SeverFailure(e.toString()));

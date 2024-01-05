@@ -12,8 +12,7 @@ class HomeInitialEvent extends HomeEvent {
   final int id;
   final String menuItem;
   final int numberOfMenuItemsYouWant;
-  final List<String> nutrients;
-  final int concentration;
+  final List<NutrientModel> nutrients;
 
   // final List<String> ingredients;
 
@@ -23,7 +22,6 @@ class HomeInitialEvent extends HomeEvent {
     required this.menuItem,
     required this.numberOfMenuItemsYouWant,
     required this.nutrients,
-    required this.concentration,
   });
   @override
   List<Object> get props => [];
