@@ -37,6 +37,7 @@ import 'package:recipe_app/features/home/domain/usecases/get_recipe_detail_use_c
 import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
 import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
 import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:recipe_app/features/home/presentation/category_page_bloc/bloc/category_bloc.dart';
 import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,8 +54,9 @@ Future<void> init() async {
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
   sl.registerFactory(() => AnimationBloc());
   sl.registerFactory(() => HomeBloc(sl(), sl(), sl(), sl()));
-  sl.registerFactory(() => RecipeDetailBloc(sl()));
   // sl.registerFactory(() => RecommendedItemBloc(sl(), sl()));
+  sl.registerFactory(() => RecipeDetailBloc(sl()));
+  sl.registerFactory(() => CategoryBloc(sl()));
 
   //* Use cases
   //! Auth
@@ -91,6 +93,8 @@ Future<void> init() async {
       () => GetRecommendedItemUseCase(homeRepository: sl()));
   sl.registerLazySingleton(() => GetMenuRecipeUseCase(repository: sl()));
   sl.registerLazySingleton(() => GetRecipeDetailUseCase(repository: sl()));
+  // sl.registerLazySingleton(
+  //     () => GetCategoriesRecipesUseCase(homeRepository: sl()));
 
   //! Auth Repository
   sl.registerLazySingleton<AuthRepository>(

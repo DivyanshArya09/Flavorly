@@ -68,11 +68,14 @@ class ExtendedIngredientTile extends StatelessWidget {
                 name,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              Text(
-                aisle,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                style: Theme.of(context).textTheme.headlineSmall,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .5,
+                child: Text(
+                  aisle,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
               ),
               Text(
                 'measures : $amount $unitShort ',

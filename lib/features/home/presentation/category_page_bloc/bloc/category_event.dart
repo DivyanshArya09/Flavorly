@@ -15,3 +15,12 @@ class GetCategoryEvent extends CategoryEvent {
   @override
   List<Object> get props => [category];
 }
+
+class SearchCategoriesEvent extends CategoryEvent {
+  final String query;
+
+  const SearchCategoriesEvent({required this.query});
+
+  @override
+  List<Object> get props => [query];
+}

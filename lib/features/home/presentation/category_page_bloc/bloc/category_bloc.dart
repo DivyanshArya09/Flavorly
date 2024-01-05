@@ -31,7 +31,39 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
           },
           (r) {
             emit(
-              CategoryState(categoryResults: r, status: CategoryStatus.success),
+              CategoryState(
+                  categoryResults: r,
+                  status: CategoryStatus.success,
+                  category: event.category),
+            );
+          },
+        );
+      },
+    );
+
+    on<SearchCategoriesEvent>(
+      (event, emit) async {
+        emit(const CategoryState().copyWith(status: CategoryStatus.loading));
+        final result = await getCategoriesRecipesUseCase
+            .call(CategoriesParams(category: event.query));
+        result.fold(
+          (l) {
+            if (l is failure.SeverFailure) {
+              emit(
+                  const CategoryState().copyWith(status: CategoryStatus.error));
+            }
+            if (l is failure.ConnectionFailure) {
+              emit(const CategoryState().copyWith(
+                  status: CategoryStatus.error,
+                  failure: CategoryFailure.connection));
+            }
+          },
+          (r) {
+            emit(
+              CategoryState(
+                  categoryResults: r,
+                  status: CategoryStatus.success,
+                  category: event.query),
             );
           },
         );
