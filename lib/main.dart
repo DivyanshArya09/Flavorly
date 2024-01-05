@@ -10,7 +10,8 @@ import 'package:recipe_app/features/home/presentation/pages/detail_page/get_inst
 import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/extended_ingredient_tile.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/see_all_page/see_all_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/loading_pages/category_skelton_page/category_skelton_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/see_all_page/Category_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/firebase_options.dart';
@@ -47,7 +48,9 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
         // home: const ,
-        home: const SeeAllPage(),
+        home: const SkeltonCategoryPage(
+          category: 'lunch',
+        ),
         // home: const HomePage(name: 'anne'),
         // home: Responsive.buildResponsive(
         //     mobile: const RecipeDetailPage(),

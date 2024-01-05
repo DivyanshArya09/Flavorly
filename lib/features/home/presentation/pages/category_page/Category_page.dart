@@ -4,8 +4,9 @@ import 'package:recipe_app/features/home/presentation/pages/home_page/components
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
 import 'package:recipe_app/features/home/presentation/pages/see_all_page/widgets/recipe_gridBuilder.dart';
 
-class SeeAllPage extends StatelessWidget {
-  const SeeAllPage({super.key});
+class CategoryPage extends StatelessWidget {
+  final String category;
+  const CategoryPage({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,9 @@ class SeeAllPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const Expanded(
-                  child: RecipeGridBuilder(),
+                  child: RecipeGridBuilder(
+                    categoryList: [],
+                  ),
                 ),
               ],
             ),
