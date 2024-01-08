@@ -15,6 +15,7 @@ import 'package:recipe_app/features/home/presentation/pages/home_page/components
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/recommendation.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
 import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
+import 'package:recipe_app/features/home/presentation/pages/nutrient_page/nutrient_page.dart';
 import 'package:recipe_app/features/home/presentation/widgets/custom_row.dart';
 import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
 
@@ -93,14 +94,27 @@ class _HomePageState extends State<HomePage> {
                           text: 'Search Recipe any recipe',
                         ),
                         const CustomSeperator(),
-                        const CustomRow(text: 'Categories'),
+                        //! implementation id pending
+                        CustomRow(
+                          text: 'Categories',
+                          onTap: () {},
+                        ),
                         const CustomSeperator(),
                         const SizedBox(
                           height: 90,
                           child: Categories(),
                         ),
                         const CustomSeperator(),
-                        const CustomRow(text: 'By Nutrients'),
+                        CustomRow(
+                          text: 'By Nutrients',
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const NutrientPage()));
+                          },
+                        ),
                         SizedBox(
                             height: Responsive.isMobile(context)
                                 ? size.height * .38
@@ -108,7 +122,12 @@ class _HomePageState extends State<HomePage> {
                             child: NutrientRecipes(
                               nutrientRecipes: state.nutrients ?? [],
                             )),
-                        const CustomRow(text: 'Menu Items'),
+
+                        //! implementation id pending
+                        CustomRow(
+                          text: 'Menu Items',
+                          onTap: () {},
+                        ),
                         const CustomSeperator(),
                         Visibility(
                           visible: !Responsive.isDesktop(context),
@@ -126,7 +145,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        const CustomRow(text: 'Cusines'),
+
+                        //! implementation id pending
+                        CustomRow(
+                          text: 'Cusines',
+                          onTap: () {},
+                        ),
                         const CustomSeperator(),
                         RecipeCardList(
                           recipes: state.categories ?? [],
@@ -142,7 +166,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }
-                return const SkeltonHomePage();
+                return const Center(
+                  child: Text('Something went wrong'),
+                );
               },
             ),
           ),

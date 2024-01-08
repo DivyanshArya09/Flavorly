@@ -64,9 +64,17 @@ class ExtendedIngredientTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                name,
-                style: Theme.of(context).textTheme.headlineMedium,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .5,
+                child: Text(
+                  name,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: Colors.black),
+                ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
@@ -74,7 +82,10 @@ class ExtendedIngredientTile extends StatelessWidget {
                   aisle,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall
+                      ?.copyWith(color: Colors.black),
                 ),
               ),
               Text(

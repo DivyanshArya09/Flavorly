@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/config/theme/theme.dart';
+import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/nutrient_page/nutrient_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 // import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
@@ -33,17 +34,17 @@ class MyApp extends StatelessWidget {
         // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
       ],
       child: MaterialApp(
-        themeMode: ThemeMode.light,
+        themeMode: ThemeMode.dark,
         darkTheme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        home: const NutrientPage(),
+        // home: const NutrientPage(),
         // home: const ,
         // home: const SkeltonCategoryPage(
         //   category: 'lunch',
         // ),
-        // home: const HomePage(name: 'anne'),
+        home: const HomePage(name: 'anne'),
         // home: Responsive.buildResponsive(
         //     mobile: const RecipeDetailPage(),
         //     desktop: const DekStopDetailLayout()),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/steps_page.dart';
 
@@ -21,6 +22,8 @@ class GetInstructions extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          fixedColor: AppColors.buttonColor1,
+          unselectedItemColor: AppColors.buttonColor1,
           items: const [
             BottomNavigationBarItem(
               label: 'Prev Step',

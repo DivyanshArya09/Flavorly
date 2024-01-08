@@ -1,3 +1,4 @@
+import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
 import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 
 class ApiUrls {
@@ -11,15 +12,16 @@ class ApiUrls {
       '$baseUrl/recipes/search?apiKey=$apiKey&number=$number&cuisine=$category';
 
   static String getRecipeByNutrientsUrl(List<NutrientModel> nutrients) {
+    // List<NutrientModel> nutrients = NutrientsConstants.allNutrients;
     String query = '';
     for (var element in nutrients) {
       query += '&${element.name}=${element.unit}';
     }
-    // query = query.replaceAll(
-    //   ',',
-    //   '',
-    // );
-    return '$baseUrl/recipes/findByNutrients?apiKey=$apiKey$query';
+    print('-------------------------------------->>>>>>>>>>>>>> $query');
+    print(
+        '-------------------------------------->>>>>>>>>>>>>> $baseUrl/recipes/findByNutrients?$query&number=5&apiKey=$apiKey');
+
+    return '$baseUrl/recipes/findByNutrients?apiKey=$apiKey&number=5$query';
   }
 
   static String getRandomRecipesUrl(int number) =>

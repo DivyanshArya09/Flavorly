@@ -39,6 +39,7 @@ import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_us
 import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:recipe_app/features/home/presentation/category_page_bloc/bloc/category_bloc.dart';
 import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
+import 'package:recipe_app/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
@@ -57,6 +58,7 @@ Future<void> init() async {
   // sl.registerFactory(() => RecommendedItemBloc(sl(), sl()));
   sl.registerFactory(() => RecipeDetailBloc(sl()));
   sl.registerFactory(() => CategoryBloc(sl()));
+  sl.registerFactory(() => NutrientBloc(sl()));
 
   //* Use cases
   //! Auth

@@ -49,7 +49,7 @@ class RecipeOverView extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-            width: size.width * .7,
+            width: size.width * .9,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

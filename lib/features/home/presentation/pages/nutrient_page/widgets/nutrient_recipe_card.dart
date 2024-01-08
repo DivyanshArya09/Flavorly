@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
+import 'package:recipe_app/core/network/network_info.dart';
+import 'package:recipe_app/core/shared/dialog_box.dart';
+import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recommeded_item.dart';
 
 class NutrientRecipeCard extends StatelessWidget {
-  const NutrientRecipeCard({super.key});
+  final List<NutrientRecipeEntity> nutrientRecipes;
+  const NutrientRecipeCard({super.key, required this.nutrientRecipes});
 
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-      itemCount: 10,
+      itemCount: nutrientRecipes.length,
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           // mainAxisExtent: ,
           // mainAxisExtent: 400,
@@ -24,10 +30,27 @@ class NutrientRecipeCard extends StatelessWidget {
               : .7),
       itemBuilder: (context, index) {
         return RecommendedDish(
-            title: 'Tasty Burger',
-            imageUrl:
-                'https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M=',
-            onTap: () {});
+            title: nutrientRecipes[index].title.toString(),
+            imageUrl: nutrientRecipes[index].image.toString(),
+            onTap: () async {
+              await GetIt.I.get<NetworkInfo>().isConnected.then((value) => {
+                    if (value)
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return RecipeDetailPage(
+                                id: nutrientRecipes[index].id,
+                              );
+                            },
+                          ),
+                        )
+                      }
+                    else
+                      {openDialog(context)}
+                  });
+            });
       },
     );
   }
