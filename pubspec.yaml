@@ -112,7 +112,16 @@ flutter:
     # dialog box images
     - assets/dialog_images/no-internet.png
 
-
+    # menu item images
+    - assets/menu_items/beverage.png
+    - assets/menu_items/burger.png
+    - assets/menu_items/fish-n-chips.png
+    - assets/menu_items/iced-coffee.png
+    - assets/menu_items/mango-smoothy.png
+    - assets/menu_items/onion-ring.png
+    - assets/menu_items/pizza.png
+    - assets/menu_items/salad.png
+    - assets/menu_items/sundae.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
