@@ -77,7 +77,9 @@ class _HomePageState extends State<HomePage> {
               // buildWhen:  ( previous, current) => current is H,
               builder: (context, state) {
                 if (state.status == HomeStatus.loading) {
-                  return const SkeltonHomePage();
+                  return SkeltonHomePage(
+                    name: widget.name,
+                  );
                 }
                 if (state.status == HomeStatus.success) {
                   return SingleChildScrollView(
@@ -177,7 +179,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }
-                return const SkeltonHomePage();
+                return SkeltonHomePage(
+                  name: widget.name,
+                );
               },
             ),
           ),

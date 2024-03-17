@@ -11,7 +11,8 @@ import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_l
 import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
 
 class SkeltonHomePage extends StatelessWidget {
-  const SkeltonHomePage({super.key});
+  final String name;
+  const SkeltonHomePage({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class SkeltonHomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 //header section with name and profile
-                const Header(name: 'Anne'),
+                Header(name: name),
                 //space between header and searchBar
                 const CustomSeperator(),
                 //search bar

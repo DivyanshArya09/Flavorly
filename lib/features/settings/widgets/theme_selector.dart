@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/features/settings/presentation/bloc/theme_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum ThemeModeOptions { light, dark, system }
 
@@ -13,7 +15,30 @@ class ThemeSelector extends StatefulWidget {
 }
 
 class _ThemeSelectorState extends State<ThemeSelector> {
-  ThemeModeOptions _selectedThemeMode = ThemeModeOptions.system;
+  late ThemeModeOptions _selectedThemeMode;
+
+  @override
+  void initState() {
+    final sharedPreferences = GetIt.I.get<SharedPreferences>();
+
+    final themeName = sharedPreferences.getString('themeMode') ?? 'system';
+
+    switch (themeName) {
+      case 'light':
+        _selectedThemeMode = ThemeModeOptions.light;
+        break;
+      case 'dark':
+        _selectedThemeMode = ThemeModeOptions.dark;
+        break;
+      case 'system':
+        _selectedThemeMode = ThemeModeOptions.system;
+
+        break;
+      default:
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -25,7 +50,10 @@ class _ThemeSelectorState extends State<ThemeSelector> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           RadioListTile<ThemeModeOptions>(
-            title: const Text('Light'),
+            title: Text(
+              'Light',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
             value: ThemeModeOptions.light,
             groupValue: _selectedThemeMode,
             onChanged: (value) {
