@@ -64,7 +64,7 @@ class RecipeDetailModel extends RecipeDetailEntity {
       readyInMinutes: json['readyInMinutes'],
       servings: json['servings'],
       sourceUrl: json['sourceUrl'],
-      image: json['image'],
+      image: json['image'] ?? '',
       imageType: json['imageType'],
       summary: json['summary'],
       instructions: json['instructions'],

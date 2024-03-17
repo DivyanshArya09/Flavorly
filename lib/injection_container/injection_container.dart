@@ -41,6 +41,7 @@ import 'package:recipe_app/features/home/presentation/category_page_bloc/bloc/ca
 import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
 import 'package:recipe_app/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
 import 'package:recipe_app/features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
+import 'package:recipe_app/features/settings/presentation/bloc/theme_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
 
@@ -50,6 +51,7 @@ Future<void> init() async {
   //! Blocs registration
   //* Authentication blocs registration
   sl.registerFactory(() => LoginBloc(sl(), sl()));
+  sl.registerFactory(() => ThemeBloc());
   sl.registerFactory(() => AuthBloc(sl(), sl(), sl()));
   sl.registerFactory(() => SignOutBloc(sl()));
   sl.registerFactory(() => SignUpBloc(sl(), sl()));
@@ -137,5 +139,5 @@ Future<void> init() async {
   sl.registerLazySingleton(() => Dio());
 
   final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
+  sl.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 }

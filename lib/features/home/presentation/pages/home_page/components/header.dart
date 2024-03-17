@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/config/constants/font_sizes.dart';
+import 'package:recipe_app/features/settings/presentation/settings_page.dart';
 
 class Header extends StatelessWidget {
   final String name;
@@ -51,9 +52,18 @@ class Header extends StatelessWidget {
             color: AppColors.grey,
             borderRadius: BorderRadius.circular(size.width),
           ),
-          child: const Center(
-            child: Icon(
-              Icons.person,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingPage(),
+                  ));
+            },
+            child: const Center(
+              child: Icon(
+                Icons.person,
+              ),
             ),
           ),
         ),

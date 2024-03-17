@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
 import 'package:recipe_app/config/constants/padding.dart';
 import 'package:recipe_app/config/utils/responsive.dart';
 import 'package:recipe_app/core/shared/dialog_box.dart';
 import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:recipe_app/features/home/presentation/pages/category_page/Category_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/caresoul.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/categories_list.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/components/grid_view.dart';
@@ -18,14 +18,6 @@ import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_l
 import 'package:recipe_app/features/home/presentation/pages/nutrient_page/nutrient_page.dart';
 import 'package:recipe_app/features/home/presentation/widgets/custom_row.dart';
 import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
-
-// 384 -> old mobiles
-// 640 > normal mobiles
-// 768 > tablets
-// 1024 > large tabs
-// 1280 > small comp
-// 1536 > Desktop
-// 4k > large desktop
 
 class HomePage extends StatefulWidget {
   final String name;
@@ -40,6 +32,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late HomeBloc homeBloc;
+  final _searchTC = TextEditingController();
+  @override
+  void dispose() {
+    _searchTC.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -58,6 +56,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
     // final bloc = GetIt.I.get<SignOutBloc>();
     return SafeArea(
       child: Scaffold(
@@ -88,14 +87,30 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Header(name: 'Divyansh'),
+                        Header(name: widget.name),
                         const CustomSeperator(),
-                        const CustomSearchBar(
-                          text: 'Search Recipe any recipe',
+                        CustomSearchBar(
+                          controller: _searchTC,
+                          text: 'Search Recipes',
+                          onSubmitted: (p0) {
+                            if (p0.isNotEmpty) {
+                              _searchTC.clear();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CategoryPage(
+                                    category: p0,
+                                    title: 'Search Recipes',
+                                  ),
+                                ),
+                              );
+                            }
+                          },
                         ),
                         const CustomSeperator(),
                         //! implementation id pending
                         CustomRow(
+                          isSeeAll: true,
                           text: 'Categories',
                           onTap: () {},
                         ),
@@ -126,6 +141,7 @@ class _HomePageState extends State<HomePage> {
                         //! implementation id pending
                         CustomRow(
                           text: 'Menu Items',
+                          isSeeAll: true,
                           onTap: () {},
                         ),
                         const CustomSeperator(),
@@ -139,25 +155,20 @@ class _HomePageState extends State<HomePage> {
                           visible: Responsive.isDesktop(context),
                           child: SizedBox(
                             height: 230,
-                            // : size.height * .34,
                             child: NutrientRecipes(
                               nutrientRecipes: state.nutrients ?? [],
                             ),
                           ),
                         ),
-
-                        //! implementation id pending
                         CustomRow(
                           text: 'Cusines',
                           onTap: () {},
+                          isSeeAll: true,
                         ),
                         const CustomSeperator(),
                         RecipeCardList(
                           recipes: state.categories ?? [],
                         ),
-                        // Visibility(
-                        //     visible: !Responsive.isDesktop(context),
-                        //     child: const CusinesList()),
                         Visibility(
                           visible: Responsive.isDesktop(context),
                           child: const MyGrid(),
@@ -166,9 +177,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 }
-                return const Center(
-                  child: Text('Something went wrong'),
-                );
+                return const SkeltonHomePage();
               },
             ),
           ),

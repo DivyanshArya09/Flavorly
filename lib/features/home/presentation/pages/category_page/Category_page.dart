@@ -11,7 +11,8 @@ import 'package:recipe_app/features/home/presentation/pages/loading_pages/catego
 
 class CategoryPage extends StatefulWidget {
   final String category;
-  const CategoryPage({super.key, required this.category});
+  final String? title;
+  const CategoryPage({super.key, required this.category, this.title});
 
   @override
   State<CategoryPage> createState() => _CategoryPageState();
@@ -65,7 +66,7 @@ class _CategoryPageState extends State<CategoryPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Search Categories',
+                        widget.title ?? 'Search Categories',
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(

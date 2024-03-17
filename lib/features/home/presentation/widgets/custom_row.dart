@@ -5,7 +5,12 @@ import 'package:recipe_app/config/constants/font_sizes.dart';
 class CustomRow extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  const CustomRow({super.key, required this.text, required this.onTap});
+  final bool? isSeeAll;
+  const CustomRow(
+      {super.key,
+      required this.text,
+      required this.onTap,
+      this.isSeeAll = false});
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +24,17 @@ class CustomRow extends StatelessWidget {
                 fontSize: size.width > 500 ? largeFontSize : size.width * .06,
               ),
         ),
-        TextButton(
-            onPressed: onTap,
-            child: Text(
-              'See all',
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    color: AppColors.buttonColor1,
-                    fontSize: size.width > 400 ? 14 : size.width * .03,
-                  ),
-            )),
+        isSeeAll == true
+            ? const SizedBox()
+            : TextButton(
+                onPressed: onTap,
+                child: Text(
+                  'See all',
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: AppColors.buttonColor1,
+                        fontSize: size.width > 400 ? 14 : size.width * .03,
+                      ),
+                )),
       ],
     );
   }

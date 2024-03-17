@@ -12,12 +12,12 @@ class MenuRecipeModel extends MenuRecipeEntity {
 
   factory MenuRecipeModel.fromJson(Map<String, dynamic> json) {
     return MenuRecipeModel(
-      sId: json['_id'],
-      id: json['id'],
-      title: json['title'],
-      image: json['image'],
-      imageType: json['imageType'],
-      restaurantChain: json['restaurantChain'],
+      sId: json['_id'] ?? '',
+      id: json['id'] ?? '',
+      title: json['title'] ?? '',
+      image: json['image'] ?? '',
+      imageType: json['imageType'] ?? '',
+      restaurantChain: json['restaurantChain'] ?? '',
       servings: ServingModel.fromJson(json['servings']),
     );
   }

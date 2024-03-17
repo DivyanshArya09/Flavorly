@@ -4,7 +4,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/core/shared/dialog_box.dart';
 import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/get_instructions_page.dart';
 import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/recipe_over_view.dart';

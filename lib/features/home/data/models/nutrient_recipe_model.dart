@@ -15,7 +15,7 @@ class NutrientRecipeModel extends NutrientRecipeEntity {
   factory NutrientRecipeModel.fromJson(Map<String, dynamic> json) {
     return NutrientRecipeModel(
       id: json['id'],
-      image: json['image'],
+      image: json['image'] ?? '',
       fat: json['fat'],
       title: json['title'],
       imageType: json['imageType'],

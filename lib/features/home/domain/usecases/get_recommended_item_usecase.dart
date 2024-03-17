@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:recipe_app/core/error/failure.dart';
 import 'package:recipe_app/core/usecase/use_case.dart';
 import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
 import 'package:recipe_app/features/home/domain/repositories/home_repository.dart';
 
 class GetRecommendedItemUseCase

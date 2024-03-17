@@ -1,11 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/config/theme/theme.dart';
+import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
+import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/nutrient_page/nutrient_page.dart';
-// import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
-// import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
+import 'package:recipe_app/features/settings/presentation/bloc/theme_bloc.dart';
 import 'package:recipe_app/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
@@ -29,58 +31,60 @@ class MyApp extends StatelessWidget {
         BlocProvider<AnimationBloc>(
           create: (context) => AnimationBloc(),
         ),
-        // BlocProvider<AuthBloc>(
-        //     create: (context) => di.sl<AuthBloc>()..add(AppStarted())),
-        // BlocProvider<SignOutBloc>(create: (context) => di.sl<SignOutBloc>()),
+        BlocProvider<AuthBloc>(
+            create: (context) => di.sl<AuthBloc>()..add(AppStarted())),
+        BlocProvider<ThemeBloc>(
+          create: (context) => di.sl<ThemeBloc>()
+            ..add(
+              const GetThemeFromLocalStorage(),
+            ),
+        ),
       ],
-      child: MaterialApp(
-        themeMode: ThemeMode.dark,
-        darkTheme: AppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: AppTheme.lightTheme,
-        // home: const NutrientPage(),
-        // home: const ,
-        // home: const SkeltonCategoryPage(
-        //   category: 'lunch',
-        // ),
-        home: const HomePage(name: 'anne'),
-        // home: Responsive.buildResponsive(
-        //     mobile: const RecipeDetailPage(),
-        //     desktop: const DekStopDetailLayout()),
-        // home: BlocBuilder<AuthBloc, AuthState>(
-        //   builder: (context, state) {
-        //     if (state is Authenticated) {
-        //       return HomePage(
-        //         name: state.name,
-        //         email: state.email,
-        //         uid: state.uid,
-        //       );
-        //     }
-        //     if (state is Unauthenticated) {
-        //       return const SignUpPage();
-        //     }
-        //     if (state is AuthLoading) {
-        //       return const Scaffold(
-        //         body: Center(
-        //           child: CircularProgressIndicator(
-        //             color: AppColors.buttonColor1,
-        //           ),
-        //         ),
-        //       );
-        //     }
-        //     if (state is AppFirstTimeOpened) {
-        //       return const OnBoardingScreen();
-        //     }
-        //     return const Scaffold(
-        //       body: Center(
-        //         child: CircularProgressIndicator(
-        //           color: AppColors.buttonColor1,
-        //         ),
-        //       ),
-        //     );
-        //   },
-        // ),
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: (context, state) {
+          return _myApp(state.themeMode);
+        },
+      ),
+    );
+  }
+
+  _myApp(ThemeMode mode) {
+    return MaterialApp(
+      themeMode: mode,
+      darkTheme: AppTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: AppTheme.lightTheme,
+      home: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          if (state is Authenticated) {
+            return HomePage(
+              name: state.name,
+            );
+          }
+          if (state is Unauthenticated) {
+            return const SignUpPage();
+          }
+          if (state is AuthLoading) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.buttonColor1,
+                ),
+              ),
+            );
+          }
+          if (state is AppFirstTimeOpened) {
+            return const OnBoardingScreen();
+          }
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(
+                color: AppColors.buttonColor1,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

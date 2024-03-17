@@ -10,11 +10,12 @@ part 'sign_out_state.dart';
 class SignOutBloc extends Bloc<SignOutEvent, SignOutState> {
   final SignOutUseCase signOutUseCase;
   SignOutBloc(this.signOutUseCase) : super(SignOutInitial()) {
-    on<SignOutEvent>((event, emit) => _signOutButtonPressed(event, emit));
+    on<SignOutButtonPressed>(
+        (event, emit) => _signOutButtonPressed(event, emit));
   }
 
   Future<void> _signOutButtonPressed(
-      SignOutEvent event, Emitter<SignOutState> emit) async {
+      SignOutButtonPressed event, Emitter<SignOutState> emit) async {
     emit(SignOutLoading());
     final signOutResult = await signOutUseCase.call(NoParams());
 

@@ -19,7 +19,7 @@ class RandomRecipeModel extends RandomRecipeEntity {
     return RandomRecipeModel(
       id: json['id'],
       aisle: json['aisle'],
-      image: json['image'],
+      image: json['image'] ?? '',
       consistency: json['consistency'],
       name: json['name'],
       nameClean: json['nameClean'],

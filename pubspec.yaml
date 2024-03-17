@@ -62,10 +62,16 @@ dependencies:
   cached_network_image: ^3.3.0
   bloc_test: ^9.1.5
   mocktail: ^1.0.2
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
+  
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -86,42 +92,43 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/Cooking.png
-    - assets/Chef.png
-    - assets/Chef1.png
-    - assets/Chef2.png
-    - assets/Chef3.png
-    - assets/Plate.png
-    - assets/GoogleIcon.png
-    - assets/signUpPageImage.jpg
-    - assets/halo-halo.png
+    - assets/
+    # - assets/Chef.png
+    # - assets/Chef1.png
+    # - assets/Chef2.png
+    # - assets/Chef3.png
+    # - assets/Plate.png
+    # - assets/GoogleIcon.png
+    # - assets/signUpPageImage.jpg
+    # - assets/halo-halo.png
     # category png's
-    - assets/categories/afternoon-snack.png
-    - assets/categories/barbecue.png
-    - assets/categories/brunch.png
-    - assets/categories/cake-slice.png
-    - assets/categories/breakfast.png
-    - assets/categories/dessert.png
-    - assets/categories/dinner.png
-    - assets/categories/hot-soup.png
-    - assets/categories/lunch.png
-    - assets/categories/main-course.png
-    - assets/categories/salad.png
-    - assets/categories/vegan.png
+    - assets/categories/
+    # - assets/categories/barbecue.png
+    # - assets/categories/brunch.png
+    # - assets/categories/cake-slice.png
+    # - assets/categories/breakfast.png
+    # - assets/categories/dessert.png
+    # - assets/categories/dinner.png
+    # - assets/categories/hot-soup.png
+    # - assets/categories/lunch.png
+    # - assets/categories/main-course.png
+    # - assets/categories/salad.png
+    # - assets/categories/vegan.png
 
     # dialog box images
-    - assets/dialog_images/no-internet.png
+    - assets/dialog_images/
 
     # menu item images
-    - assets/menu_items/beverage.png
-    - assets/menu_items/burger.png
-    - assets/menu_items/fish-n-chips.png
-    - assets/menu_items/iced-coffee.png
-    - assets/menu_items/mango-smoothy.png
-    - assets/menu_items/onion-ring.png
-    - assets/menu_items/pizza.png
-    - assets/menu_items/salad.png
-    - assets/menu_items/sundae.png
+    - assets/menu_items/
+
+    # - assets/menu_items/burger.png
+    # - assets/menu_items/fish-n-chips.png
+    # - assets/menu_items/iced-coffee.png
+    # - assets/menu_items/mango-smoothy.png
+    # - assets/menu_items/onion-ring.png
+    # - assets/menu_items/pizza.png
+    # - assets/menu_items/salad.png
+    # - assets/menu_items/sundae.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

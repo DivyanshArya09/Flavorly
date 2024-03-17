@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/config/constants/app_colors.dart';
 import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
