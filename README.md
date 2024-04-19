@@ -1,6 +1,6 @@
-# Recipe app
+# Flavorly App
 
-RecipeX is a Flutter mobile application designed to provide users with a seamless experience in discovering and exploring recipes. Leveraging the power of Firebase and the Spoonacular API, RecipeX offers a vast database of recipes along with advanced filtering options based on nutrition preferences. With interactive animations and support for multiple themes, RecipeX aims to make the cooking journey enjoyable and convenient for users.
+Flavorly is a Flutter mobile application designed to provide users with a seamless experience in discovering and exploring recipes. Leveraging the power of Firebase and the Spoonacular API, Flavorly offers a vast database of recipes along with advanced filtering options based on nutrition preferences. With interactive animations and support for multiple themes, Flavorly aims to make the cooking journey enjoyable and convenient for users.
 
 ## Features
 
@@ -20,7 +20,7 @@ RecipeX is a Flutter mobile application designed to provide users with a seamles
 
 ## Getting Started
 
-To get started with RecipeX, follow these steps:
+To get started with Flavorly, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Ensure you have Flutter installed on your system. If not, refer to the [official Flutter installation guide](https://flutter.dev/docs/get-started/install).
@@ -31,6 +31,7 @@ To get started with RecipeX, follow these steps:
 ## Contributing
 
 Contributions are welcome! If you encounter any bugs or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
 
 ## Screen Shots
 
