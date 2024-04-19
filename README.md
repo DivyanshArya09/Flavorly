@@ -35,7 +35,6 @@ Contributions are welcome! If you encounter any bugs or have suggestions for imp
 ## Screen Shots
 
 ![Screenshot__209_-removebg-preview](https://github.com/DivyanshArya09/Recipe_App_with_clean_arch_bloc_with_tests/assets/114161134/143a8e5d-209a-4802-9e62-4edf66f0de5a)
---
 ![Screenshot__199_-removebg-preview](https://github.com/DivyanshArya09/Recipe_App_with_clean_arch_bloc_with_tests/assets/114161134/88409ee7-0ee7-4f60-b53a-56507e7e543b)
 ![Screenshot__198_-removebg-preview](https://github.com/DivyanshArya09/Recipe_App_with_clean_arch_bloc_with_tests/assets/114161134/1941c235-4024-4c8b-a099-9a51801d31cd)
 ![Screenshot__200_-removebg-preview](https://github.com/DivyanshArya09/Recipe_App_with_clean_arch_bloc_with_tests/assets/114161134/92e5a018-49c5-42ae-bd15-11465cacdf51)
