@@ -1,4 +1,4 @@
-# RecipeX
+# Recipe app
 
 RecipeX is a Flutter mobile application designed to provide users with a seamless experience in discovering and exploring recipes. Leveraging the power of Firebase and the Spoonacular API, RecipeX offers a vast database of recipes along with advanced filtering options based on nutrition preferences. With interactive animations and support for multiple themes, RecipeX aims to make the cooking journey enjoyable and convenient for users.
 
