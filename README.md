@@ -33,7 +33,7 @@ To get started with Flavorly, follow these steps:
 Contributions are welcome! If you encounter any bugs or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 
-## Screen Shots
+# ScreenShots
 ![Screenshot__198_-removebg-preview](https://github.com/DivyanshArya09/Recipe_App_with_clean_arch_bloc_with_tests/assets/114161134/1941c235-4024-4c8b-a099-9a51801d31cd)
 
 ---               
