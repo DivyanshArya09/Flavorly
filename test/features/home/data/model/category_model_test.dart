@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:recipe_app/features/home/data/models/category_model.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/data/models/category_model.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
 
 import '../../helper/json_reader.dart';
 

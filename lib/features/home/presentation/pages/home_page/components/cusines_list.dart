@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/presentation/widgets/cusine_tile.dart';
+import 'package:Flavorly/features/home/presentation/widgets/cusine_tile.dart';
 
 class CusinesList extends StatelessWidget {
   const CusinesList({super.key});

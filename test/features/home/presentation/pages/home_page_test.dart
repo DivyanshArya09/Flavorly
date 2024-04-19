@@ -6,13 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 // import 'package:mockito/mockito.dart';
-import 'package:recipe_app/injection_container/injection_container.dart'
+import 'package:Flavorly/injection_container/injection_container.dart'
     as locator;
-// import 'package:recipe_app/injection_container/injection_container.dart';
+// import 'package:Flavorly/injection_container/injection_container.dart';
 
-import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
+import 'package:Flavorly/features/home/presentation/bloc/home_bloc.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'test_data.dart';

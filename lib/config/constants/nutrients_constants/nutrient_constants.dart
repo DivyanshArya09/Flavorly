@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
+import 'package:Flavorly/config/constants/nutrients_constants/nutrient_model.dart';
 
 class NutrientsConstants {
   static List<NutrientModel> allNutrients = [

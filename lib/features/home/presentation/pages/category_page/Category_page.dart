@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/core/shared/dialog_box.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
-import 'package:recipe_app/features/home/presentation/category_page_bloc/bloc/category_bloc.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
-import 'package:recipe_app/features/home/presentation/pages/category_page/widgets/recipe_gridBuilder.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/category_skelton_page/category_skelton_page.dart';
+import 'package:Flavorly/config/utils/responsive.dart';
+import 'package:Flavorly/core/shared/dialog_box.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/presentation/category_page_bloc/bloc/category_bloc.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:Flavorly/features/home/presentation/pages/category_page/widgets/recipe_gridBuilder.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/category_skelton_page/category_skelton_page.dart';
 
 class CategoryPage extends StatefulWidget {
   final String category;

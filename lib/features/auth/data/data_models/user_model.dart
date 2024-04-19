@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
+import 'package:Flavorly/features/auth/domain/entities/auth_user.dart';
 
 class UserModel extends AuthUser {
   const UserModel(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/login_page.dart';
-import 'package:recipe_app/features/settings/widgets/theme_selector.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/auth/presentation/auth_blocs/sign_out_bloc/sign_out_bloc.dart';
+import 'package:Flavorly/features/auth/presentation/pages/login_page.dart';
+import 'package:Flavorly/features/settings/widgets/theme_selector.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});

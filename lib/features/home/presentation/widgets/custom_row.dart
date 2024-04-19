@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/constants/font_sizes.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/constants/font_sizes.dart';
 
 class CustomRow extends StatelessWidget {
   final String text;

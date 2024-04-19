@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_equipment_builder.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/recipe_equipment_builder.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
 
 class StepsPage extends StatelessWidget {
   final String stepNumber;

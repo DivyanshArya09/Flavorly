@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/usecases/get_recommended_item_usecase.dart';
+import 'package:Flavorly/features/home/domain/entites/recommend_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/usecases/get_recommended_item_usecase.dart';
 
 import '../../helper/test_helper.mocks.dart';
 

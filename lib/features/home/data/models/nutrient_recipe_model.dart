@@ -1,4 +1,4 @@
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
 
 class NutrientRecipeModel extends NutrientRecipeEntity {
   const NutrientRecipeModel({

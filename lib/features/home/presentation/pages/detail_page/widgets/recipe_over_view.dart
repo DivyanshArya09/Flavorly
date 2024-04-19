@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/extended_ingredient.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/extended_ingredient.dart';
 
 class RecipeOverView extends StatelessWidget {
   final String? title;

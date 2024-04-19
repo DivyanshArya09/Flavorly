@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/core/network/network_info.dart';
-import 'package:recipe_app/core/shared/dialog_box.dart';
-import 'package:recipe_app/core/utils/category_constant.dart';
-import 'package:recipe_app/features/home/presentation/pages/category_page/Category_page.dart';
-import 'package:recipe_app/features/home/presentation/widgets/single_category.dart';
+import 'package:Flavorly/core/network/network_info.dart';
+import 'package:Flavorly/core/shared/dialog_box.dart';
+import 'package:Flavorly/core/utils/category_constant.dart';
+import 'package:Flavorly/features/home/presentation/pages/category_page/Category_page.dart';
+import 'package:Flavorly/features/home/presentation/widgets/single_category.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});

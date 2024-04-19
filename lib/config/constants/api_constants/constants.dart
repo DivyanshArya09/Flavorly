@@ -1,5 +1,4 @@
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
+import 'package:Flavorly/config/constants/nutrients_constants/nutrient_model.dart';
 
 class ApiUrls {
   static const apiKey = '2c1b0e52091f4f3696b5642181e5d4b6';

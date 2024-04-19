@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/get_instructions_page.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/widgets/recipe_over_view.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/home/presentation/detail_page_bloc/bloc/recipe_detail_bloc.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/get_instructions_page.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/widgets/recipe_over_view.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
 
 class RecipeDetailPage extends StatefulWidget {
   final int id;

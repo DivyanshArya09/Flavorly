@@ -1,6 +1,6 @@
+import 'package:Flavorly/features/auth/data/data_models/user_model.dart';
+import 'package:Flavorly/features/auth/data/data_sources/remote/remote_fire_store_data_source.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
-import 'package:recipe_app/features/auth/data/data_sources/remote/remote_fire_store_data_source.dart';
 
 class RemoteFireStoreDataSourceImpl implements RemoteFireStoreDataSource {
   RemoteFireStoreDataSourceImpl({FirebaseFirestore? firestore})

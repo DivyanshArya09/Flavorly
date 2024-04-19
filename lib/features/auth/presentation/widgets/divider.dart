@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({super.key});

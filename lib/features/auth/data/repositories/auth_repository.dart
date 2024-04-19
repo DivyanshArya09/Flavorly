@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/network/network_info.dart';
-import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
-import 'package:recipe_app/features/auth/data/data_sources/local/local_data_source.dart';
-import 'package:recipe_app/features/auth/data/data_sources/remote/remote_fire_store_data_source.dart';
-import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/network/network_info.dart';
+import 'package:Flavorly/features/auth/data/data_models/user_model.dart';
+import 'package:Flavorly/features/auth/data/data_sources/local/local_data_source.dart';
+import 'package:Flavorly/features/auth/data/data_sources/remote/remote_fire_store_data_source.dart';
+import 'package:Flavorly/features/auth/domain/entities/auth_user.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../data_sources/remote/remote_data_source.dart';
 

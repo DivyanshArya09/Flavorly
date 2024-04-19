@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_equipment_builder.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/widgets/Custom_button.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/recipe_equipment_builder.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/recipe_list_builder.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/widgets/Custom_button.dart';
 
 class DekStopDetailLayout extends StatelessWidget {
   const DekStopDetailLayout({super.key});

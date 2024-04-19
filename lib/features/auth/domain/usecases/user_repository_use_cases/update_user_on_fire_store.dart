@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/domain/repository/user_repository.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/auth/domain/repository/user_repository.dart';
 
 class UpdateUserOnFireStoreUseCase
     implements UseCase<void, UpdateUserOnFireStoreUseCaseParams> {

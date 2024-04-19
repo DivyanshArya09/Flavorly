@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/presentation/widgets/grid_item.dart';
+import 'package:Flavorly/features/home/presentation/widgets/grid_item.dart';
 
 class MyGrid extends StatelessWidget {
   const MyGrid({super.key});

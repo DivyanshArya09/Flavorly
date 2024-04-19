@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/login_page.dart';
+import 'package:Flavorly/features/auth/presentation/pages/login_page.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../bloc/animation_bloc.dart';

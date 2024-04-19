@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
+import 'package:Flavorly/features/auth/domain/entities/auth_user.dart';
 import '../../../../core/error/failure.dart';
 
 abstract class AuthRepository {

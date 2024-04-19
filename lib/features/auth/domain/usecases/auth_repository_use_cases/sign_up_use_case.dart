@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/auth/domain/repository/auth_repository.dart';
 
 import '../../../../../core/error/failure.dart';
 import '../../entities/auth_user.dart';

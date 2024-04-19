@@ -1,4 +1,4 @@
-# recipe_app
+# Flavorly
 
 A new Flutter project.
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/constants/app_images.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/constants/app_images.dart';
 
 class SignInWithGoogleButton extends StatelessWidget {
   final VoidCallback onTap;

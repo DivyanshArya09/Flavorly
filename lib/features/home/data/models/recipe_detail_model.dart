@@ -1,4 +1,4 @@
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
 
 class RecipeDetailModel extends RecipeDetailEntity {
   const RecipeDetailModel({

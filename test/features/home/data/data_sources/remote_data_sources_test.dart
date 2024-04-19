@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/config/constants/api_constants/constants.dart';
-import 'package:recipe_app/core/error/exception.dart';
-import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source_impl.dart';
-import 'package:recipe_app/features/home/data/models/category_model.dart';
-import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
-import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
-import 'package:recipe_app/features/home/data/models/recommended_item_model.dart';
+import 'package:Flavorly/config/constants/api_constants/constants.dart';
+import 'package:Flavorly/core/error/exception.dart';
+import 'package:Flavorly/features/home/data/data_sources/remote/remote_data_source_impl.dart';
+import 'package:Flavorly/features/home/data/models/category_model.dart';
+import 'package:Flavorly/features/home/data/models/menu_recipe_model.dart';
+import 'package:Flavorly/features/home/data/models/nutrient_recipe_model.dart';
+import 'package:Flavorly/features/home/data/models/recommended_item_model.dart';
 import '../../helper/test_helper.mocks.dart';
 
 void main() {

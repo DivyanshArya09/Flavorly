@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
-import 'package:recipe_app/features/home/domain/usecases/get_recipe_detail_use_case.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/domain/usecases/get_recipe_detail_use_case.dart';
 
 import '../../../../../core/error/failure.dart' as failure;
 

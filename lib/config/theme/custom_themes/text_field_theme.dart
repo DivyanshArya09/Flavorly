@@ -1,5 +1,5 @@
+import 'package:Flavorly/config/constants/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
 
 class CustomTextFieldTheme {
   static InputDecorationTheme inputDecorationThemeLightMode =

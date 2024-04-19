@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_strings.dart';
-import 'package:recipe_app/config/constants/padding.dart';
+import 'package:Flavorly/config/constants/app_strings.dart';
+import 'package:Flavorly/config/constants/padding.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/components/search_bar.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});

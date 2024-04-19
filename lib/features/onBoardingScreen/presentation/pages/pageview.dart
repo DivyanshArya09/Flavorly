@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page1.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page2.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page3.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/page4.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/widgets/animated_button.dart';
+import 'package:Flavorly/features/auth/presentation/pages/sign_in.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/pages/page1.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/pages/page2.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/pages/page3.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/pages/page4.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/widgets/animated_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../config/constants/app_colors.dart';

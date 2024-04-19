@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_in_use_case.dart';
-import 'package:recipe_app/features/auth/domain/usecases/auth_repository_use_cases/sign_in_with_google_use_case.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/auth/domain/usecases/auth_repository_use_cases/sign_in_use_case.dart';
+import 'package:Flavorly/features/auth/domain/usecases/auth_repository_use_cases/sign_in_with_google_use_case.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

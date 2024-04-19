@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/padding.dart';
-import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/header.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/caresoul_skelton.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/categories_skelton.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/custom_row_skelton.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/skelton_grid.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/skelton_recommendation_section.dart';
-import 'package:recipe_app/features/home/presentation/widgets/seprator.dart';
+import 'package:Flavorly/config/constants/padding.dart';
+import 'package:Flavorly/config/utils/responsive.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/components/header.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/caresoul_skelton.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/categories_skelton.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/custom_row_skelton.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/skelton_grid.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_components/skelton_recommendation_section.dart';
+import 'package:Flavorly/features/home/presentation/widgets/seprator.dart';
 
 class SkeltonHomePage extends StatelessWidget {
   final String name;

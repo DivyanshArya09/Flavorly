@@ -1,4 +1,4 @@
-import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/random_recipe_entity.dart';
 
 class RandomRecipeModel extends RandomRecipeEntity {
   const RandomRecipeModel(

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/shared/ingredients_item.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/shared/ingredients_item.dart';
 
 class RecipeIngredientBuilder extends StatelessWidget {
   final List<Ingredients> ingredients;

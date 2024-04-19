@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/settings/presentation/bloc/theme_bloc.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/settings/presentation/bloc/theme_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum ThemeModeOptions { light, dark, system }

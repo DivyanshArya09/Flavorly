@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
-import 'package:recipe_app/core/shared/dialog_box.dart';
-import 'package:recipe_app/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
-import 'package:recipe_app/features/home/presentation/pages/nutrient_page/widgets/filter_dialog_box.dart';
-import 'package:recipe_app/features/home/presentation/pages/nutrient_page/widgets/nutrient_recipe_card.dart';
+import 'package:Flavorly/config/constants/nutrients_constants/nutrient_constants.dart';
+import 'package:Flavorly/core/shared/dialog_box.dart';
+import 'package:Flavorly/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
+import 'package:Flavorly/features/home/presentation/pages/nutrient_page/widgets/filter_dialog_box.dart';
+import 'package:Flavorly/features/home/presentation/pages/nutrient_page/widgets/nutrient_recipe_card.dart';
 
 class NutrientPage extends StatefulWidget {
   const NutrientPage({super.key});

@@ -1,4 +1,4 @@
-import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
+import 'package:Flavorly/features/auth/data/data_models/user_model.dart';
 
 abstract class RemoteFireStoreDataSource {
   Future<void> uploadUserToFireStore(String name, String email, String uid);

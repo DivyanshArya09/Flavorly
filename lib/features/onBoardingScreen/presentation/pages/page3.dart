@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_app/config/constants/app_images.dart';
-import 'package:recipe_app/config/constants/app_strings.dart';
-import 'package:recipe_app/config/constants/padding.dart';
+import 'package:Flavorly/config/constants/app_images.dart';
+import 'package:Flavorly/config/constants/app_strings.dart';
+import 'package:Flavorly/config/constants/padding.dart';
 
 import '../../../../config/constants/animation_duration.dart';
 import '../bloc/animation_bloc.dart';

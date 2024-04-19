@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:dartz/dartz.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/auth/domain/repository/auth_repository.dart';
 
 class IsAppFirstTimeOpenedUseCase implements UseCase<bool, NoParams> {
   final AuthRepository repository;

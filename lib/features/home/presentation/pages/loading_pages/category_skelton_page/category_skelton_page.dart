@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/components/search_bar.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/category_skelton_page/category_skelton.dart';
+import 'package:Flavorly/config/utils/responsive.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/components/search_bar.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/category_skelton_page/category_skelton.dart';
 
 class SkeltonCategoryPage extends StatelessWidget {
   final String category;

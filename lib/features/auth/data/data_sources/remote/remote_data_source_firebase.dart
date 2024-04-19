@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:recipe_app/features/auth/data/data_models/user_model.dart';
-import 'package:recipe_app/features/auth/data/data_sources/remote/remote_data_source.dart';
+import 'package:Flavorly/features/auth/data/data_models/user_model.dart';
+import 'package:Flavorly/features/auth/data/data_sources/remote/remote_data_source.dart';
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   AuthRemoteDataSourceImpl({
@@ -73,9 +73,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         throw Exception('User is null');
       }
       final uid = userCredential.user!.uid;
-      print('--------------------------------->>>>>>>>>>>>>>>>>>' + uid);
       final authUser = UserModel(name: name, email: email, uid: uid);
-
       return authUser;
     } catch (e) {
       rethrow;

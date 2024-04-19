@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
+import 'package:Flavorly/features/auth/domain/entities/auth_user.dart';
 import '../../../../../core/error/failure.dart';
 import '../../../../../core/usecase/use_case.dart';
 import '../../repository/auth_repository.dart';

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_model.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/usecases/get_recipies_by_nutrients.dart';
+import 'package:Flavorly/config/constants/nutrients_constants/nutrient_model.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/usecases/get_recipies_by_nutrients.dart';
 
 part 'nutrient_event.dart';
 part 'nutrient_state.dart';

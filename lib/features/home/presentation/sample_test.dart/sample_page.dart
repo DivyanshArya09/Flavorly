@@ -2,9 +2,9 @@
 // import 'package:flutter/foundation.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
-// import 'package:recipe_app/features/home/data/data_sources/remote/remote_data_source_impl.dart';
-// import 'package:recipe_app/features/home/data/models/category_model.dart';
-// import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
+// import 'package:Flavorly/features/home/data/data_sources/remote/remote_data_source_impl.dart';
+// import 'package:Flavorly/features/home/data/models/category_model.dart';
+// import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
 
 // class TestApiPage extends StatefulWidget {
 //   const TestApiPage({super.key});

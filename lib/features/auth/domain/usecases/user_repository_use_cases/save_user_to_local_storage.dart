@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/core/error/failure.dart';
+import 'package:Flavorly/core/error/failure.dart';
 
 import '../../../../../core/usecase/use_case.dart';
 import '../../repository/user_repository.dart';

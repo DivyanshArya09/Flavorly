@@ -1,14 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/theme/theme.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
-import 'package:recipe_app/features/onBoardingScreen/presentation/pages/pageview.dart';
-import 'package:recipe_app/features/settings/presentation/bloc/theme_bloc.dart';
-import 'package:recipe_app/firebase_options.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/theme/theme.dart';
+import 'package:Flavorly/features/auth/presentation/auth_blocs/auth_bloc/auth_bloc.dart';
+import 'package:Flavorly/features/auth/presentation/pages/sign_in.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:Flavorly/features/onBoardingScreen/presentation/pages/pageview.dart';
+import 'package:Flavorly/features/settings/presentation/bloc/theme_bloc.dart';
+import 'package:Flavorly/firebase_options.dart';
 import 'features/onBoardingScreen/presentation/bloc/animation_bloc.dart';
 import 'injection_container/injection_container.dart' as di;
 

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:recipe_app/core/error/failure.dart';
+import 'package:Flavorly/core/error/failure.dart';
 
 import '../../domain/entities/auth_user.dart';
 

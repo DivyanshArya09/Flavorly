@@ -2,12 +2,12 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/core/error/failure.dart' as failure;
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
-import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
-import 'package:recipe_app/features/home/presentation/bloc/home_bloc.dart';
+import 'package:Flavorly/core/error/failure.dart' as failure;
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/menu_recipe_entiry.dart';
+import 'package:Flavorly/features/home/domain/entites/recommend_recipe_entity.dart';
+import 'package:Flavorly/features/home/presentation/bloc/home_bloc.dart';
 import '../../helper/test_helper.mocks.dart';
 
 void main() {

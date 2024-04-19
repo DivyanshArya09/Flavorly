@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
-import 'package:recipe_app/features/home/presentation/widgets/recommeded_item.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
+import 'package:Flavorly/features/home/presentation/widgets/recommeded_item.dart';
 
 class NutrientRecipes extends StatelessWidget {
   final List<NutrientRecipeEntity> nutrientRecipes;

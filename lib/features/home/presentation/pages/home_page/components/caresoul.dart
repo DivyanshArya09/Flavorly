@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
-import 'package:recipe_app/features/home/presentation/widgets/carousel_item.dart';
+import 'package:Flavorly/features/home/domain/entites/menu_recipe_entiry.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/recipe_detail_page.dart';
+import 'package:Flavorly/features/home/presentation/widgets/carousel_item.dart';
 
 class Carousel extends StatelessWidget {
   final List<MenuRecipeEntity> menuItems;

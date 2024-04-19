@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/data/models/nutrient_recipe_model.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
 
 import '../../helper/json_reader.dart';
 

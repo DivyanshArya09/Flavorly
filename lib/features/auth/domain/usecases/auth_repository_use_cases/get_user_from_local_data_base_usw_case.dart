@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/auth/data/data_sources/local/local_data_source.dart';
-import 'package:recipe_app/features/auth/domain/entities/auth_user.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/auth/data/data_sources/local/local_data_source.dart';
+import 'package:Flavorly/features/auth/domain/entities/auth_user.dart';
 
 class GetUserFromLocalStorageUseCase implements UseCase<AuthUser, NoParams> {
   final LocalDataSource localDataSource;

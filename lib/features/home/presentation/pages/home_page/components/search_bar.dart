@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/utils/responsive.dart';
+import 'package:Flavorly/config/utils/responsive.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final String text;

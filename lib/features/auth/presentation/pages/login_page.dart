@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
-import 'package:recipe_app/features/auth/presentation/pages/sign_in.dart';
-import 'package:recipe_app/features/auth/presentation/widgets/button.dart';
-import 'package:recipe_app/features/auth/presentation/widgets/divider.dart';
-import 'package:recipe_app/features/auth/presentation/widgets/google_button.dart';
-import 'package:recipe_app/features/auth/presentation/widgets/text_field.dart';
-import 'package:recipe_app/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/auth/presentation/auth_blocs/login_bloc/login_bloc.dart';
+import 'package:Flavorly/features/auth/presentation/pages/sign_in.dart';
+import 'package:Flavorly/features/auth/presentation/widgets/button.dart';
+import 'package:Flavorly/features/auth/presentation/widgets/divider.dart';
+import 'package:Flavorly/features/auth/presentation/widgets/google_button.dart';
+import 'package:Flavorly/features/auth/presentation/widgets/text_field.dart';
+import 'package:Flavorly/features/home/presentation/pages/home_page/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

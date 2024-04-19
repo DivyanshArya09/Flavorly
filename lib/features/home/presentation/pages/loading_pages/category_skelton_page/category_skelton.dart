@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/utils/responsive.dart';
-import 'package:recipe_app/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
+import 'package:Flavorly/config/utils/responsive.dart';
+import 'package:Flavorly/features/home/presentation/pages/loading_pages/home_loading_page.dart/skelton_container.dart';
 
 class SkeltonRecipeGridBuilder extends StatelessWidget {
   const SkeltonRecipeGridBuilder({super.key});

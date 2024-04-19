@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/constants/nutrients_constants/nutrient_constants.dart';
-import 'package:recipe_app/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/constants/nutrients_constants/nutrient_constants.dart';
+import 'package:Flavorly/features/home/presentation/nutrient_page_bloc/bloc/nutrient_bloc.dart';
 
 class FilterDialogBox extends StatefulWidget {
   final NutrientBloc nutrientBloc;

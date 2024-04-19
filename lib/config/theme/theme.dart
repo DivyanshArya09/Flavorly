@@ -1,6 +1,6 @@
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/theme/custom_themes/text_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/theme/custom_themes/text_theme.dart';
 
 import 'custom_themes/text_field_theme.dart';
 

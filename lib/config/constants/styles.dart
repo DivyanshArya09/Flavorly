@@ -1,5 +1,5 @@
+import 'package:Flavorly/config/constants/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
 
 class AppTextStyles {
   static const heading1 = TextStyle(

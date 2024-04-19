@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/features/home/domain/entites/recipe_detail_entity.dart';
-import 'package:recipe_app/features/home/presentation/pages/detail_page/steps_page.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/features/home/domain/entites/recipe_detail_entity.dart';
+import 'package:Flavorly/features/home/presentation/pages/detail_page/steps_page.dart';
 
 class GetInstructions extends StatelessWidget {
   final List<Steps> steps;

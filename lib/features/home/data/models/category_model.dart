@@ -1,4 +1,4 @@
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
 
 class CategoryModel extends CategoryEntity {
   const CategoryModel({

@@ -1,7 +1,7 @@
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
-import 'package:recipe_app/features/home/domain/entites/recommend_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/menu_recipe_entiry.dart';
+import 'package:Flavorly/features/home/domain/entites/recommend_recipe_entity.dart';
 
 class TestDataList {
   static List<NutrientRecipeEntity> nutrient = const [

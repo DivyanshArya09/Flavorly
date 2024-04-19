@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:recipe_app/core/error/exception.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/features/home/data/models/category_model.dart';
-import 'package:recipe_app/features/home/data/models/menu_recipe_model.dart';
-import 'package:recipe_app/features/home/data/models/nutrient_recipe_model.dart';
-import 'package:recipe_app/features/home/data/repositories/home_repository_impl.dart';
-import 'package:recipe_app/features/home/domain/entites/Nutrients_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/category_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/entites/menu_recipe_entiry.dart';
+import 'package:Flavorly/core/error/exception.dart';
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/features/home/data/models/category_model.dart';
+import 'package:Flavorly/features/home/data/models/menu_recipe_model.dart';
+import 'package:Flavorly/features/home/data/models/nutrient_recipe_model.dart';
+import 'package:Flavorly/features/home/data/repositories/home_repository_impl.dart';
+import 'package:Flavorly/features/home/domain/entites/Nutrients_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/category_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/entites/menu_recipe_entiry.dart';
 
 import '../../helper/test_helper.mocks.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recipe_app/config/constants/app_colors.dart';
-import 'package:recipe_app/config/constants/font_sizes.dart';
-import 'package:recipe_app/features/settings/presentation/settings_page.dart';
+import 'package:Flavorly/config/constants/app_colors.dart';
+import 'package:Flavorly/config/constants/font_sizes.dart';
+import 'package:Flavorly/features/settings/presentation/settings_page.dart';
 
 class Header extends StatelessWidget {
   final String name;

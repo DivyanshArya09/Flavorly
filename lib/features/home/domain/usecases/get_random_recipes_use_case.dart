@@ -1,9 +1,9 @@
+import 'package:Flavorly/core/error/failure.dart';
+import 'package:Flavorly/core/usecase/use_case.dart';
+import 'package:Flavorly/features/home/domain/entites/random_recipe_entity.dart';
+import 'package:Flavorly/features/home/domain/repositories/home_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:recipe_app/core/error/failure.dart';
-import 'package:recipe_app/core/usecase/use_case.dart';
-import 'package:recipe_app/features/home/domain/entites/random_recipe_entity.dart';
-import 'package:recipe_app/features/home/domain/repositories/home_repository.dart';
 
 class GetRandomRecipeUseCase
     implements UseCase<List<RandomRecipeEntity>, RandomRecipeParams> {
